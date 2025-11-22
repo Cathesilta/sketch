@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Think and Grow Rich</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 30px;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 12px;
+      cursor: pointer;
+      overflow: hidden;
+      box-sizing: border-box;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 24px;
+      border-radius: 8px;
+      max-width: 600px;
+      max-height: 80%;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center; margin-bottom: 40px;">Think and Grow Rich</h1>
+  <div class="grid" id="sentenceGrid">
+    <!-- Cards will be populated here -->
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <script>
+    const sentences = [
+        "When the opportunity came, it appeared in a different form, and from a different direction than Barnes had expected. That is one of the tricks of opportunity. It has a sly habit of slipping in by the back door, and often it comes disguised in the form of misfortune, or temporary defeat. Perhaps this is why so many fail to recognize opportunity.\n\n\n\n----Chapter 1, Page 35 in my book.",
+        "I had learned, from years of experience with men, that when a man really desires a thing so deeply that he is willing to stake his entire future on a single turn of the wheel in order to get it, he is sure to win. I gave him the opportunity he asked for, because I saw he had made up his mind to stand by until he succeeded. Subsequent events proved that no mistake was made.\n\n\n\n-- Chapter 1, Page 34 in my book",
+        "Do unto others as you would have them do unto you.\n\n\n\n-- the Golden Rule",
+        "Most people never appreciate that by consciously creating new beliefs they can create the reality they want.\n\n\n\n-- An Introduction, Page 13 in my book",
+    ];
+
+    const grid = document.getElementById("sentenceGrid");
+    const modal = document.getElementById("modal");
+    const modalContent = document.getElementById("modalContent");
+
+    function byteLength(str) {
+      return new TextEncoder().encode(str).length;
+    }
+
+    function sliceByBytes(str, bytesToShow) {
+      const encoder = new TextEncoder();
+      const decoder = new TextDecoder();
+      let bytes = encoder.encode(str);
+      let sliced = bytes.slice(0, bytesToShow);
+      let result = decoder.decode(sliced);
+      while (byteLength(result) > bytesToShow) {
+        result = result.slice(0, -1);
+      }
+      return result;
+    }
+
+    sentences.forEach(text => {
+      const totalBytes = byteLength(text);
+      let showBytes = totalBytes;
+      if (totalBytes > 50) {
+        showBytes = 50 + Math.floor((totalBytes - 50) * 0.2);
+        if (showBytes > 200) showBytes = 200;
+      }
+
+      const displayText = sliceByBytes(text, showBytes);
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.textContent = (showBytes < totalBytes ? displayText + '...' : displayText);
+      div.title = text.replace(/\n/g, ' ');
+      div.style.width = `${Math.min(150 + showBytes, 400)}px`;
+      div.style.height = `${Math.min(80 + showBytes * 0.3, 180)}px`;
+      div.addEventListener('click', () => {
+        modalContent.innerText = text;
+        modal.style.display = 'flex';
+      });
+      grid.appendChild(div);
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+
+<footer>
+  <img src="../../image/broken_compass.jpg" alt="Small Logo" class="small-logo">
+  <!-- <div class="site-name">MySiteName</div> -->
+</footer>
+
+</body>
+</html>

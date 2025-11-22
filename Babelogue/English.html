@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Babelogue</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .diary-container {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1em;
+      text-align: center
+    }
+
+    .diary-entry {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1em;
+      margin-bottom: 1.5em;
+      background-color: #fff;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .diary-entry h2 {
+      margin-top: 0;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .diary-entry p {
+      font-size: 1em;
+      line-height: 1.6em;
+      color: #444;
+    }
+
+    .diary-main-logo {
+        text-align: left;
+        margin-left: 1em;
+        margin-top: 1em;
+        padding-top: 1em;
+        height: 100px;
+    }
+
+    .back-arrow {
+      position: fixed;
+      top: 25px;   /* more space from the top */
+      left: 25px;  /* more space from the left */
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .back-arrow svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .back-arrow:hover {
+      opacity: 0.7;
+    }
+
+    .image-row {
+      display: flex;
+      gap: 10px; /* space between tall and short images */
+    }
+
+    .tall-img {
+      height: 300px; /* adjust height as needed */
+      width: auto;
+      object-fit: cover;
+    }
+
+    .short-images {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* space between the two short images */
+    }
+
+    .short-img {
+      width: 300px; /* adjust width as needed */
+      height: 140px; /* adjust height as needed */
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../Babelogue/Babelogue.html" class="back-arrow">
+    <svg width="28" height="28" viewBox="0 0 24 24">
+      <path d="M15 6l-6 6 6 6" stroke="black" stroke-width="2" fill="none" />
+    </svg>
+  </a>
+
+  <header>
+
+  </header>
+
+  <div class="diary-container">
+  <!-- <div style="text-align: center;"> -->
+
+    <div class="diary-entry">
+      <nav class="links">
+
+          <p style="font-size:16px; margin-top:8px;">Core Motivation</p>
+          <p style="font-size:16px; margin-top:8px;">I crave knowledge and exploration — and English communities offers that well.</p>
+          
+        </nav>
+    </div> 
+
+    <div class="diary-entry">
+        <p style="font-size:16px; margin-top:8px;"></p>
+        <p style="font-size:16px; margin-top:8px;">Vocabularies collection when I play games:</p>
+        <h2></h2>
+        <p>
+          <a href="Docs/VOCAB - knowledge.pdf" target="_blank">VOCAB</a>
+          <a href="Docs/EN - Cool sentences that enhance your grammar.pdf" target="_blank">Sentences</a>
+          </p>
+        <h4></h4>
+    </div>
+
+    <div class="diary-entry">
+        <img src="image/DionEnglish.jpg" style="width:750px; height:auto; display:block; margin:0 auto;">
+        <p style="font-size:16px; margin-top:8px;">I hangout often with English enthusiasts</p>
+    </div>  
+
+    <div class="diary-entry">
+      <div class="image-row" style="display:flex; justify-content:center; gap:10px; align-items:flex-start;">
+        <img src="image/RedditEthcomment.jpg" alt="Tall" class="tall-img" style="width:400px; height:auto; display:block;">  
+        <div class="short-images" style="display:flex; flex-direction:column; gap:10px;">
+          <img src="image/doa6review.jpg" alt="Short 1" class="short-img" style="width:300px; height:auto; display:block;">
+          <img src="image/Kagglecomments.jpg" alt="Short 2" class="short-img" style="width:350px; height:auto; display:block;">
+        </div>
+      </div>
+      <p style="font-size:16px; margin-top:8px;">Consistently involve in global online communities since 2019.</p>
+    </div>
+    
+    <!-- <div class="diary-entry">
+        <img src="image/Kagglecomments.jpg" style="width:700px; height:auto; display:block; margin:0 auto;">
+        <p style="font-size:16px; margin-top:8px;">Thanks to my English enthusiasm, I leanred Deep learning by asking/commenting on Kaggle</p>
+    </div> -->
+
+    <!-- <div class="diary-entry">
+        <img src="image/RedditEthcomment.jpg" style="width:600px; height:auto; display:block; margin:0 auto;">
+        <p style="font-size:16px; margin-top:8px;">Now I copied that move and I'm learning Ethereum on Reddit</p>
+    </div> -->
+  </div>
+
+
+  <nav class="links">
+
+
+    
+  </nav>
+
+  <footer>
+    <img src="../image/broken_compass.jpg" alt="Small Logo" class="small-logo">
+    <!-- <div class="site-name">Broken Compass</div> -->
+  </footer>
+
+</body>
+</html>
