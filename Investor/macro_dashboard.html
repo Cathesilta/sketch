@@ -66,6 +66,12 @@
     .data-error { color: #b42318; }
     .macro-chart { width: 100%; min-height: 300px; display: block; margin-top: 1em; }
     .interactive-chart { min-height: 300px; }
+    .asset-view { display: grid; grid-template-columns: minmax(260px, 0.8fr) minmax(420px, 2fr); gap: 1.2em; align-items: start; }
+    .sample-table { width: 100%; border-collapse: collapse; font-size: 0.88em; }
+    .sample-table th, .sample-table td { padding: 0.45em 0.35em; border-bottom: 1px solid #e5e5e5; white-space: nowrap; }
+    .sample-table th { color: #333; }
+    .sample-table td:last-child, .sample-table th:last-child { text-align: right; }
+    @media (max-width: 800px) { .asset-view { grid-template-columns: 1fr; } }
     .comparison-chart { margin-bottom: 2em; }
   </style>
 </head>
@@ -113,28 +119,48 @@
             `<td>${numberFormatter.format(item.latest.value)} <small>${item.unit}</small></td>` +
             `<td>${item.latest.date}${item.status === "cached" ? " (cached)" : ""}</td>`;
           rows.appendChild(row);
+          const points = item.history || [];
+          const view = document.createElement("div");
+          view.className = "asset-view";
+          const sampleTable = document.createElement("table");
+          sampleTable.className = "sample-table";
+          sampleTable.innerHTML = "<thead><tr><th>Age</th><th>Target</th><th>Observed</th><th>Value</th></tr></thead>";
+          const sampleBody = document.createElement("tbody");
+          const endDate = new Date(`${data.period.end}T00:00:00Z`);
+          for (const age of [0, 1, 2, 3, 4, 5, 10, 15, 20, 30, 45, 60, 90]) {
+            const targetDate = new Date(endDate);
+            targetDate.setUTCDate(targetDate.getUTCDate() - age);
+            const target = targetDate.toISOString().slice(0, 10);
+            const observed = points.filter(point => point.date <= target).at(-1);
+            if (!observed) continue;
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td>${age}d</td><td>${target}</td><td>${observed.date}</td><td>${Number(observed.value).toFixed(4)}</td>`;
+            sampleBody.appendChild(tr);
+          }
+          sampleTable.appendChild(sampleBody);
           const chart = document.createElement("div");
           chart.className = "macro-chart interactive-chart";
           chart.setAttribute("role", "img");
           chart.setAttribute("aria-label", `${item.market} one-year history`);
+          view.appendChild(sampleTable);
+          view.appendChild(chart);
           const chartRow = document.createElement("tr");
           const chartCell = document.createElement("td");
           chartCell.colSpan = 4;
-          chartCell.appendChild(chart);
+          chartCell.appendChild(view);
           chartRow.appendChild(chartCell);
           rows.appendChild(chartRow);
-          const points = item.history || [];
           Plotly.newPlot(chart, [{
             x: points.map(point => point.date),
             y: points.map(point => point.value),
             type: "scatter", mode: "lines+markers", name: item.column,
             line: { width: 2 }, marker: { size: 4 },
-            hovertemplate: "%{x|%d %b %Y}<br>%{y:.4f} " + item.unit + "<extra></extra>"
+            hovertemplate: "%{x|%b %d, %Y}<br>%{y:.4f} " + item.unit + "<extra></extra>"
           }], {
             title: { text: `${item.market} — ${item.signal}`, x: 0, xanchor: "left", font: { size: 14 } },
             margin: { l: 60, r: 20, t: 45, b: 55 }, height: 300,
             xaxis: { title: "Date", rangeslider: { visible: true } },
-            yaxis: { title: item.unit }, hovermode: "x unified",
+            yaxis: { title: item.unit }, hovermode: "closest",
             paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)"
           }, { responsive: true, displaylogo: false });
         }
