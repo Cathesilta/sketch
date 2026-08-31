@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-31T08:32:42.370550+00:00",
+  "generated_at": "2026-08-31T08:43:37.959767+00:00",
   "period": {
     "start": "2025-08-31",
     "end": "2026-08-31"
   },
-  "fresh_series": 7,
+  "fresh_series": 11,
   "total_series": 11,
   "series": [
     {
@@ -15,8 +15,8 @@
       "symbol": "DGS10",
       "column": "US 10Y Treasury",
       "unit": "Yield (%)",
-      "status": "cached",
-      "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "status": "fresh",
+      "error": null,
       "latest": {
         "date": "2026-08-27",
         "value": 4.67
@@ -2045,8 +2045,8 @@
       "symbol": "DGS2",
       "column": "US 2Y Treasury",
       "unit": "Yield (%)",
-      "status": "cached",
-      "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "status": "fresh",
+      "error": null,
       "latest": {
         "date": "2026-08-27",
         "value": 4.2
@@ -3054,8 +3054,8 @@
       "symbol": "BAMLH0A0HYM2",
       "column": "US HY OAS",
       "unit": "Spread (%)",
-      "status": "cached",
-      "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "status": "fresh",
+      "error": null,
       "latest": {
         "date": "2026-08-27",
         "value": 2.63
@@ -4123,7 +4123,7 @@
       "error": null,
       "latest": {
         "date": "2026-08-31",
-        "value": 85.68
+        "value": 85.730003
       },
       "history": [
         {
@@ -5128,7 +5128,7 @@
         },
         {
           "date": "2026-08-31",
-          "value": 85.68
+          "value": 85.730003
         }
       ]
     },
@@ -5144,7 +5144,7 @@
       "error": null,
       "latest": {
         "date": "2026-08-31",
-        "value": 6.67
+        "value": 6.6715
       },
       "history": [
         {
@@ -6149,7 +6149,7 @@
         },
         {
           "date": "2026-08-31",
-          "value": 6.67
+          "value": 6.6715
         }
       ]
     },
@@ -6165,7 +6165,7 @@
       "error": null,
       "latest": {
         "date": "2026-08-31",
-        "value": 4489.5
+        "value": 4488.100098
       },
       "history": [
         {
@@ -7170,7 +7170,7 @@
         },
         {
           "date": "2026-08-31",
-          "value": 4489.5
+          "value": 4488.100098
         }
       ]
     },
@@ -7186,7 +7186,7 @@
       "error": null,
       "latest": {
         "date": "2026-08-31",
-        "value": 15.24
+        "value": 15.22
       },
       "history": [
         {
@@ -8195,7 +8195,7 @@
         },
         {
           "date": "2026-08-31",
-          "value": 15.24
+          "value": 15.22
         }
       ]
     },
@@ -8207,8 +8207,8 @@
       "symbol": "DGS30",
       "column": "US 30Y Treasury",
       "unit": "Yield (%)",
-      "status": "cached",
-      "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "status": "fresh",
+      "error": null,
       "latest": {
         "date": "2026-08-27",
         "value": 5.19
