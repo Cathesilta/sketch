@@ -64,6 +64,8 @@
     .macro-table td:nth-child(3), .macro-table th:nth-child(3) { text-align: right; }
     .data-stale { color: #9a6700; }
     .data-error { color: #b42318; }
+    .macro-chart { width: 100%; height: auto; display: block; margin-top: 1em; }
+    .comparison-chart { margin-bottom: 2em; }
   </style>
 </head>
 <body>
@@ -82,6 +84,10 @@
 
     <h1>Global Macro Dashboard</h1>
     <p id="macro-status" class="macro-status">Loading market data…</p>
+    <div class="diary-entry comparison-chart">
+      <h2>Cross-market comparison</h2>
+      <img class="macro-chart" src="../data/charts/comparison.png" alt="One-year macro cross-market comparison">
+    </div>
     <div class="diary-entry">
       <table class="macro-table">
         <thead><tr><th>Market</th><th>Signal</th><th>Latest</th><th>As of</th></tr></thead>
@@ -109,6 +115,17 @@
             `<td>${numberFormatter.format(item.latest.value)} <small>${item.unit}</small></td>` +
             `<td>${item.latest.date}${item.status === "cached" ? " (cached)" : ""}</td>`;
           rows.appendChild(row);
+          const chart = document.createElement("img");
+          chart.className = "macro-chart";
+          const slug = item.column.toLowerCase().replaceAll(" ", "_").replaceAll("&", "and");
+          chart.src = `../data/charts/${slug}.png`;
+          chart.alt = `${item.market} one-year history`;
+          const chartRow = document.createElement("tr");
+          const chartCell = document.createElement("td");
+          chartCell.colSpan = 4;
+          chartCell.appendChild(chart);
+          chartRow.appendChild(chartCell);
+          rows.appendChild(chartRow);
         }
         document.getElementById("macro-status").textContent =
           `Updated ${new Date(data.generated_at).toLocaleString()} · ${data.fresh_series}/${data.total_series} series fetched`;

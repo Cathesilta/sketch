@@ -7,11 +7,17 @@ from urllib.parse import quote
 import pandas as pd
 import requests
 import yfinance as yf
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.dates as mdates
+import matplotlib.pyplot as plt
 
 TODAY = pd.Timestamp.now(tz="UTC").tz_localize(None).normalize()
 START = TODAY - pd.DateOffset(years=1)
 END_EXCLUSIVE = TODAY + pd.Timedelta(days=1)
-OUTPUT_PATH = Path(__file__).resolve().parent.parent / "data" / "macro.json"
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+OUTPUT_PATH = DATA_DIR / "macro.json"
+CHART_DIR = DATA_DIR / "charts"
 SERIES = [
  {"rank":1,"market":"U.S. 10Y Treasury","signal":"Global valuation","source":"FRED","symbol":"DGS10","column":"US 10Y Treasury","unit":"Yield (%)"},
  {"rank":2,"market":"U.S. Dollar (DXY)","signal":"Global liquidity","source":"Yahoo","symbol":"DX-Y.NYB","column":"DXY","unit":"Index"},
@@ -76,12 +82,53 @@ def build_payload():
     if not any(x["history"] for x in out): raise RuntimeError("Every download failed and no cached data is available")
     return {"generated_at":pd.Timestamp.now(tz="UTC").isoformat(),"period":{"start":cutoff,"end":TODAY.strftime("%Y-%m-%d")},"fresh_series":fresh,"total_series":len(SERIES),"series":out}
 
+def write_charts(payload: dict) -> None:
+    """Render notebook-style one-year charts as static PNGs for GitHub Pages."""
+    CHART_DIR.mkdir(parents=True, exist_ok=True)
+    plt.style.use("seaborn-v0_8-whitegrid")
+    plt.rcParams.update({"figure.dpi": 120, "axes.titleweight": "bold"})
+    for item in payload["series"]:
+        points = item["history"]
+        fig, ax = plt.subplots(figsize=(10, 4.8), constrained_layout=True)
+        if points:
+            dates = pd.to_datetime([p["date"] for p in points])
+            values = [p["value"] for p in points]
+            ax.plot(dates, values, linewidth=1.7)
+            ax.scatter(dates[-1], values[-1], s=22, zorder=3)
+            ax.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
+            ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %Y"))
+            ax.tick_params(axis="x", rotation=30)
+        else:
+            ax.text(0.5, 0.5, "Data unavailable", ha="center", va="center", transform=ax.transAxes)
+        ax.set_title(f"{item['rank']}. {item['market']} — {item['signal']}", loc="left", fontsize=11)
+        ax.set_ylabel(item["unit"])
+        fig.savefig(CHART_DIR / f"{item['column'].lower().replace(' ', '_').replace('&', 'and')}.png", bbox_inches="tight")
+        plt.close(fig)
+
+    # Match the notebook's optional cross-market comparison view.
+    fig, ax = plt.subplots(figsize=(14, 7), constrained_layout=True)
+    plotted = False
+    for item in payload["series"]:
+        if not item["history"]: continue
+        values = pd.Series({p["date"]: p["value"] for p in item["history"]}, dtype=float)
+        values.index = pd.to_datetime(values.index)
+        ax.plot(values.index, values / values.iloc[0] * 100, linewidth=1.2, label=item["column"])
+        plotted = True
+    if plotted:
+        ax.axhline(100, color="black", linewidth=0.8, alpha=0.5)
+        ax.legend(ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.14), loc="upper center")
+    ax.set(title="One-year macro cross-market comparison (start = 100)", ylabel="Rebased level", xlabel="")
+    fig.savefig(CHART_DIR / "comparison.png", bbox_inches="tight")
+    plt.close(fig)
+
+
 def main():
     payload=build_payload(); OUTPUT_PATH.parent.mkdir(parents=True,exist_ok=True)
     fd,tmp=tempfile.mkstemp(dir=OUTPUT_PATH.parent,prefix="macro-",suffix=".json")
     try:
         with os.fdopen(fd,"w") as f: json.dump(payload,f,ensure_ascii=False,indent=2,allow_nan=False); f.write("\n")
         os.replace(tmp,OUTPUT_PATH)
+        write_charts(payload)
     except BaseException:
         Path(tmp).unlink(missing_ok=True); raise
     print(f"Saved {payload['fresh_series']}/{payload['total_series']} freshly fetched series to {OUTPUT_PATH}")
