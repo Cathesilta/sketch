@@ -64,7 +64,8 @@
     .macro-table td:nth-child(3), .macro-table th:nth-child(3) { text-align: right; }
     .data-stale { color: #9a6700; }
     .data-error { color: #b42318; }
-    .macro-chart { width: 100%; height: auto; display: block; margin-top: 1em; }
+    .macro-chart { width: 100%; min-height: 300px; display: block; margin-top: 1em; }
+    .interactive-chart { min-height: 300px; }
     .comparison-chart { margin-bottom: 2em; }
   </style>
 </head>
@@ -76,17 +77,13 @@
     </svg>
   </a>
 
-  <header>
-    <img src="image/Kurapika2.jpg" alt="Kurapika" class="diary-main-logo">
-  </header>
-
   <div class="diary-container">
 
     <h1>Global Macro Dashboard</h1>
     <p id="macro-status" class="macro-status">Loading market data…</p>
     <div class="diary-entry comparison-chart">
       <h2>Cross-market comparison</h2>
-      <img class="macro-chart" src="../data/charts/comparison.png" alt="One-year macro cross-market comparison">
+      <div id="comparison-chart" class="macro-chart" aria-label="One-year macro cross-market comparison"></div>
     </div>
     <div class="diary-entry">
       <table class="macro-table">
@@ -101,6 +98,7 @@
     <img src="../image/broken_compass.jpg" alt="Small Logo" class="small-logo">
     <!-- <div class="site-name">MySiteName</div> -->
   </footer>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <script>
     const numberFormatter = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
     fetch("../data/macro.json", { cache: "no-cache" })
@@ -115,18 +113,47 @@
             `<td>${numberFormatter.format(item.latest.value)} <small>${item.unit}</small></td>` +
             `<td>${item.latest.date}${item.status === "cached" ? " (cached)" : ""}</td>`;
           rows.appendChild(row);
-          const chart = document.createElement("img");
-          chart.className = "macro-chart";
-          const slug = item.column.toLowerCase().replaceAll(" ", "_").replaceAll("&", "and");
-          chart.src = `../data/charts/${slug}.png`;
-          chart.alt = `${item.market} one-year history`;
+          const chart = document.createElement("div");
+          chart.className = "macro-chart interactive-chart";
+          chart.setAttribute("role", "img");
+          chart.setAttribute("aria-label", `${item.market} one-year history`);
           const chartRow = document.createElement("tr");
           const chartCell = document.createElement("td");
           chartCell.colSpan = 4;
           chartCell.appendChild(chart);
           chartRow.appendChild(chartCell);
           rows.appendChild(chartRow);
+          const points = item.history || [];
+          Plotly.newPlot(chart, [{
+            x: points.map(point => point.date),
+            y: points.map(point => point.value),
+            type: "scatter", mode: "lines+markers", name: item.column,
+            line: { width: 2 }, marker: { size: 4 },
+            hovertemplate: "%{x|%d %b %Y}<br>%{y:.4f} " + item.unit + "<extra></extra>"
+          }], {
+            title: { text: `${item.market} — ${item.signal}`, x: 0, xanchor: "left", font: { size: 14 } },
+            margin: { l: 60, r: 20, t: 45, b: 55 }, height: 300,
+            xaxis: { title: "Date", rangeslider: { visible: true } },
+            yaxis: { title: item.unit }, hovermode: "x unified",
+            paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)"
+          }, { responsive: true, displaylogo: false });
         }
+        const comparisonTraces = data.series.filter(item => item.history && item.history.length).map(item => {
+          const first = item.history[0].value;
+          return {
+            x: item.history.map(point => point.date),
+            y: item.history.map(point => point.value / first * 100),
+            type: "scatter", mode: "lines", name: item.column,
+            hovertemplate: "%{x|%d %b %Y}<br>%{y:.2f} (start = 100)<extra></extra>"
+          };
+        });
+        Plotly.newPlot("comparison-chart", comparisonTraces, {
+          margin: { l: 60, r: 20, t: 20, b: 55 }, height: 430,
+          xaxis: { title: "Date", rangeslider: { visible: true } },
+          yaxis: { title: "Rebased level" }, hovermode: "x unified",
+          legend: { orientation: "h", y: -0.25 },
+          paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)"
+        }, { responsive: true, displaylogo: false });
         document.getElementById("macro-status").textContent =
           `Updated ${new Date(data.generated_at).toLocaleString()} · ${data.fresh_series}/${data.total_series} series fetched`;
       })
