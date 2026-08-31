@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../style.css" />
   <style>
     .diary-container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 2em auto;
       padding: 1em;
       text-align: center
@@ -66,7 +66,7 @@
     .data-error { color: #b42318; }
     .macro-chart { width: 100%; min-height: 300px; display: block; margin-top: 1em; }
     .interactive-chart { min-height: 300px; }
-    .asset-view { display: grid; grid-template-columns: minmax(260px, 0.8fr) minmax(420px, 2fr); gap: 1.2em; align-items: start; }
+    .asset-view { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 1.5em; align-items: start; margin: 2em 0; padding: 1em 0; border-top: 1px solid #ddd; }
     .sample-table { width: 100%; border-collapse: collapse; font-size: 0.88em; }
     .sample-table th, .sample-table td { padding: 0.45em 0.35em; border-bottom: 1px solid #e5e5e5; white-space: nowrap; }
     .sample-table th { color: #333; }
@@ -97,6 +97,7 @@
         <tbody id="macro-rows"></tbody>
       </table>
     </div>
+    <div id="asset-charts"></div>
     
   </div>
 
@@ -111,6 +112,7 @@
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
       .then(data => {
         const rows = document.getElementById("macro-rows");
+        const assetCharts = document.getElementById("asset-charts");
         for (const item of data.series) {
           if (!item.latest) continue;
           const row = document.createElement("tr");
@@ -144,12 +146,7 @@
           chart.setAttribute("aria-label", `${item.market} one-year history`);
           view.appendChild(sampleTable);
           view.appendChild(chart);
-          const chartRow = document.createElement("tr");
-          const chartCell = document.createElement("td");
-          chartCell.colSpan = 4;
-          chartCell.appendChild(view);
-          chartRow.appendChild(chartCell);
-          rows.appendChild(chartRow);
+          assetCharts.appendChild(view);
           Plotly.newPlot(chart, [{
             x: points.map(point => point.date),
             y: points.map(point => point.value),
