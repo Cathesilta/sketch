@@ -56,9 +56,14 @@
       height: 28px;
     }
 
-    .back-arrow:hover {
-      opacity: 0.7;
-    }
+    .back-arrow:hover { opacity: 0.7; }
+    .macro-status { color: #666; margin-bottom: 1.5em; }
+    .macro-table { width: 100%; border-collapse: collapse; text-align: left; }
+    .macro-table th, .macro-table td { padding: 0.7em; border-bottom: 1px solid #ddd; }
+    .macro-table th { color: #333; }
+    .macro-table td:nth-child(3), .macro-table th:nth-child(3) { text-align: right; }
+    .data-stale { color: #9a6700; }
+    .data-error { color: #b42318; }
   </style>
 </head>
 <body>
@@ -75,11 +80,14 @@
 
   <div class="diary-container">
 
-
-
-
-
-    <!-- Add more entries here -->
+    <h1>Global Macro Dashboard</h1>
+    <p id="macro-status" class="macro-status">Loading market data…</p>
+    <div class="diary-entry">
+      <table class="macro-table">
+        <thead><tr><th>Market</th><th>Signal</th><th>Latest</th><th>As of</th></tr></thead>
+        <tbody id="macro-rows"></tbody>
+      </table>
+    </div>
     
   </div>
 
@@ -87,6 +95,30 @@
     <img src="../image/broken_compass.jpg" alt="Small Logo" class="small-logo">
     <!-- <div class="site-name">MySiteName</div> -->
   </footer>
+  <script>
+    const numberFormatter = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
+    fetch("../data/macro.json", { cache: "no-cache" })
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then(data => {
+        const rows = document.getElementById("macro-rows");
+        for (const item of data.series) {
+          if (!item.latest) continue;
+          const row = document.createElement("tr");
+          if (item.status === "cached") row.className = "data-stale";
+          row.innerHTML = `<td>${item.market}</td><td>${item.signal}</td>` +
+            `<td>${numberFormatter.format(item.latest.value)} <small>${item.unit}</small></td>` +
+            `<td>${item.latest.date}${item.status === "cached" ? " (cached)" : ""}</td>`;
+          rows.appendChild(row);
+        }
+        document.getElementById("macro-status").textContent =
+          `Updated ${new Date(data.generated_at).toLocaleString()} · ${data.fresh_series}/${data.total_series} series fetched`;
+      })
+      .catch(error => {
+        const status = document.getElementById("macro-status");
+        status.className = "macro-status data-error";
+        status.textContent = `Market data is temporarily unavailable (${error.message}).`;
+      });
+  </script>
 
 </body>
 </html>
