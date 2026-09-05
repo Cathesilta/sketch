@@ -32,38 +32,30 @@ SERIES = [
  {"rank":10,"market":"Nasdaq Composite","signal":"Market response","source":"Yahoo","symbol":"^IXIC","column":"Nasdaq Composite","unit":"Index"},
 ]
 
-def fetch_fred_batch(items, start=START, end=TODAY, attempts=3, retry_delay=60):
-    """Fetch all FRED series in one request, retrying after a minute on failure."""
-    series_ids = [item["symbol"] for item in items]
-    ids = quote(",".join(series_ids))
+def fetch_fred(series_id, start=START, end=TODAY, attempts=2, retry_delay=60):
+    """Fetch one public FRED series, retrying after a minute on failure."""
     url=("https://fred.stlouisfed.org/graph/fredgraph.csv"
-         f"?id={ids}&cosd={start:%Y-%m-%d}&coed={end:%Y-%m-%d}")
-    headers={"User-Agent":"sketch-global-macro-dashboard/1.0"}
+         f"?id={quote(series_id)}&cosd={start:%Y-%m-%d}&coed={end:%Y-%m-%d}")
+    headers={"User-Agent":"global-macro-dashboard/1.0"}
     last = None
     for attempt in range(attempts):
         try:
-            response = requests.get(url, timeout=(15, 90), headers=headers)
+            response = requests.get(url, timeout=30, headers=headers)
             response.raise_for_status()
             frame = pd.read_csv(pd.io.common.StringIO(response.text))
-            date_column = frame.columns[0]
-            frame[date_column] = pd.to_datetime(frame[date_column], errors="coerce")
-            result = {}
-            for series_id in series_ids:
-                if series_id not in frame.columns:
-                    raise ValueError(f"FRED response is missing {series_id}")
-                values = pd.to_numeric(frame[series_id], errors="coerce")
-                result[series_id] = values.where(frame[date_column].notna())
-                result[series_id].index = frame[date_column]
-                result[series_id] = result[series_id].dropna().sort_index()
-                if result[series_id].empty:
-                    raise ValueError(f"FRED returned no observations for {series_id}")
-            return result
+            frame.columns = ["Date", series_id]
+            frame["Date"] = pd.to_datetime(frame["Date"], errors="coerce")
+            frame[series_id] = pd.to_numeric(frame[series_id], errors="coerce")
+            values = frame.dropna().set_index("Date")[series_id].sort_index()
+            if values.empty:
+                raise ValueError(f"FRED returned no observations for {series_id}")
+            return values
         except Exception as exc:
             last = exc
             if attempt + 1 < attempts:
-                print(f"FRED request attempt {attempt + 1}/{attempts} failed: {exc}; retrying in {retry_delay}s")
+                print(f"FRED {series_id} attempt {attempt + 1}/{attempts} failed: {exc}; retrying in {retry_delay}s")
                 time.sleep(retry_delay)
-    raise RuntimeError(f"FRED batch failed after {attempts} attempts: {last}")
+    raise RuntimeError(f"FRED {series_id} failed after {attempts} attempts: {last}")
 
 def fetch_yahoo_batch(items, attempts=3):
     symbols=[x["symbol"] for x in items]; last=None
@@ -121,20 +113,15 @@ def calculate_returns(points):
     }
 
 def build_payload():
-    old=cache(); yahoo=[x for x in SERIES if x["source"]=="Yahoo"]; fred=[x for x in SERIES if x["source"]=="FRED"]
-    batch=None; yerr=None; fred_values=None; ferr=None
+    old=cache(); yahoo=[x for x in SERIES if x["source"]=="Yahoo"]; batch=None; yerr=None
     try: batch=fetch_yahoo_batch(yahoo)
     except Exception as exc: yerr=exc
-    try: fred_values=fetch_fred_batch(fred)
-    except Exception as exc: ferr=exc
     out=[]; fresh=0; cutoff=START.strftime("%Y-%m-%d")
     for item in SERIES:
         status="fresh"; error=None
         try:
             if item["source"] == "FRED":
-                if fred_values is None:
-                    raise ferr or RuntimeError("FRED unavailable")
-                vals = fred_values[item["symbol"]]
+                vals = fetch_fred(item["symbol"])
             else:
                 if batch is None:
                     raise yerr or RuntimeError("Yahoo unavailable")

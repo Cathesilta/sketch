@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-05T04:19:46.160527+00:00",
+  "generated_at": "2026-09-05T04:31:31.603562+00:00",
   "period": {
     "start": "2025-09-05",
     "end": "2026-09-05"
   },
-  "fresh_series": 7,
+  "fresh_series": 11,
   "total_series": 11,
   "series": [
     {
@@ -15,16 +15,16 @@
       "symbol": "DGS10",
       "column": "US 10Y Treasury",
       "unit": "Yield (%)",
-      "status": "cached",
-      "error": "FRED batch failed after 3 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=90)",
+      "status": "fresh",
+      "error": null,
       "latest": {
-        "date": "2026-08-27",
-        "value": 4.67
+        "date": "2026-09-03",
+        "value": 4.77
       },
       "returns": {
-        "1D": 0.214592,
-        "1W": -0.426439,
-        "1M": 0.430108
+        "1D": -0.417537,
+        "1W": 2.141328,
+        "1M": 1.489362
       },
       "history": [
         {
@@ -1006,6 +1006,26 @@
         {
           "date": "2026-08-27",
           "value": 4.67
+        },
+        {
+          "date": "2026-08-28",
+          "value": 4.73
+        },
+        {
+          "date": "2026-08-31",
+          "value": 4.75
+        },
+        {
+          "date": "2026-09-01",
+          "value": 4.79
+        },
+        {
+          "date": "2026-09-02",
+          "value": 4.79
+        },
+        {
+          "date": "2026-09-03",
+          "value": 4.77
         }
       ]
     },
@@ -2047,16 +2067,16 @@
       "symbol": "DGS2",
       "column": "US 2Y Treasury",
       "unit": "Yield (%)",
-      "status": "cached",
-      "error": "FRED batch failed after 3 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=90)",
+      "status": "fresh",
+      "error": null,
       "latest": {
-        "date": "2026-08-27",
-        "value": 4.2
+        "date": "2026-09-03",
+        "value": 4.34
       },
       "returns": {
-        "1D": 0.238663,
-        "1W": 0.238663,
-        "1M": -2.552204
+        "1D": -1.138952,
+        "1W": 3.333333,
+        "1M": 2.117647
       },
       "history": [
         {
@@ -3038,6 +3058,26 @@
         {
           "date": "2026-08-27",
           "value": 4.2
+        },
+        {
+          "date": "2026-08-28",
+          "value": 4.34
+        },
+        {
+          "date": "2026-08-31",
+          "value": 4.34
+        },
+        {
+          "date": "2026-09-01",
+          "value": 4.39
+        },
+        {
+          "date": "2026-09-02",
+          "value": 4.39
+        },
+        {
+          "date": "2026-09-03",
+          "value": 4.34
         }
       ]
     },
@@ -3049,16 +3089,16 @@
       "symbol": "BAMLH0A0HYM2",
       "column": "US HY OAS",
       "unit": "Spread (%)",
-      "status": "cached",
-      "error": "FRED batch failed after 3 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=90)",
+      "status": "fresh",
+      "error": null,
       "latest": {
-        "date": "2026-08-27",
-        "value": 2.63
+        "date": "2026-09-03",
+        "value": 2.65
       },
       "returns": {
-        "1D": -1.498127,
-        "1W": -4.363636,
-        "1M": -6.405694
+        "1D": -0.37594,
+        "1W": 0.760456,
+        "1M": -4.676259
       },
       "history": [
         {
@@ -4088,6 +4128,26 @@
         {
           "date": "2026-08-27",
           "value": 2.63
+        },
+        {
+          "date": "2026-08-28",
+          "value": 2.6
+        },
+        {
+          "date": "2026-08-31",
+          "value": 2.63
+        },
+        {
+          "date": "2026-09-01",
+          "value": 2.65
+        },
+        {
+          "date": "2026-09-02",
+          "value": 2.66
+        },
+        {
+          "date": "2026-09-03",
+          "value": 2.65
         }
       ]
     },
@@ -8223,16 +8283,16 @@
       "symbol": "DGS30",
       "column": "US 30Y Treasury",
       "unit": "Yield (%)",
-      "status": "cached",
-      "error": "FRED batch failed after 3 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=90)",
+      "status": "fresh",
+      "error": null,
       "latest": {
-        "date": "2026-08-27",
-        "value": 5.19
+        "date": "2026-09-03",
+        "value": 5.25
       },
       "returns": {
-        "1D": 0.19305,
-        "1W": -0.764818,
-        "1M": 1.367188
+        "1D": -0.379507,
+        "1W": 1.156069,
+        "1M": 0.382409
       },
       "history": [
         {
@@ -9214,6 +9274,26 @@
         {
           "date": "2026-08-27",
           "value": 5.19
+        },
+        {
+          "date": "2026-08-28",
+          "value": 5.22
+        },
+        {
+          "date": "2026-08-31",
+          "value": 5.25
+        },
+        {
+          "date": "2026-09-01",
+          "value": 5.27
+        },
+        {
+          "date": "2026-09-02",
+          "value": 5.27
+        },
+        {
+          "date": "2026-09-03",
+          "value": 5.25
         }
       ]
     },
