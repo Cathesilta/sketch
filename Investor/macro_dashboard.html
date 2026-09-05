@@ -61,7 +61,9 @@
     .macro-table { width: 100%; border-collapse: collapse; text-align: left; }
     .macro-table th, .macro-table td { padding: 0.7em; border-bottom: 1px solid #ddd; }
     .macro-table th { color: #333; }
-    .macro-table td:nth-child(3), .macro-table th:nth-child(3) { text-align: right; }
+    .macro-table td:nth-child(n+3), .macro-table th:nth-child(n+3) { text-align: right; }
+    .return-positive { color: #16803c; }
+    .return-negative { color: #b42318; }
     .data-stale { color: #9a6700; }
     .data-error { color: #b42318; }
     .macro-chart { width: 100%; min-height: 300px; display: block; margin-top: 1em; }
@@ -93,7 +95,7 @@
     </div>
     <div class="diary-entry">
       <table class="macro-table">
-        <thead><tr><th>Market</th><th>Signal</th><th>Latest</th><th>As of</th></tr></thead>
+        <thead><tr><th>Market</th><th>Signal</th><th>Latest</th><th>1D%</th><th>1W%</th><th>1M%</th><th>As of</th></tr></thead>
         <tbody id="macro-rows"></tbody>
       </table>
     </div>
@@ -108,6 +110,12 @@
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <script>
     const numberFormatter = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
+    const percentFormatter = new Intl.NumberFormat("en-US", { signDisplay: "always", maximumFractionDigits: 2 });
+    function formatReturn(value) {
+      if (value === null || value === undefined || !Number.isFinite(Number(value))) return "—";
+      const className = Number(value) > 0 ? "return-positive" : Number(value) < 0 ? "return-negative" : "";
+      return `<span class="${className}">${percentFormatter.format(Number(value))}%</span>`;
+    }
     fetch("../data/macro.json", { cache: "no-cache" })
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
       .then(data => {
@@ -117,8 +125,12 @@
           if (!item.latest) continue;
           const row = document.createElement("tr");
           if (item.status === "cached") row.className = "data-stale";
+          const returns = item.returns || {};
           row.innerHTML = `<td>${item.market}</td><td>${item.signal}</td>` +
             `<td>${numberFormatter.format(item.latest.value)} <small>${item.unit}</small></td>` +
+            `<td>${formatReturn(returns["1D"])}</td>` +
+            `<td>${formatReturn(returns["1W"])}</td>` +
+            `<td>${formatReturn(returns["1M"])}</td>` +
             `<td>${item.latest.date}${item.status === "cached" ? " (cached)" : ""}</td>`;
           rows.appendChild(row);
           const points = item.history || [];

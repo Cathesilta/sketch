@@ -65,6 +65,35 @@ def cache():
 def number(v):
     x=float(v); return round(x,6) if math.isfinite(x) else None
 
+def calculate_returns(points):
+    """Calculate percentage changes from the latest available observation."""
+    if not points:
+        return {"1D": None, "1W": None, "1M": None}
+
+    latest = points[-1]
+    latest_date = pd.Timestamp(latest["date"])
+    # Use the previous observation for 1D because the prior calendar day
+    # may be a non-trading day, matching the reference dashboard.
+    previous_day = points[-2]["value"] if len(points) > 1 else None
+
+    def value_asof(target):
+        target_date = target.strftime("%Y-%m-%d")
+        for point in reversed(points):
+            if point["date"] <= target_date:
+                return point["value"]
+        return None
+
+    def pct_change(previous):
+        if previous is None or previous == 0:
+            return None
+        return number((latest["value"] / previous - 1) * 100)
+
+    return {
+        "1D": pct_change(previous_day),
+        "1W": pct_change(value_asof(latest_date - pd.Timedelta(days=7))),
+        "1M": pct_change(value_asof(latest_date - pd.DateOffset(months=1))),
+    }
+
 def build_payload():
     old=cache(); yahoo=[x for x in SERIES if x["source"]=="Yahoo"]; batch=None; yerr=None
     try: batch=fetch_yahoo_batch(yahoo)
@@ -78,7 +107,7 @@ def build_payload():
         except Exception as exc:
             history=old.get(item["column"],{}); status="cached" if history else "error"; error=str(exc)
         history={d:v for d,v in history.items() if d>=cutoff and v is not None}; points=[{"date":d,"value":v} for d,v in sorted(history.items())]
-        out.append({**item,"status":status,"error":error,"latest":points[-1] if points else None,"history":points})
+        out.append({**item,"status":status,"error":error,"latest":points[-1] if points else None,"returns":calculate_returns(points),"history":points})
     if not any(x["history"] for x in out): raise RuntimeError("Every download failed and no cached data is available")
     return {"generated_at":pd.Timestamp.now(tz="UTC").isoformat(),"period":{"start":cutoff,"end":TODAY.strftime("%Y-%m-%d")},"fresh_series":fresh,"total_series":len(SERIES),"series":out}
 
