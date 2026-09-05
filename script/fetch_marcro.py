@@ -32,12 +32,37 @@ SERIES = [
  {"rank":10,"market":"Nasdaq Composite","signal":"Market response","source":"Yahoo","symbol":"^IXIC","column":"Nasdaq Composite","unit":"Index"},
 ]
 
-def fetch_fred(series_id, start=START, end=TODAY):
-    url=("https://fred.stlouisfed.org/graph/fredgraph.csv" f"?id={quote(series_id)}&cosd={start:%Y-%m-%d}&coed={end:%Y-%m-%d}")
-    r=requests.get(url, timeout=30, headers={"User-Agent":"sketch-global-macro-dashboard/1.0"}); r.raise_for_status()
-    f=pd.read_csv(pd.io.common.StringIO(r.text)); f.columns=["Date",series_id]
-    f["Date"]=pd.to_datetime(f["Date"],errors="coerce"); f[series_id]=pd.to_numeric(f[series_id],errors="coerce")
-    return f.dropna().set_index("Date")[series_id].sort_index()
+def fetch_fred_batch(items, start=START, end=TODAY, attempts=3):
+    """Fetch all FRED series in one request to avoid rate limits/timeouts."""
+    series_ids = [item["symbol"] for item in items]
+    ids = quote(",".join(series_ids))
+    url=("https://fred.stlouisfed.org/graph/fredgraph.csv"
+         f"?id={ids}&cosd={start:%Y-%m-%d}&coed={end:%Y-%m-%d}")
+    headers={"User-Agent":"sketch-global-macro-dashboard/1.0"}
+    last = None
+    for attempt in range(attempts):
+        try:
+            response = requests.get(url, timeout=(15, 90), headers=headers)
+            response.raise_for_status()
+            frame = pd.read_csv(pd.io.common.StringIO(response.text))
+            date_column = frame.columns[0]
+            frame[date_column] = pd.to_datetime(frame[date_column], errors="coerce")
+            result = {}
+            for series_id in series_ids:
+                if series_id not in frame.columns:
+                    raise ValueError(f"FRED response is missing {series_id}")
+                values = pd.to_numeric(frame[series_id], errors="coerce")
+                result[series_id] = values.where(frame[date_column].notna())
+                result[series_id].index = frame[date_column]
+                result[series_id] = result[series_id].dropna().sort_index()
+                if result[series_id].empty:
+                    raise ValueError(f"FRED returned no observations for {series_id}")
+            return result
+        except Exception as exc:
+            last = exc
+            if attempt + 1 < attempts:
+                time.sleep(2 ** attempt * 5)
+    raise RuntimeError(f"FRED batch failed after {attempts} attempts: {last}")
 
 def fetch_yahoo_batch(items, attempts=3):
     symbols=[x["symbol"] for x in items]; last=None
@@ -95,14 +120,17 @@ def calculate_returns(points):
     }
 
 def build_payload():
-    old=cache(); yahoo=[x for x in SERIES if x["source"]=="Yahoo"]; batch=None; yerr=None
+    old=cache(); yahoo=[x for x in SERIES if x["source"]=="Yahoo"]; fred=[x for x in SERIES if x["source"]=="FRED"]
+    batch=None; yerr=None; fred_values=None; ferr=None
     try: batch=fetch_yahoo_batch(yahoo)
     except Exception as exc: yerr=exc
+    try: fred_values=fetch_fred_batch(fred)
+    except Exception as exc: ferr=exc
     out=[]; fresh=0; cutoff=START.strftime("%Y-%m-%d")
     for item in SERIES:
         status="fresh"; error=None
         try:
-            vals=fetch_fred(item["symbol"]) if item["source"]=="FRED" else yahoo_close(batch,item["symbol"],len(yahoo)) if batch is not None else (_ for _ in ()).throw(yerr or RuntimeError("Yahoo unavailable"))
+            vals=fred_values[item["symbol"]] if item["source"]=="FRED" and fred_values is not None else yahoo_close(batch,item["symbol"],len(yahoo)) if batch is not None else (_ for _ in ()).throw(yerr or ferr or RuntimeError("Market data unavailable"))
             history={d.strftime("%Y-%m-%d"):number(v) for d,v in vals.items()}; fresh+=1
         except Exception as exc:
             history=old.get(item["column"],{}); status="cached" if history else "error"; error=str(exc)
