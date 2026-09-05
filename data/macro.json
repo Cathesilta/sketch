@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-05T04:31:31.603562+00:00",
+  "generated_at": "2026-09-05T04:43:28.240797+00:00",
   "period": {
     "start": "2025-09-05",
     "end": "2026-09-05"
   },
-  "fresh_series": 11,
+  "fresh_series": 7,
   "total_series": 11,
   "series": [
     {
@@ -15,8 +15,8 @@
       "symbol": "DGS10",
       "column": "US 10Y Treasury",
       "unit": "Yield (%)",
-      "status": "fresh",
-      "error": null,
+      "status": "cached",
+      "error": "FRED DGS10 failed after 2 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
       "latest": {
         "date": "2026-09-03",
         "value": 4.77
@@ -2067,8 +2067,8 @@
       "symbol": "DGS2",
       "column": "US 2Y Treasury",
       "unit": "Yield (%)",
-      "status": "fresh",
-      "error": null,
+      "status": "cached",
+      "error": "FRED DGS2 failed after 2 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
       "latest": {
         "date": "2026-09-03",
         "value": 4.34
@@ -3089,8 +3089,8 @@
       "symbol": "BAMLH0A0HYM2",
       "column": "US HY OAS",
       "unit": "Spread (%)",
-      "status": "fresh",
-      "error": null,
+      "status": "cached",
+      "error": "FRED BAMLH0A0HYM2 failed after 2 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
       "latest": {
         "date": "2026-09-03",
         "value": 2.65
@@ -8283,8 +8283,8 @@
       "symbol": "DGS30",
       "column": "US 30Y Treasury",
       "unit": "Yield (%)",
-      "status": "fresh",
-      "error": null,
+      "status": "cached",
+      "error": "FRED DGS30 failed after 2 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
       "latest": {
         "date": "2026-09-03",
         "value": 5.25
