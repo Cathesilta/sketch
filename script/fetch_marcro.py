@@ -131,7 +131,14 @@ def build_payload():
     for item in SERIES:
         status="fresh"; error=None
         try:
-            vals=fred_values[item["symbol"]] if item["source"]=="FRED" and fred_values is not None else yahoo_close(batch,item["symbol"],len(yahoo)) if batch is not None else (_ for _ in ()).throw(yerr or ferr or RuntimeError("Market data unavailable"))
+            if item["source"] == "FRED":
+                if fred_values is None:
+                    raise ferr or RuntimeError("FRED unavailable")
+                vals = fred_values[item["symbol"]]
+            else:
+                if batch is None:
+                    raise yerr or RuntimeError("Yahoo unavailable")
+                vals = yahoo_close(batch, item["symbol"], len(yahoo))
             history={d.strftime("%Y-%m-%d"):number(v) for d,v in vals.items()}; fresh+=1
         except Exception as exc:
             history=old.get(item["column"],{}); status="cached" if history else "error"; error=str(exc)
