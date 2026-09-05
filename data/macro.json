@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T03:14:26.618307+00:00",
+  "generated_at": "2026-09-05T03:45:00.996959+00:00",
   "period": {
     "start": "2025-09-05",
     "end": "2026-09-05"
@@ -16,7 +16,7 @@
       "column": "US 10Y Treasury",
       "unit": "Yield (%)",
       "status": "cached",
-      "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "error": "('DGS10', 'Close')",
       "latest": {
         "date": "2026-08-27",
         "value": 4.67
@@ -1021,12 +1021,12 @@
       "error": null,
       "latest": {
         "date": "2026-09-04",
-        "value": 99.160004
+        "value": 99.156998
       },
       "returns": {
-        "1D": 0.16162,
-        "1W": -0.541618,
-        "1M": -0.730799
+        "1D": 0.158584,
+        "1W": -0.544633,
+        "1M": -0.733808
       },
       "history": [
         {
@@ -2035,7 +2035,7 @@
         },
         {
           "date": "2026-09-04",
-          "value": 99.160004
+          "value": 99.156998
         }
       ]
     },
@@ -2048,7 +2048,7 @@
       "column": "US 2Y Treasury",
       "unit": "Yield (%)",
       "status": "cached",
-      "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "error": "('DGS2', 'Close')",
       "latest": {
         "date": "2026-08-27",
         "value": 4.2
@@ -3050,7 +3050,7 @@
       "column": "US HY OAS",
       "unit": "Spread (%)",
       "status": "cached",
-      "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "error": "('BAMLH0A0HYM2', 'Close')",
       "latest": {
         "date": "2026-08-27",
         "value": 2.63
@@ -8224,7 +8224,7 @@
       "column": "US 30Y Treasury",
       "unit": "Yield (%)",
       "status": "cached",
-      "error": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "error": "('DGS30', 'Close')",
       "latest": {
         "date": "2026-08-27",
         "value": 5.19
