@@ -32,8 +32,8 @@ SERIES = [
  {"rank":10,"market":"Nasdaq Composite","signal":"Market response","source":"Yahoo","symbol":"^IXIC","column":"Nasdaq Composite","unit":"Index"},
 ]
 
-def fetch_fred_batch(items, start=START, end=TODAY, attempts=3):
-    """Fetch all FRED series in one request to avoid rate limits/timeouts."""
+def fetch_fred_batch(items, start=START, end=TODAY, attempts=3, retry_delay=60):
+    """Fetch all FRED series in one request, retrying after a minute on failure."""
     series_ids = [item["symbol"] for item in items]
     ids = quote(",".join(series_ids))
     url=("https://fred.stlouisfed.org/graph/fredgraph.csv"
@@ -61,7 +61,8 @@ def fetch_fred_batch(items, start=START, end=TODAY, attempts=3):
         except Exception as exc:
             last = exc
             if attempt + 1 < attempts:
-                time.sleep(2 ** attempt * 5)
+                print(f"FRED request attempt {attempt + 1}/{attempts} failed: {exc}; retrying in {retry_delay}s")
+                time.sleep(retry_delay)
     raise RuntimeError(f"FRED batch failed after {attempts} attempts: {last}")
 
 def fetch_yahoo_batch(items, attempts=3):
