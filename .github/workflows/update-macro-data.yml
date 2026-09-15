@@ -20,7 +20,10 @@ jobs:
           cache: pip
           cache-dependency-path: requirements-macro.txt
       - run: python -m pip install -r requirements-macro.txt
-      - run: python script/fetch_marcro.py
+      - name: Fetch macro data
+        env:
+          REQUIRE_FRESH_FRED: "1"
+        run: python script/fetch_marcro.py
       - name: Commit updated data
         run: |
           if git diff --quiet -- data/macro.json; then exit 0; fi

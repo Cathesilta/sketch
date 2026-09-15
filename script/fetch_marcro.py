@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetch one year of global macro data for the static investor dashboard."""
 from __future__ import annotations
-import json, math, os, tempfile, time
+import json, math, os, re, tempfile, time
 from pathlib import Path
 from urllib.parse import quote
 import pandas as pd
@@ -18,6 +18,9 @@ END_EXCLUSIVE = TODAY + pd.Timedelta(days=1)
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 OUTPUT_PATH = DATA_DIR / "macro.json"
 CHART_DIR = DATA_DIR / "charts"
+ALFRED_CSV_URL = "https://alfred.stlouisfed.org/graph/alfredgraph.csv"
+FRED_DATA_URL = "https://fred.stlouisfed.org/data"
+FRED_CSV_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv"
 SERIES = [
  {"rank":1,"market":"U.S. 10Y Treasury","signal":"Global valuation","source":"FRED","symbol":"DGS10","column":"US 10Y Treasury","unit":"Yield (%)"},
  {"rank":2,"market":"U.S. Dollar (DXY)","signal":"Global liquidity","source":"Yahoo","symbol":"DX-Y.NYB","column":"DXY","unit":"Index"},
@@ -32,30 +35,85 @@ SERIES = [
  {"rank":10,"market":"Nasdaq Composite","signal":"Market response","source":"Yahoo","symbol":"^IXIC","column":"Nasdaq Composite","unit":"Index"},
 ]
 
-def fetch_fred(series_id, start=START, end=TODAY, attempts=2, retry_delay=60):
-    """Fetch one public FRED series, retrying after a minute on failure."""
-    url=("https://fred.stlouisfed.org/graph/fredgraph.csv"
-         f"?id={quote(series_id)}&cosd={start:%Y-%m-%d}&coed={end:%Y-%m-%d}")
-    headers={"User-Agent":"global-macro-dashboard/1.0"}
-    last = None
+def parse_fred_data_page(text, series_id):
+    """Parse every observation embedded in a public FRED data page."""
+    table_rows = re.findall(
+        r'<th[^>]*scope="row"[^>]*>\s*(\d{4}-\d{2}-\d{2})\s*</th>'
+        r'\s*<td[^>]*>\s*([^<]+?)\s*</td>',
+        text,
+    )
+    extra_rows = re.findall(
+        r'#(\d{4}-\d{2}-\d{2})\|\s*([^\s<]+)',
+        text,
+    )
+    frame = pd.DataFrame(table_rows + extra_rows, columns=["Date", series_id])
+    if frame.empty:
+        raise ValueError(f"FRED data page returned no observations for {series_id}")
+    frame["Date"] = pd.to_datetime(frame["Date"], errors="coerce")
+    frame[series_id] = pd.to_numeric(frame[series_id], errors="coerce")
+    return frame.dropna().drop_duplicates("Date", keep="last").set_index("Date")[series_id].sort_index()
+
+
+def parse_fred_csv(text, series_id):
+    """Parse the public FRED graph CSV response."""
+    frame = pd.read_csv(pd.io.common.StringIO(text))
+    frame.columns = ["Date", series_id]
+    frame["Date"] = pd.to_datetime(frame["Date"], errors="coerce")
+    frame[series_id] = pd.to_numeric(frame[series_id], errors="coerce")
+    return frame.dropna().set_index("Date")[series_id].sort_index()
+
+
+def fetch_fred(series_id, start=START, end=TODAY, attempts=2, retry_delay=5):
+    """Fetch current FRED data without an API key."""
+    sources = [
+        (
+            "ALFRED CSV",
+            f"{ALFRED_CSV_URL}?id={quote(series_id)}"
+            f"&cosd={start:%Y-%m-%d}&coed={end:%Y-%m-%d}",
+            parse_fred_csv,
+        ),
+        (
+            "FRED data page",
+            f"{FRED_DATA_URL}/{quote(series_id)}",
+            parse_fred_data_page,
+        ),
+        (
+            "graph CSV",
+            f"{FRED_CSV_URL}?id={quote(series_id)}"
+            f"&cosd={start:%Y-%m-%d}&coed={end:%Y-%m-%d}",
+            parse_fred_csv,
+        ),
+    ]
+    headers = {"User-Agent": "global-macro-dashboard/1.0"}
+    errors = []
     for attempt in range(attempts):
-        try:
-            response = requests.get(url, timeout=30, headers=headers)
-            response.raise_for_status()
-            frame = pd.read_csv(pd.io.common.StringIO(response.text))
-            frame.columns = ["Date", series_id]
-            frame["Date"] = pd.to_datetime(frame["Date"], errors="coerce")
-            frame[series_id] = pd.to_numeric(frame[series_id], errors="coerce")
-            values = frame.dropna().set_index("Date")[series_id].sort_index()
-            if values.empty:
-                raise ValueError(f"FRED returned no observations for {series_id}")
-            return values
-        except Exception as exc:
-            last = exc
-            if attempt + 1 < attempts:
-                print(f"FRED {series_id} attempt {attempt + 1}/{attempts} failed: {exc}; retrying in {retry_delay}s")
-                time.sleep(retry_delay)
-    raise RuntimeError(f"FRED {series_id} failed after {attempts} attempts: {last}")
+        for source_name, url, parser in sources:
+            try:
+                response = requests.get(url, timeout=(10, 20), headers=headers)
+                response.raise_for_status()
+                values = parser(response.text, series_id).loc[start:end]
+                if values.empty:
+                    raise ValueError(f"FRED returned no observations for {series_id}")
+                return values
+            except Exception as exc:
+                message = f"{source_name}: {exc}"
+                errors.append(message)
+                print(f"FRED {series_id} attempt {attempt + 1}/{attempts} {message}")
+        if attempt + 1 < attempts:
+            time.sleep(retry_delay)
+    raise RuntimeError(
+        f"FRED {series_id} failed after {attempts} attempts: "
+        + "; ".join(errors[-len(sources):])
+    )
+
+
+def require_fresh_fred(payload):
+    """Reject a generated payload if any required FRED series used cached data."""
+    stale = [item for item in payload["series"]
+             if item["source"] == "FRED" and item["status"] != "fresh"]
+    if stale:
+        details = "; ".join(f"{item['symbol']}: {item['error']}" for item in stale)
+        raise RuntimeError(f"FRED refresh failed for {len(stale)} series: {details}")
 
 def fetch_yahoo_batch(items, attempts=3):
     symbols=[x["symbol"] for x in items]; last=None
@@ -175,7 +233,10 @@ def write_charts(payload: dict) -> None:
 
 
 def main():
-    payload=build_payload(); OUTPUT_PATH.parent.mkdir(parents=True,exist_ok=True)
+    payload=build_payload()
+    if os.environ.get("REQUIRE_FRESH_FRED", "").lower() in {"1", "true", "yes"}:
+        require_fresh_fred(payload)
+    OUTPUT_PATH.parent.mkdir(parents=True,exist_ok=True)
     fd,tmp=tempfile.mkstemp(dir=OUTPUT_PATH.parent,prefix="macro-",suffix=".json")
     try:
         with os.fdopen(fd,"w") as f: json.dump(payload,f,ensure_ascii=False,indent=2,allow_nan=False); f.write("\n")
