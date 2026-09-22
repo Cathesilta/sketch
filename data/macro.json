@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-22T10:02:15.232934+00:00",
+  "generated_at": "2026-09-22T13:15:15.711082+00:00",
   "period": {
     "start": "2025-09-22",
     "end": "2026-09-22"
   },
-  "fresh_series": 7,
+  "fresh_series": 11,
   "total_series": 11,
   "series": [
     {
@@ -15,16 +15,17 @@
       "symbol": "DGS10",
       "column": "US 10Y Treasury",
       "unit": "Yield (%)",
-      "status": "cached",
-      "error": "FRED DGS10 failed after 2 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "chart": "us_10y_treasury.png",
+      "status": "fresh",
+      "error": null,
       "latest": {
-        "date": "2026-09-03",
-        "value": 4.77
+        "date": "2026-09-18",
+        "value": 5.01
       },
       "returns": {
-        "1D": -0.417537,
-        "1W": 2.141328,
-        "1M": 1.489362
+        "1D": 1.417004,
+        "1W": 1.008065,
+        "1M": 6.369427
       },
       "history": [
         {
@@ -982,6 +983,46 @@
         {
           "date": "2026-09-03",
           "value": 4.77
+        },
+        {
+          "date": "2026-09-04",
+          "value": 4.78
+        },
+        {
+          "date": "2026-09-08",
+          "value": 4.8
+        },
+        {
+          "date": "2026-09-09",
+          "value": 4.83
+        },
+        {
+          "date": "2026-09-10",
+          "value": 4.95
+        },
+        {
+          "date": "2026-09-11",
+          "value": 4.96
+        },
+        {
+          "date": "2026-09-14",
+          "value": 4.97
+        },
+        {
+          "date": "2026-09-15",
+          "value": 5.0
+        },
+        {
+          "date": "2026-09-16",
+          "value": 5.01
+        },
+        {
+          "date": "2026-09-17",
+          "value": 4.94
+        },
+        {
+          "date": "2026-09-18",
+          "value": 5.01
         }
       ]
     },
@@ -993,16 +1034,17 @@
       "symbol": "DX-Y.NYB",
       "column": "DXY",
       "unit": "Index",
+      "chart": "dxy.png",
       "status": "fresh",
       "error": null,
       "latest": {
         "date": "2026-09-22",
-        "value": 100.415001
+        "value": 100.458
       },
       "returns": {
-        "1D": -0.014935,
-        "1W": 0.767686,
-        "1M": 1.634613
+        "1D": 0.02788,
+        "1W": 0.810836,
+        "1M": 1.678135
       },
       "history": [
         {
@@ -2011,7 +2053,7 @@
         },
         {
           "date": "2026-09-22",
-          "value": 100.415001
+          "value": 100.458
         }
       ]
     },
@@ -2023,16 +2065,17 @@
       "symbol": "DGS2",
       "column": "US 2Y Treasury",
       "unit": "Yield (%)",
-      "status": "cached",
-      "error": "FRED DGS2 failed after 2 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "chart": "us_2y_treasury.png",
+      "status": "fresh",
+      "error": null,
       "latest": {
-        "date": "2026-09-03",
-        "value": 4.34
+        "date": "2026-09-18",
+        "value": 4.76
       },
       "returns": {
-        "1D": -1.138952,
-        "1W": 3.333333,
-        "1M": 2.117647
+        "1D": 1.927195,
+        "1W": 2.807775,
+        "1M": 13.603819
       },
       "history": [
         {
@@ -2990,6 +3033,46 @@
         {
           "date": "2026-09-03",
           "value": 4.34
+        },
+        {
+          "date": "2026-09-04",
+          "value": 4.37
+        },
+        {
+          "date": "2026-09-08",
+          "value": 4.39
+        },
+        {
+          "date": "2026-09-09",
+          "value": 4.43
+        },
+        {
+          "date": "2026-09-10",
+          "value": 4.56
+        },
+        {
+          "date": "2026-09-11",
+          "value": 4.63
+        },
+        {
+          "date": "2026-09-14",
+          "value": 4.65
+        },
+        {
+          "date": "2026-09-15",
+          "value": 4.67
+        },
+        {
+          "date": "2026-09-16",
+          "value": 4.74
+        },
+        {
+          "date": "2026-09-17",
+          "value": 4.67
+        },
+        {
+          "date": "2026-09-18",
+          "value": 4.76
         }
       ]
     },
@@ -3001,16 +3084,17 @@
       "symbol": "BAMLH0A0HYM2",
       "column": "US HY OAS",
       "unit": "Spread (%)",
-      "status": "cached",
-      "error": "FRED BAMLH0A0HYM2 failed after 2 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "chart": "us_hy_oas.png",
+      "status": "fresh",
+      "error": null,
       "latest": {
-        "date": "2026-09-03",
-        "value": 2.65
+        "date": "2026-09-18",
+        "value": 2.68
       },
       "returns": {
-        "1D": -0.37594,
-        "1W": 0.760456,
-        "1M": -4.676259
+        "1D": -0.740741,
+        "1W": 1.132075,
+        "1M": -2.545455
       },
       "history": [
         {
@@ -4016,6 +4100,50 @@
         {
           "date": "2026-09-03",
           "value": 2.65
+        },
+        {
+          "date": "2026-09-04",
+          "value": 2.68
+        },
+        {
+          "date": "2026-09-07",
+          "value": 2.68
+        },
+        {
+          "date": "2026-09-08",
+          "value": 2.67
+        },
+        {
+          "date": "2026-09-09",
+          "value": 2.71
+        },
+        {
+          "date": "2026-09-10",
+          "value": 2.7
+        },
+        {
+          "date": "2026-09-11",
+          "value": 2.65
+        },
+        {
+          "date": "2026-09-14",
+          "value": 2.71
+        },
+        {
+          "date": "2026-09-15",
+          "value": 2.76
+        },
+        {
+          "date": "2026-09-16",
+          "value": 2.7
+        },
+        {
+          "date": "2026-09-17",
+          "value": 2.7
+        },
+        {
+          "date": "2026-09-18",
+          "value": 2.68
         }
       ]
     },
@@ -4027,16 +4155,17 @@
       "symbol": "CL=F",
       "column": "WTI Crude",
       "unit": "USD/barrel",
+      "chart": "wti_crude.png",
       "status": "fresh",
       "error": null,
       "latest": {
         "date": "2026-09-22",
-        "value": 90.739998
+        "value": 90.019997
       },
       "returns": {
-        "1D": -5.26206,
-        "1W": -14.25872,
-        "1M": 4.22697
+        "1D": -6.013784,
+        "1W": -14.939058,
+        "1M": 3.399953
       },
       "history": [
         {
@@ -5045,7 +5174,7 @@
         },
         {
           "date": "2026-09-22",
-          "value": 90.739998
+          "value": 90.019997
         }
       ]
     },
@@ -5057,16 +5186,17 @@
       "symbol": "HG=F",
       "column": "COMEX Copper",
       "unit": "USD/lb",
+      "chart": "comex_copper.png",
       "status": "fresh",
       "error": null,
       "latest": {
         "date": "2026-09-22",
-        "value": 6.8395
+        "value": 6.8485
       },
       "returns": {
-        "1D": 2.288193,
-        "1W": 7.395776,
-        "1M": 3.951668
+        "1D": 2.422792,
+        "1W": 7.537097,
+        "1M": 4.088457
       },
       "history": [
         {
@@ -6075,7 +6205,7 @@
         },
         {
           "date": "2026-09-22",
-          "value": 6.8395
+          "value": 6.8485
         }
       ]
     },
@@ -6087,16 +6217,17 @@
       "symbol": "GC=F",
       "column": "COMEX Gold",
       "unit": "USD/troy oz",
+      "chart": "comex_gold.png",
       "status": "fresh",
       "error": null,
       "latest": {
         "date": "2026-09-22",
-        "value": 4356.700195
+        "value": 4373.299805
       },
       "returns": {
-        "1D": -0.620445,
-        "1W": 0.551615,
-        "1M": -6.920051
+        "1D": -0.241796,
+        "1W": 0.93473,
+        "1M": -6.565404
       },
       "history": [
         {
@@ -7105,7 +7236,7 @@
         },
         {
           "date": "2026-09-22",
-          "value": 4356.700195
+          "value": 4373.299805
         }
       ]
     },
@@ -7117,16 +7248,17 @@
       "symbol": "^VIX",
       "column": "VIX",
       "unit": "Index",
+      "chart": "vix.png",
       "status": "fresh",
       "error": null,
       "latest": {
         "date": "2026-09-22",
-        "value": 14.87
+        "value": 14.66
       },
       "returns": {
-        "1D": 0.0,
-        "1W": -13.546517,
-        "1M": -1.71844
+        "1D": -1.412239,
+        "1W": -14.767447,
+        "1M": -3.106411
       },
       "history": [
         {
@@ -8143,7 +8275,7 @@
         },
         {
           "date": "2026-09-22",
-          "value": 14.87
+          "value": 14.66
         }
       ]
     },
@@ -8155,16 +8287,17 @@
       "symbol": "DGS30",
       "column": "US 30Y Treasury",
       "unit": "Yield (%)",
-      "status": "cached",
-      "error": "FRED DGS30 failed after 2 attempts: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+      "chart": "us_30y_treasury.png",
+      "status": "fresh",
+      "error": null,
       "latest": {
-        "date": "2026-09-03",
-        "value": 5.25
+        "date": "2026-09-18",
+        "value": 5.34
       },
       "returns": {
-        "1D": -0.379507,
-        "1W": 1.156069,
-        "1M": 0.382409
+        "1D": 0.94518,
+        "1W": -0.186916,
+        "1M": 1.136364
       },
       "history": [
         {
@@ -9122,6 +9255,46 @@
         {
           "date": "2026-09-03",
           "value": 5.25
+        },
+        {
+          "date": "2026-09-04",
+          "value": 5.24
+        },
+        {
+          "date": "2026-09-08",
+          "value": 5.25
+        },
+        {
+          "date": "2026-09-09",
+          "value": 5.28
+        },
+        {
+          "date": "2026-09-10",
+          "value": 5.37
+        },
+        {
+          "date": "2026-09-11",
+          "value": 5.35
+        },
+        {
+          "date": "2026-09-14",
+          "value": 5.34
+        },
+        {
+          "date": "2026-09-15",
+          "value": 5.36
+        },
+        {
+          "date": "2026-09-16",
+          "value": 5.35
+        },
+        {
+          "date": "2026-09-17",
+          "value": 5.29
+        },
+        {
+          "date": "2026-09-18",
+          "value": 5.34
         }
       ]
     },
@@ -9133,6 +9306,7 @@
       "symbol": "^GSPC",
       "column": "S&P 500",
       "unit": "Index",
+      "chart": "sandp_500.png",
       "status": "fresh",
       "error": null,
       "latest": {
@@ -10159,6 +10333,7 @@
       "symbol": "^IXIC",
       "column": "Nasdaq Composite",
       "unit": "Index",
+      "chart": "nasdaq_composite.png",
       "status": "fresh",
       "error": null,
       "latest": {

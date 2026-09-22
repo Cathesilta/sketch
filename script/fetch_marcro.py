@@ -32,30 +32,21 @@ SERIES = [
  {"rank":10,"market":"Nasdaq Composite","signal":"Market response","source":"Yahoo","symbol":"^IXIC","column":"Nasdaq Composite","unit":"Index"},
 ]
 
-def fetch_fred(series_id, start=START, end=TODAY, attempts=2, retry_delay=60):
-    """Fetch one public FRED series, retrying after a minute on failure."""
-    url=("https://fred.stlouisfed.org/graph/fredgraph.csv"
-         f"?id={quote(series_id)}&cosd={start:%Y-%m-%d}&coed={end:%Y-%m-%d}")
-    headers={"User-Agent":"global-macro-dashboard/1.0"}
-    last = None
-    for attempt in range(attempts):
-        try:
-            response = requests.get(url, timeout=30, headers=headers)
-            response.raise_for_status()
-            frame = pd.read_csv(pd.io.common.StringIO(response.text))
-            frame.columns = ["Date", series_id]
-            frame["Date"] = pd.to_datetime(frame["Date"], errors="coerce")
-            frame[series_id] = pd.to_numeric(frame[series_id], errors="coerce")
-            values = frame.dropna().set_index("Date")[series_id].sort_index()
-            if values.empty:
-                raise ValueError(f"FRED returned no observations for {series_id}")
-            return values
-        except Exception as exc:
-            last = exc
-            if attempt + 1 < attempts:
-                print(f"FRED {series_id} attempt {attempt + 1}/{attempts} failed: {exc}; retrying in {retry_delay}s")
-                time.sleep(retry_delay)
-    raise RuntimeError(f"FRED {series_id} failed after {attempts} attempts: {last}")
+def fetch_fred(series_id, start=START, end=TODAY):
+    """Fetch a public FRED series as a numeric Series; no API key required."""
+    url = (
+        "https://fred.stlouisfed.org/graph/fredgraph.csv"
+        f"?id={quote(series_id)}&cosd={start:%Y-%m-%d}&coed={end:%Y-%m-%d}"
+    )
+    response = requests.get(
+        url, timeout=30, headers={"User-Agent": "global-macro-dashboard/1.0"}
+    )
+    response.raise_for_status()
+    frame = pd.read_csv(pd.io.common.StringIO(response.text))
+    frame.columns = ["Date", series_id]
+    frame["Date"] = pd.to_datetime(frame["Date"], errors="coerce")
+    frame[series_id] = pd.to_numeric(frame[series_id], errors="coerce")
+    return frame.dropna().set_index("Date")[series_id].sort_index()
 
 def fetch_yahoo_batch(items, attempts=3):
     symbols=[x["symbol"] for x in items]; last=None
@@ -82,6 +73,9 @@ def cache():
 
 def number(v):
     x=float(v); return round(x,6) if math.isfinite(x) else None
+
+def chart_filename(item):
+    return f"{item['column'].lower().replace(' ', '_').replace('&', 'and')}.png"
 
 def calculate_returns(points):
     """Calculate percentage changes from the latest available observation."""
@@ -130,7 +124,7 @@ def build_payload():
         except Exception as exc:
             history=old.get(item["column"],{}); status="cached" if history else "error"; error=str(exc)
         history={d:v for d,v in history.items() if d>=cutoff and v is not None}; points=[{"date":d,"value":v} for d,v in sorted(history.items())]
-        out.append({**item,"status":status,"error":error,"latest":points[-1] if points else None,"returns":calculate_returns(points),"history":points})
+        out.append({**item,"chart":chart_filename(item),"status":status,"error":error,"latest":points[-1] if points else None,"returns":calculate_returns(points),"history":points})
     if not any(x["history"] for x in out): raise RuntimeError("Every download failed and no cached data is available")
     return {"generated_at":pd.Timestamp.now(tz="UTC").isoformat(),"period":{"start":cutoff,"end":TODAY.strftime("%Y-%m-%d")},"fresh_series":fresh,"total_series":len(SERIES),"series":out}
 
@@ -154,7 +148,7 @@ def write_charts(payload: dict) -> None:
             ax.text(0.5, 0.5, "Data unavailable", ha="center", va="center", transform=ax.transAxes)
         ax.set_title(f"{item['rank']}. {item['market']} — {item['signal']}", loc="left", fontsize=11)
         ax.set_ylabel(item["unit"])
-        fig.savefig(CHART_DIR / f"{item['column'].lower().replace(' ', '_').replace('&', 'and')}.png", bbox_inches="tight")
+        fig.savefig(CHART_DIR / item["chart"], bbox_inches="tight")
         plt.close(fig)
 
     # Match the notebook's optional cross-market comparison view.
@@ -175,7 +169,12 @@ def write_charts(payload: dict) -> None:
 
 
 def main():
-    payload=build_payload(); OUTPUT_PATH.parent.mkdir(parents=True,exist_ok=True)
+    payload=build_payload()
+    stale_fred=[item for item in payload["series"] if item["source"]=="FRED" and item["status"]!="fresh"]
+    if os.environ.get("REQUIRE_FRESH_FRED", "").lower() in {"1", "true", "yes"} and stale_fred:
+        details="; ".join(f"{item['symbol']}: {item['error']}" for item in stale_fred)
+        raise RuntimeError(f"FRED refresh failed: {details}")
+    OUTPUT_PATH.parent.mkdir(parents=True,exist_ok=True)
     fd,tmp=tempfile.mkstemp(dir=OUTPUT_PATH.parent,prefix="macro-",suffix=".json")
     try:
         with os.fdopen(fd,"w") as f: json.dump(payload,f,ensure_ascii=False,indent=2,allow_nan=False); f.write("\n")
