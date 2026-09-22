@@ -18,6 +18,7 @@ END_EXCLUSIVE = TODAY + pd.Timedelta(days=1)
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 OUTPUT_PATH = DATA_DIR / "macro.json"
 CHART_DIR = DATA_DIR / "charts"
+FRED_API_URL = "https://api.stlouisfed.org/fred/series/observations"
 SERIES = [
  {"rank":1,"market":"U.S. 10Y Treasury","signal":"Global valuation","source":"FRED","symbol":"DGS10","column":"US 10Y Treasury","unit":"Yield (%)"},
  {"rank":2,"market":"U.S. Dollar (DXY)","signal":"Global liquidity","source":"Yahoo","symbol":"DX-Y.NYB","column":"DXY","unit":"Index"},
@@ -33,7 +34,47 @@ SERIES = [
 ]
 
 def fetch_fred(series_id, start=START, end=TODAY):
-    """Fetch a public FRED series as a numeric Series; no API key required."""
+    """Fetch FRED through its API in Actions, or the reference CSV locally."""
+    api_key = os.environ.get("FRED_API_KEY", "").strip()
+    if api_key:
+        try:
+            response = requests.get(
+                FRED_API_URL,
+                params={
+                    "series_id": series_id,
+                    "api_key": api_key,
+                    "file_type": "json",
+                    "observation_start": start.strftime("%Y-%m-%d"),
+                    "observation_end": end.strftime("%Y-%m-%d"),
+                },
+                timeout=30,
+                headers={"User-Agent": "global-macro-dashboard/1.0"},
+            )
+            response.raise_for_status()
+            payload = response.json()
+            frame = pd.DataFrame(payload.get("observations", []))
+            if not {"date", "value"}.issubset(frame.columns):
+                raise ValueError(payload.get("error_message", "response has no observations"))
+            frame = frame[["date", "value"]]
+            frame.columns = ["Date", series_id]
+        except Exception as exc:
+            # A requests exception can contain the query string. Do not copy the
+            # repository secret into the generated JSON or an Actions log.
+            safe_error = str(exc).replace(api_key, "***")
+            raise RuntimeError(f"FRED API {series_id} failed: {safe_error}") from None
+    else:
+        frame = fetch_fred_csv(series_id, start, end)
+
+    frame["Date"] = pd.to_datetime(frame["Date"], errors="coerce")
+    frame[series_id] = pd.to_numeric(frame[series_id], errors="coerce")
+    values = frame.dropna().set_index("Date")[series_id].sort_index()
+    if values.empty:
+        raise ValueError(f"FRED returned no observations for {series_id}")
+    return values
+
+
+def fetch_fred_csv(series_id, start=START, end=TODAY):
+    """Use the public CSV method from global_macro_dashboard.py."""
     url = (
         "https://fred.stlouisfed.org/graph/fredgraph.csv"
         f"?id={quote(series_id)}&cosd={start:%Y-%m-%d}&coed={end:%Y-%m-%d}"
@@ -44,9 +85,7 @@ def fetch_fred(series_id, start=START, end=TODAY):
     response.raise_for_status()
     frame = pd.read_csv(pd.io.common.StringIO(response.text))
     frame.columns = ["Date", series_id]
-    frame["Date"] = pd.to_datetime(frame["Date"], errors="coerce")
-    frame[series_id] = pd.to_numeric(frame[series_id], errors="coerce")
-    return frame.dropna().set_index("Date")[series_id].sort_index()
+    return frame
 
 def fetch_yahoo_batch(items, attempts=3):
     symbols=[x["symbol"] for x in items]; last=None
