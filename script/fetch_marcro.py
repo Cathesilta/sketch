@@ -31,6 +31,7 @@ SERIES = [
  {"rank":9,"market":"U.S. 30Y Treasury","signal":"Long-term fiscal confidence","source":"FRED","symbol":"DGS30","column":"US 30Y Treasury","unit":"Yield (%)"},
  {"rank":10,"market":"S&P 500","signal":"Market response","source":"Yahoo","symbol":"^GSPC","column":"S&P 500","unit":"Index"},
  {"rank":10,"market":"Nasdaq Composite","signal":"Market response","source":"Yahoo","symbol":"^IXIC","column":"Nasdaq Composite","unit":"Index"},
+ {"rank":11,"market":"Bitcoin","signal":"Crypto market price","source":"Yahoo","symbol":"BTC-USD","column":"Bitcoin","unit":"USD"},
 ]
 
 def fetch_fred(series_id, start=START, end=TODAY):
