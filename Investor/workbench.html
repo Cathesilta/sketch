@@ -137,6 +137,11 @@
       letter-spacing: 0.15em;
     }
 
+    .section-heading h2 a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .section-heading span {
       font-family: Arial, sans-serif;
       font-size: 9px;
@@ -156,6 +161,7 @@
       grid-template-columns:
         minmax(180px, 1.1fr)
         minmax(180px, 1.4fr)
+        minmax(130px, auto)
         auto auto;
 
       gap: 20px;
@@ -173,6 +179,28 @@
     .change-signal {
       font-size: 14px;
       color: var(--muted);
+    }
+
+    .change-latest {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+
+      min-width: 130px;
+      font-family: Arial, sans-serif;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .change-actual {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .change-observation-date {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     .change-period {
@@ -299,6 +327,14 @@
         grid-column: 1;
       }
 
+      .change-latest {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 10px;
+      }
+
       .change-period {
         grid-column: 2;
         grid-row: 1;
@@ -385,7 +421,7 @@
     <div class="section-heading">
 
       <h2>
-        Striking Changes
+        <a href="./macro_dashboard.html">Striking Changes</a>
       </h2>
 
       <span id="macroDataDate">
@@ -783,6 +819,7 @@
         "market": "U.S. 10Y Treasury",
         "signal": "Global valuation",
         "symbol": "DGS10",
+        "unit": "Yield (%)",
         "latest": {
           "date": "2026-09-28",
           "value": 5.24
@@ -797,6 +834,7 @@
         "market": "U.S. Dollar (DXY)",
         "signal": "Global liquidity",
         "symbol": "DX-Y.NYB",
+        "unit": "Index",
         "latest": {
           "date": "2026-09-30",
           "value": 101.195
@@ -811,6 +849,7 @@
         "market": "U.S. 2Y Treasury",
         "signal": "Fed expectations",
         "symbol": "DGS2",
+        "unit": "Yield (%)",
         "latest": {
           "date": "2026-09-28",
           "value": 4.92
@@ -825,6 +864,7 @@
         "market": "Credit spreads",
         "signal": "Financial stress",
         "symbol": "BAMLH0A0HYM2",
+        "unit": "Spread (%)",
         "latest": {
           "date": "2026-09-28",
           "value": 3.02
@@ -839,6 +879,7 @@
         "market": "Oil",
         "signal": "Inflation + demand",
         "symbol": "CL=F",
+        "unit": "USD/barrel",
         "latest": {
           "date": "2026-09-30",
           "value": 91.190002
@@ -853,6 +894,7 @@
         "market": "Copper",
         "signal": "Industrial growth",
         "symbol": "HG=F",
+        "unit": "USD/lb",
         "latest": {
           "date": "2026-09-30",
           "value": 6.6255
@@ -867,6 +909,7 @@
         "market": "Gold",
         "signal": "Fear + currency confidence",
         "symbol": "GC=F",
+        "unit": "USD/troy oz",
         "latest": {
           "date": "2026-09-30",
           "value": 4223.899902
@@ -881,6 +924,7 @@
         "market": "VIX",
         "signal": "Risk appetite",
         "symbol": "^VIX",
+        "unit": "Index",
         "latest": {
           "date": "2026-09-30",
           "value": 15.82
@@ -895,6 +939,7 @@
         "market": "U.S. 30Y Treasury",
         "signal": "Long-term fiscal confidence",
         "symbol": "DGS30",
+        "unit": "Yield (%)",
         "latest": {
           "date": "2026-09-28",
           "value": 5.56
@@ -909,6 +954,7 @@
         "market": "S&P 500",
         "signal": "Market response",
         "symbol": "^GSPC",
+        "unit": "Index",
         "latest": {
           "date": "2026-09-30",
           "value": 7694.879883
@@ -923,6 +969,7 @@
         "market": "Nasdaq Composite",
         "signal": "Market response",
         "symbol": "^IXIC",
+        "unit": "Index",
         "latest": {
           "date": "2026-09-30",
           "value": 26936.103516
@@ -937,6 +984,7 @@
         "market": "Bitcoin",
         "signal": "Crypto market price",
         "symbol": "BTC-USD",
+        "unit": "USD",
         "latest": {
           "date": "2026-09-30",
           "value": 85348.203125
@@ -995,6 +1043,9 @@
         return {
           market: series.market,
           signal: series.signal || rule.signal,
+          latestValue: Number(series.latest?.value),
+          latestDate: series.latest?.date || null,
+          unit: series.unit || "",
           changes: {
             d1: Number(series.returns["1D"]),
             w1: Number(series.returns["1W"]),
@@ -1166,6 +1217,15 @@
         signal:
           market.signal,
 
+        latestValue:
+          market.latestValue,
+
+        latestDate:
+          market.latestDate,
+
+        unit:
+          market.unit,
+
         ...strongest
 
       });
@@ -1235,6 +1295,15 @@
           ${item.signal}
         </div>
 
+        <div class="change-latest">
+          <span class="change-actual">
+            ${formatMarketValue(item.latestValue, item.unit)}
+          </span>
+          <span class="change-observation-date">
+            ${formatObservationDate(item.latestDate)}
+          </span>
+        </div>
+
         <div class="change-period">
           ${item.period}
         </div>
@@ -1280,6 +1349,57 @@
     );
 
   }
+
+  }
+
+  function formatMarketValue(value, unit) {
+
+    if (!Number.isFinite(value)) {
+      return "Value unavailable";
+    }
+
+    const formatted = value.toLocaleString(
+      "en-US",
+      {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }
+    );
+
+    const suffixes = {
+      "USD/barrel": " / barrel",
+      "USD/lb": " / lb",
+      "USD/troy oz": " / troy oz"
+    };
+
+    if (unit === "Yield (%)" || unit === "Spread (%)") {
+      return formatted + "%";
+    }
+
+    if (unit === "USD" || Object.hasOwn(suffixes, unit)) {
+      return "$" + formatted + (suffixes[unit] || "");
+    }
+
+    return formatted + (unit ? " " + unit.toLowerCase() : "");
+
+  }
+
+  function formatObservationDate(value) {
+
+    if (!value) {
+      return "Date unavailable";
+    }
+
+    return new Date(value + "T00:00:00")
+      .toLocaleDateString(
+        "en-US",
+        {
+          month: "short",
+          day: "numeric",
+          year: "numeric"
+        }
+      )
+      .toUpperCase();
 
   }
 
