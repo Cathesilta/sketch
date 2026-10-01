@@ -88,10 +88,19 @@
     }
 
     .btc-price {
+      display: block;
       font-size: clamp(60px, 10vw, 108px);
       letter-spacing: -0.055em;
       line-height: 0.9;
       font-variant-numeric: tabular-nums;
+    }
+
+    .btc-price:hover,
+    .change-market:hover,
+    .defi-name:hover,
+    .defi-price:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
     .btc-meta {
@@ -237,6 +246,37 @@
       border-bottom: 1px solid var(--line);
     }
 
+    /* DeFi */
+
+    .defi-row {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) auto auto;
+      gap: 24px;
+      align-items: baseline;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .defi-name {
+      font-size: 21px;
+      letter-spacing: -0.02em;
+    }
+
+    .defi-price {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .defi-date {
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
     /* Navigation */
 
     .navigation {
@@ -345,6 +385,15 @@
         grid-column: 2;
         grid-row: 2;
       }
+
+      .defi-row {
+        grid-template-columns: 1fr auto;
+        gap: 7px 18px;
+      }
+
+      .defi-date {
+        grid-column: 1 / -1;
+      }
     }
 
     @media (max-width: 560px) {
@@ -392,9 +441,15 @@
       Bitcoin / USD
     </div>
 
-    <div class="btc-price" id="btcPrice">
+    <a
+      class="btc-price"
+      id="btcPrice"
+      href="https://coinmarketcap.com/currencies/bitcoin/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       $68,742
-    </div>
+    </a>
 
     <div class="btc-meta">
 
@@ -406,7 +461,7 @@
       </span>
 
       <span class="source-note">
-        Yahoo Finance · macro.json
+        Yahoo Finance
       </span>
 
     </div>
@@ -434,6 +489,39 @@
       id="strikingChanges"
       class="changes-list"
     ></div>
+
+  </section>
+
+
+  <!-- DeFi -->
+
+  <section class="section">
+
+    <div class="section-heading">
+      <h2>DeFi</h2>
+      <span>Market price</span>
+    </div>
+
+    <div class="defi-row">
+      <a
+        class="defi-name"
+        href="https://forum.morpho.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Morpho</a>
+
+      <a
+        class="defi-price"
+        id="morphoPrice"
+        href="https://coinmarketcap.com/currencies/morpho/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Price unavailable</a>
+
+      <span class="defi-date" id="morphoDate">
+        Date unavailable
+      </span>
+    </div>
 
   </section>
 
@@ -808,6 +896,20 @@
 
   ];
 
+  const marketChartUrls = {
+    "u.s. 10y treasury": "https://fred.stlouisfed.org/series/DGS10",
+    "u.s. dollar (dxy)": "https://finance.yahoo.com/quote/DX-Y.NYB/chart/",
+    "u.s. 2y treasury": "https://fred.stlouisfed.org/series/DGS2",
+    "credit spreads": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+    "oil": "https://finance.yahoo.com/quote/CL%3DF/chart/",
+    "copper": "https://finance.yahoo.com/quote/HG%3DF/chart/",
+    "gold": "https://finance.yahoo.com/quote/GC%3DF/chart/",
+    "vix": "https://finance.yahoo.com/quote/%5EVIX/chart/",
+    "u.s. 30y treasury": "https://fred.stlouisfed.org/series/DGS30",
+    "s&p 500": "https://finance.yahoo.com/quote/%5EGSPC/chart/",
+    "nasdaq composite": "https://finance.yahoo.com/quote/%5EIXIC/chart/"
+  };
+
   /*
    * A compact snapshot from data/macro.json for direct file:// viewing.
    * The hosted page still fetches macro.json and gets future updates.
@@ -994,6 +1096,21 @@
           "1W": 1.143827,
           "1M": 9.889112
         }
+      },
+      {
+        "market": "Morpho",
+        "signal": "Crypto market price",
+        "symbol": "morpho",
+        "unit": "USD",
+        "latest": {
+          "date": "2026-10-01",
+          "value": 2.51717
+        },
+        "returns": {
+          "1D": null,
+          "1W": null,
+          "1M": null
+        }
       }
     ]
   };
@@ -1030,6 +1147,13 @@
         : fallbackBtc.change24h
     };
 
+    const morphoSeries = macro.series.find(series =>
+      series.symbol === "morpho" ||
+      String(series.market).toLowerCase() === "morpho"
+    );
+    const morphoValue = morphoSeries?.latest?.value;
+    const morphoPrice = morphoValue == null ? NaN : Number(morphoValue);
+
     const markets = macro.series
       .map(series => {
         const rule = marketRules.find(item =>
@@ -1046,6 +1170,7 @@
           latestValue: Number(series.latest?.value),
           latestDate: series.latest?.date || null,
           unit: series.unit || "",
+          chartUrl: marketChartUrls[String(series.market).toLowerCase()],
           changes: {
             d1: Number(series.returns["1D"]),
             w1: Number(series.returns["1W"]),
@@ -1116,6 +1241,22 @@
     btc.change24h >= 0
       ? "positive"
       : "negative";
+
+  document.getElementById("morphoPrice").textContent =
+    (
+      Number.isFinite(morphoPrice)
+        ? "$" + morphoPrice.toLocaleString(
+            "en-US",
+            {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 4
+            }
+          )
+        : "PRICE UNAVAILABLE"
+    );
+
+  document.getElementById("morphoDate").textContent =
+    formatObservationDate(morphoSeries?.latest?.date);
 
 
   /*
@@ -1226,6 +1367,9 @@
         unit:
           market.unit,
 
+        chartUrl:
+          market.chartUrl,
+
         ...strongest
 
       });
@@ -1287,9 +1431,14 @@
 
       row.innerHTML = `
 
-        <div class="change-market">
+        <a
+          class="change-market"
+          href="${item.chartUrl}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           ${item.market}
-        </div>
+        </a>
 
         <div class="change-signal">
           ${item.signal}

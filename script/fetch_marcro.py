@@ -2,6 +2,7 @@
 """Fetch one year of global macro data for the static investor dashboard."""
 from __future__ import annotations
 import json, math, os, tempfile, time
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote
 import pandas as pd
@@ -19,6 +20,11 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 OUTPUT_PATH = DATA_DIR / "macro.json"
 CHART_DIR = DATA_DIR / "charts"
 FRED_API_URL = "https://api.stlouisfed.org/fred/series/observations"
+COINGECKO_MARKET_CHART_URL = "https://api.coingecko.com/api/v3/coins/{coin_id}/market_chart"
+MORPHO_FORUM_URL = "https://forum.morpho.org"
+FORUM_RECENT_DAYS = 7
+FORUM_NEW_TOPIC_LIMIT = 5
+FORUM_REFRESHED_TOPIC_LIMIT = 3
 SERIES = [
  {"rank":1,"market":"U.S. 10Y Treasury","signal":"Global valuation","source":"FRED","symbol":"DGS10","column":"US 10Y Treasury","unit":"Yield (%)"},
  {"rank":2,"market":"U.S. Dollar (DXY)","signal":"Global liquidity","source":"Yahoo","symbol":"DX-Y.NYB","column":"DXY","unit":"Index"},
@@ -32,6 +38,7 @@ SERIES = [
  {"rank":10,"market":"S&P 500","signal":"Market response","source":"Yahoo","symbol":"^GSPC","column":"S&P 500","unit":"Index"},
  {"rank":10,"market":"Nasdaq Composite","signal":"Market response","source":"Yahoo","symbol":"^IXIC","column":"Nasdaq Composite","unit":"Index"},
  {"rank":11,"market":"Bitcoin","signal":"Crypto market price","source":"Yahoo","symbol":"BTC-USD","column":"Bitcoin","unit":"USD"},
+ {"rank":12,"market":"Morpho","signal":"Crypto market price","source":"CoinGecko","symbol":"morpho","column":"Morpho","unit":"USD"},
 ]
 
 def fetch_fred(series_id, start=START, end=TODAY):
@@ -99,6 +106,99 @@ def fetch_yahoo_batch(items, attempts=3):
         if attempt+1<attempts: time.sleep(2**attempt*5)
     raise RuntimeError(f"Yahoo batch failed after {attempts} attempts: {last}")
 
+def fetch_coingecko_history(coin_id, days=365, attempts=3):
+    """Fetch daily USD prices using CoinGecko's stable coin ID."""
+    url = COINGECKO_MARKET_CHART_URL.format(coin_id=quote(coin_id))
+    last = None
+    for attempt in range(attempts):
+        try:
+            response = requests.get(
+                url,
+                params={"vs_currency": "usd", "days": days, "interval": "daily"},
+                timeout=30,
+                headers={"User-Agent": "global-macro-dashboard/1.0"},
+            )
+            response.raise_for_status()
+            prices = response.json().get("prices", [])
+            if not prices:
+                raise ValueError(f"CoinGecko returned no prices for {coin_id}")
+            values = pd.Series(
+                [price for _, price in prices],
+                index=pd.to_datetime([timestamp for timestamp, _ in prices], unit="ms", utc=True).tz_localize(None).normalize(),
+                dtype=float,
+            )
+            return values.groupby(level=0).last().sort_index()
+        except Exception as exc:
+            last = exc
+        if attempt + 1 < attempts:
+            time.sleep(2**attempt * 5)
+    raise RuntimeError(f"CoinGecko {coin_id} failed after {attempts} attempts: {last}")
+
+def _forum_timestamp_is_recent(value, cutoff):
+    if not isinstance(value, str):
+        return False
+    try:
+        timestamp = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    if timestamp.tzinfo is None:
+        timestamp = timestamp.replace(tzinfo=timezone.utc)
+    return timestamp >= cutoff
+
+def _forum_topic(topic):
+    topic_id = topic.get("id")
+    slug = topic.get("slug")
+    posts_count = topic.get("posts_count")
+    return {
+        "id": topic_id,
+        "title": topic.get("title") or "",
+        "url": f"{MORPHO_FORUM_URL}/t/{slug}/{topic_id}" if slug and topic_id else None,
+        "created_at": topic.get("created_at"),
+        "last_activity_at": topic.get("bumped_at") or topic.get("last_posted_at"),
+        "replies": max(posts_count - 1, 0) if isinstance(posts_count, int) else None,
+        "views": topic.get("views"),
+    }
+
+def fetch_morpho_forum():
+    """Fetch Morpho's newest and recently refreshed Discourse topics."""
+    response = requests.get(
+        f"{MORPHO_FORUM_URL}/latest.json",
+        params={"no_definitions": "true"},
+        timeout=30,
+        headers={
+            "Accept": "application/json",
+            "User-Agent": "global-macro-dashboard/1.0 (+public Discourse data reader)",
+        },
+    )
+    response.raise_for_status()
+    topics = response.json().get("topic_list", {}).get("topics")
+    if not isinstance(topics, list):
+        raise ValueError("Morpho forum response has no topic list")
+    topics = [topic for topic in topics if isinstance(topic, dict)]
+    cutoff = datetime.now(timezone.utc) - timedelta(days=FORUM_RECENT_DAYS)
+    new_topics = sorted(
+        (topic for topic in topics if _forum_timestamp_is_recent(topic.get("created_at"), cutoff)),
+        key=lambda topic: str(topic.get("created_at") or ""),
+        reverse=True,
+    )[:FORUM_NEW_TOPIC_LIMIT]
+    new_ids = {topic.get("id") for topic in new_topics}
+    refreshed_topics = sorted(
+        (
+            topic for topic in topics
+            if topic.get("id") not in new_ids
+            and _forum_timestamp_is_recent(topic.get("bumped_at") or topic.get("last_posted_at"), cutoff)
+        ),
+        key=lambda topic: str(topic.get("bumped_at") or topic.get("last_posted_at") or ""),
+        reverse=True,
+    )[:FORUM_REFRESHED_TOPIC_LIMIT]
+    return {
+        "source": "Discourse",
+        "url": MORPHO_FORUM_URL,
+        "recent_days": FORUM_RECENT_DAYS,
+        "new_topics": [_forum_topic(topic) for topic in new_topics],
+        "recently_refreshed_topics": [_forum_topic(topic) for topic in refreshed_topics],
+    }
+
 def yahoo_close(batch,symbol,count):
     v=batch["Close"] if count==1 else batch[(symbol,"Close")]; v=pd.to_numeric(v,errors="coerce").dropna()
     v.index=pd.to_datetime(v.index).tz_localize(None)
@@ -110,6 +210,14 @@ def cache():
     try:
         p=json.loads(OUTPUT_PATH.read_text()); return {x["column"]:{y["date"]:y["value"] for y in x["history"]} for x in p.get("series",[])}
     except (json.JSONDecodeError,KeyError,TypeError,OSError): return {}
+
+def cached_morpho_forum():
+    if not OUTPUT_PATH.exists(): return None
+    try:
+        payload=json.loads(OUTPUT_PATH.read_text())
+        morpho=next(item for item in payload.get("series",[]) if item.get("symbol")=="morpho")
+        return morpho.get("forum")
+    except (json.JSONDecodeError,KeyError,TypeError,OSError,StopIteration): return None
 
 def number(v):
     x=float(v); return round(x,6) if math.isfinite(x) else None
@@ -147,7 +255,7 @@ def calculate_returns(points):
     }
 
 def build_payload():
-    old=cache(); yahoo=[x for x in SERIES if x["source"]=="Yahoo"]; batch=None; yerr=None
+    old=cache(); old_forum=cached_morpho_forum(); yahoo=[x for x in SERIES if x["source"]=="Yahoo"]; batch=None; yerr=None
     try: batch=fetch_yahoo_batch(yahoo)
     except Exception as exc: yerr=exc
     out=[]; fresh=0; cutoff=START.strftime("%Y-%m-%d")
@@ -156,15 +264,23 @@ def build_payload():
         try:
             if item["source"] == "FRED":
                 vals = fetch_fred(item["symbol"])
-            else:
+            elif item["source"] == "Yahoo":
                 if batch is None:
                     raise yerr or RuntimeError("Yahoo unavailable")
                 vals = yahoo_close(batch, item["symbol"], len(yahoo))
+            else:
+                vals = fetch_coingecko_history(item["symbol"])
             history={d.strftime("%Y-%m-%d"):number(v) for d,v in vals.items()}; fresh+=1
         except Exception as exc:
             history=old.get(item["column"],{}); status="cached" if history else "error"; error=str(exc)
         history={d:v for d,v in history.items() if d>=cutoff and v is not None}; points=[{"date":d,"value":v} for d,v in sorted(history.items())]
-        out.append({**item,"chart":chart_filename(item),"status":status,"error":error,"latest":points[-1] if points else None,"returns":calculate_returns(points),"history":points})
+        result={**item,"chart":chart_filename(item),"status":status,"error":error,"latest":points[-1] if points else None,"returns":calculate_returns(points),"history":points}
+        if item["symbol"] == "morpho":
+            try:
+                result["forum"]=fetch_morpho_forum(); result["forum_status"]="fresh"; result["forum_error"]=None
+            except Exception as exc:
+                result["forum"]=old_forum; result["forum_status"]="cached" if old_forum else "error"; result["forum_error"]=str(exc)
+        out.append(result)
     if not any(x["history"] for x in out): raise RuntimeError("Every download failed and no cached data is available")
     return {"generated_at":pd.Timestamp.now(tz="UTC").isoformat(),"period":{"start":cutoff,"end":TODAY.strftime("%Y-%m-%d")},"fresh_series":fresh,"total_series":len(SERIES),"series":out}
 
