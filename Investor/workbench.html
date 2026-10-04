@@ -502,7 +502,7 @@
       <span>Market price</span>
     </div>
 
-    <div class="defi-row">
+    <div class="defi-row" data-symbol="morpho" data-market="Morpho">
       <a
         class="defi-name"
         href="https://forum.morpho.org/"
@@ -512,13 +512,72 @@
 
       <a
         class="defi-price"
-        id="morphoPrice"
-        href="https://coinmarketcap.com/currencies/morpho/"
+        href="https://www.coingecko.com/en/coins/morpho"
         target="_blank"
         rel="noopener noreferrer"
       >Price unavailable</a>
 
-      <span class="defi-date" id="morphoDate">
+      <span class="defi-date">
+        Date unavailable
+      </span>
+    </div>
+
+    <div class="defi-row" data-symbol="euler" data-market="Euler">
+      <a
+        class="defi-name"
+        href="https://forum.euler.finance/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Euler</a>
+
+      <a
+        class="defi-price"
+        href="https://www.coingecko.com/en/coins/euler"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Price unavailable</a>
+
+      <span class="defi-date">
+        Date unavailable
+      </span>
+    </div>
+
+    <div class="defi-row" data-symbol="uniswap" data-market="Uniswap">
+      <a
+        class="defi-name"
+        href="https://gov.uniswap.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Uniswap</a>
+
+      <a
+        class="defi-price"
+        href="https://www.coingecko.com/en/coins/uniswap"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Price unavailable</a>
+
+      <span class="defi-date">
+        Date unavailable
+      </span>
+    </div>
+
+    <div class="defi-row" data-symbol="lido-dao" data-market="Lido DAO">
+      <a
+        class="defi-name"
+        href="https://research.lido.fi/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Lido DAO</a>
+
+      <a
+        class="defi-price"
+        href="https://www.coingecko.com/en/coins/lido-dao"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Price unavailable</a>
+
+      <span class="defi-date">
         Date unavailable
       </span>
     </div>
@@ -915,7 +974,7 @@
    * The hosted page still fetches macro.json and gets future updates.
    */
   const bundledMacroData = {
-    "generated_at": "2026-09-30T13:33:02.894683+00:00",
+    "generated_at": "2026-10-04T08:21:17.966297+00:00",
     "series": [
       {
         "market": "U.S. 10Y Treasury",
@@ -1103,13 +1162,58 @@
         "symbol": "morpho",
         "unit": "USD",
         "latest": {
-          "date": "2026-10-01",
-          "value": 2.51717
+          "date": "2026-10-04",
+          "value": 2.737424
         },
         "returns": {
-          "1D": null,
-          "1W": null,
-          "1M": null
+          "1D": 6.668329,
+          "1W": 0.483878,
+          "1M": 10.169213
+        }
+      },
+      {
+        "market": "Euler",
+        "signal": "Crypto market price",
+        "symbol": "euler",
+        "unit": "USD",
+        "latest": {
+          "date": "2026-10-04",
+          "value": 1.435922
+        },
+        "returns": {
+          "1D": 5.612553,
+          "1W": -5.554686,
+          "1M": 6.376255
+        }
+      },
+      {
+        "market": "Uniswap",
+        "signal": "Crypto market price",
+        "symbol": "uniswap",
+        "unit": "USD",
+        "latest": {
+          "date": "2026-10-04",
+          "value": 9.046303
+        },
+        "returns": {
+          "1D": 1.08882,
+          "1W": -6.749931,
+          "1M": 42.961695
+        }
+      },
+      {
+        "market": "Lido DAO",
+        "signal": "Crypto market price",
+        "symbol": "lido-dao",
+        "unit": "USD",
+        "latest": {
+          "date": "2026-10-04",
+          "value": 0.455603
+        },
+        "returns": {
+          "1D": 3.888496,
+          "1W": -4.719252,
+          "1M": 15.360639
         }
       }
     ]
@@ -1121,7 +1225,7 @@
     let macro = bundledMacroData;
 
     if (window.location.protocol !== "file:") {
-      const response = await fetch("../data/macro.json");
+      const response = await fetch("../data/macro.json", { cache: "no-cache" });
 
       if (!response.ok) {
         throw new Error("Could not load macro.json (HTTP " + response.status + ")");
@@ -1146,13 +1250,6 @@
         ? bitcoinChange24h
         : fallbackBtc.change24h
     };
-
-    const morphoSeries = macro.series.find(series =>
-      series.symbol === "morpho" ||
-      String(series.market).toLowerCase() === "morpho"
-    );
-    const morphoValue = morphoSeries?.latest?.value;
-    const morphoPrice = morphoValue == null ? NaN : Number(morphoValue);
 
     const markets = macro.series
       .map(series => {
@@ -1242,21 +1339,30 @@
       ? "positive"
       : "negative";
 
-  document.getElementById("morphoPrice").textContent =
-    (
-      Number.isFinite(morphoPrice)
-        ? "$" + morphoPrice.toLocaleString(
+  document.querySelectorAll(".defi-row[data-symbol]").forEach(row => {
+    const symbol = row.dataset.symbol;
+    const market = row.dataset.market.toLowerCase();
+    const series = macro.series.find(item =>
+      item.symbol === symbol ||
+      String(item.market).toLowerCase() === market
+    );
+    const value = series?.latest?.value;
+    const price = value == null ? NaN : Number(value);
+
+    row.querySelector(".defi-price").textContent =
+      Number.isFinite(price)
+        ? "$" + price.toLocaleString(
             "en-US",
             {
               minimumFractionDigits: 2,
               maximumFractionDigits: 4
             }
           )
-        : "PRICE UNAVAILABLE"
-    );
+        : "PRICE UNAVAILABLE";
 
-  document.getElementById("morphoDate").textContent =
-    formatObservationDate(morphoSeries?.latest?.date);
+    row.querySelector(".defi-date").textContent =
+      formatObservationDate(series?.latest?.date);
+  });
 
 
   /*

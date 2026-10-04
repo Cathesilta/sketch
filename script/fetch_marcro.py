@@ -21,7 +21,12 @@ OUTPUT_PATH = DATA_DIR / "macro.json"
 CHART_DIR = DATA_DIR / "charts"
 FRED_API_URL = "https://api.stlouisfed.org/fred/series/observations"
 COINGECKO_MARKET_CHART_URL = "https://api.coingecko.com/api/v3/coins/{coin_id}/market_chart"
-MORPHO_FORUM_URL = "https://forum.morpho.org"
+DEFI_FORUM_URLS = {
+    "morpho": "https://forum.morpho.org",
+    "euler": "https://forum.euler.finance",
+    "uniswap": "https://gov.uniswap.org",
+    "lido-dao": "https://research.lido.fi",
+}
 FORUM_RECENT_DAYS = 7
 FORUM_NEW_TOPIC_LIMIT = 5
 FORUM_REFRESHED_TOPIC_LIMIT = 3
@@ -39,6 +44,9 @@ SERIES = [
  {"rank":10,"market":"Nasdaq Composite","signal":"Market response","source":"Yahoo","symbol":"^IXIC","column":"Nasdaq Composite","unit":"Index"},
  {"rank":11,"market":"Bitcoin","signal":"Crypto market price","source":"Yahoo","symbol":"BTC-USD","column":"Bitcoin","unit":"USD"},
  {"rank":12,"market":"Morpho","signal":"Crypto market price","source":"CoinGecko","symbol":"morpho","column":"Morpho","unit":"USD"},
+ {"rank":13,"market":"Euler","signal":"Crypto market price","source":"CoinGecko","symbol":"euler","column":"Euler","unit":"USD"},
+ {"rank":14,"market":"Uniswap","signal":"Crypto market price","source":"CoinGecko","symbol":"uniswap","column":"Uniswap","unit":"USD"},
+ {"rank":15,"market":"Lido DAO","signal":"Crypto market price","source":"CoinGecko","symbol":"lido-dao","column":"Lido DAO","unit":"USD"},
 ]
 
 def fetch_fred(series_id, start=START, end=TODAY):
@@ -145,24 +153,25 @@ def _forum_timestamp_is_recent(value, cutoff):
         timestamp = timestamp.replace(tzinfo=timezone.utc)
     return timestamp >= cutoff
 
-def _forum_topic(topic):
+def _forum_topic(topic, forum_url):
     topic_id = topic.get("id")
     slug = topic.get("slug")
     posts_count = topic.get("posts_count")
     return {
         "id": topic_id,
         "title": topic.get("title") or "",
-        "url": f"{MORPHO_FORUM_URL}/t/{slug}/{topic_id}" if slug and topic_id else None,
+        "url": f"{forum_url}/t/{slug}/{topic_id}" if slug and topic_id else None,
         "created_at": topic.get("created_at"),
         "last_activity_at": topic.get("bumped_at") or topic.get("last_posted_at"),
         "replies": max(posts_count - 1, 0) if isinstance(posts_count, int) else None,
         "views": topic.get("views"),
     }
 
-def fetch_morpho_forum():
-    """Fetch Morpho's newest and recently refreshed Discourse topics."""
+def fetch_defi_forum(forum_url):
+    """Fetch a DeFi project's newest and recently refreshed Discourse topics."""
+    forum_url = forum_url.rstrip("/")
     response = requests.get(
-        f"{MORPHO_FORUM_URL}/latest.json",
+        f"{forum_url}/latest.json",
         params={"no_definitions": "true"},
         timeout=30,
         headers={
@@ -193,10 +202,10 @@ def fetch_morpho_forum():
     )[:FORUM_REFRESHED_TOPIC_LIMIT]
     return {
         "source": "Discourse",
-        "url": MORPHO_FORUM_URL,
+        "url": forum_url,
         "recent_days": FORUM_RECENT_DAYS,
-        "new_topics": [_forum_topic(topic) for topic in new_topics],
-        "recently_refreshed_topics": [_forum_topic(topic) for topic in refreshed_topics],
+        "new_topics": [_forum_topic(topic, forum_url) for topic in new_topics],
+        "recently_refreshed_topics": [_forum_topic(topic, forum_url) for topic in refreshed_topics],
     }
 
 def yahoo_close(batch,symbol,count):
@@ -211,13 +220,16 @@ def cache():
         p=json.loads(OUTPUT_PATH.read_text()); return {x["column"]:{y["date"]:y["value"] for y in x["history"]} for x in p.get("series",[])}
     except (json.JSONDecodeError,KeyError,TypeError,OSError): return {}
 
-def cached_morpho_forum():
-    if not OUTPUT_PATH.exists(): return None
+def cached_defi_forums():
+    if not OUTPUT_PATH.exists(): return {}
     try:
         payload=json.loads(OUTPUT_PATH.read_text())
-        morpho=next(item for item in payload.get("series",[]) if item.get("symbol")=="morpho")
-        return morpho.get("forum")
-    except (json.JSONDecodeError,KeyError,TypeError,OSError,StopIteration): return None
+        return {
+            item["symbol"]: item.get("forum")
+            for item in payload.get("series", [])
+            if item.get("symbol") in DEFI_FORUM_URLS and item.get("forum")
+        }
+    except (json.JSONDecodeError,KeyError,TypeError,OSError): return {}
 
 def number(v):
     x=float(v); return round(x,6) if math.isfinite(x) else None
@@ -255,7 +267,7 @@ def calculate_returns(points):
     }
 
 def build_payload():
-    old=cache(); old_forum=cached_morpho_forum(); yahoo=[x for x in SERIES if x["source"]=="Yahoo"]; batch=None; yerr=None
+    old=cache(); old_forums=cached_defi_forums(); yahoo=[x for x in SERIES if x["source"]=="Yahoo"]; batch=None; yerr=None
     try: batch=fetch_yahoo_batch(yahoo)
     except Exception as exc: yerr=exc
     out=[]; fresh=0; cutoff=START.strftime("%Y-%m-%d")
@@ -275,10 +287,11 @@ def build_payload():
             history=old.get(item["column"],{}); status="cached" if history else "error"; error=str(exc)
         history={d:v for d,v in history.items() if d>=cutoff and v is not None}; points=[{"date":d,"value":v} for d,v in sorted(history.items())]
         result={**item,"chart":chart_filename(item),"status":status,"error":error,"latest":points[-1] if points else None,"returns":calculate_returns(points),"history":points}
-        if item["symbol"] == "morpho":
+        if item["symbol"] in DEFI_FORUM_URLS:
             try:
-                result["forum"]=fetch_morpho_forum(); result["forum_status"]="fresh"; result["forum_error"]=None
+                result["forum"]=fetch_defi_forum(DEFI_FORUM_URLS[item["symbol"]]); result["forum_status"]="fresh"; result["forum_error"]=None
             except Exception as exc:
+                old_forum=old_forums.get(item["symbol"])
                 result["forum"]=old_forum; result["forum_status"]="cached" if old_forum else "error"; result["forum_error"]=str(exc)
         out.append(result)
     if not any(x["history"] for x in out): raise RuntimeError("Every download failed and no cached data is available")
