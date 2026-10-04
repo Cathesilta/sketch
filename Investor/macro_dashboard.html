@@ -62,13 +62,15 @@
     .macro-table th, .macro-table td { padding: 0.7em; border-bottom: 1px solid #ddd; }
     .macro-table th { color: #333; }
     .macro-table td:nth-child(n+3), .macro-table th:nth-child(n+3) { text-align: right; }
+    .macro-index-link { color: inherit; text-decoration: underline; text-underline-offset: 0.18em; }
+    .macro-index-link:hover, .macro-index-link:focus { color: #165d9c; }
     .return-positive { color: #16803c; }
     .return-negative { color: #b42318; }
     .data-stale { color: #9a6700; }
     .data-error { color: #b42318; }
     .macro-chart { width: 100%; min-height: 300px; display: block; margin-top: 1em; }
     .interactive-chart { min-height: 300px; }
-    .asset-view { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 1.5em; align-items: start; margin: 2em 0; padding: 1em 0; border-top: 1px solid #ddd; }
+    .asset-view { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 1.5em; align-items: start; margin: 2em 0; padding: 1em 0; border-top: 1px solid #ddd; scroll-margin-top: 1em; }
     .sample-table { width: 100%; border-collapse: collapse; font-size: 0.88em; }
     .sample-table th, .sample-table td { padding: 0.45em 0.35em; border-bottom: 1px solid #e5e5e5; white-space: nowrap; }
     .sample-table th { color: #333; }
@@ -120,12 +122,13 @@
       .then(data => {
         const rows = document.getElementById("macro-rows");
         const assetCharts = document.getElementById("asset-charts");
-        for (const item of data.series) {
+        for (const [index, item] of data.series.entries()) {
           if (!item.latest) continue;
+          const chartId = `macro-chart-${index + 1}`;
           const row = document.createElement("tr");
           if (item.status === "cached") row.className = "data-stale";
           const returns = item.returns || {};
-          row.innerHTML = `<td>${item.market}</td><td>${item.signal}</td>` +
+          row.innerHTML = `<td><a class="macro-index-link" href="#${chartId}">${item.market}</a></td><td>${item.signal}</td>` +
             `<td>${numberFormatter.format(item.latest.value)} <small>${item.unit}</small></td>` +
             `<td>${formatReturn(returns["1D"])}</td>` +
             `<td>${formatReturn(returns["1W"])}</td>` +
@@ -135,6 +138,7 @@
           const points = item.history || [];
           const view = document.createElement("div");
           view.className = "asset-view";
+          view.id = chartId;
           const sampleTable = document.createElement("table");
           sampleTable.className = "sample-table";
           sampleTable.innerHTML = "<thead><tr><th>Age</th><th>Target</th><th>Observed</th><th>Value</th></tr></thead>";
