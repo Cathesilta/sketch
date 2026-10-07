@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T02:13:04.773113+00:00",
+  "generated_at": "2026-10-07T07:14:18.098583+00:00",
   "period": {
     "start": "2025-10-07",
     "end": "2026-10-07"
@@ -1038,13 +1038,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-06",
-        "value": 102.013
+        "date": "2026-10-07",
+        "value": 102.073997
       },
       "returns": {
-        "1D": -0.153664,
-        "1W": 0.634307,
-        "1M": 2.877164
+        "1D": 0.23961,
+        "1W": 0.615081,
+        "1M": 2.938678
       },
       "history": [
         {
@@ -2049,7 +2049,11 @@
         },
         {
           "date": "2026-10-06",
-          "value": 102.013
+          "value": 101.830002
+        },
+        {
+          "date": "2026-10-07",
+          "value": 102.073997
         }
       ]
     },
@@ -4155,13 +4159,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-06",
-        "value": 90.360001
+        "date": "2026-10-07",
+        "value": 89.989998
       },
       "returns": {
-        "1D": 1.039921,
-        "1W": 1.096447,
-        "1M": -1.224313
+        "1D": 0.614933,
+        "1W": -0.475559,
+        "1M": -1.628777
       },
       "history": [
         {
@@ -5166,7 +5170,11 @@
         },
         {
           "date": "2026-10-06",
-          "value": 90.360001
+          "value": 89.440002
+        },
+        {
+          "date": "2026-10-07",
+          "value": 89.989998
         }
       ]
     },
@@ -5182,13 +5190,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-06",
-        "value": 6.6455
+        "date": "2026-10-07",
+        "value": 6.611
       },
       "returns": {
-        "1D": 0.911093,
-        "1W": 1.558799,
-        "1M": 0.735183
+        "1D": 0.250209,
+        "1W": 0.792804,
+        "1M": 0.212218
       },
       "history": [
         {
@@ -6193,7 +6201,11 @@
         },
         {
           "date": "2026-10-06",
-          "value": 6.6455
+          "value": 6.5945
+        },
+        {
+          "date": "2026-10-07",
+          "value": 6.611
         }
       ]
     },
@@ -6209,13 +6221,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-06",
-        "value": 4172.700195
+        "date": "2026-10-07",
+        "value": 4157.799805
       },
       "returns": {
-        "1D": 0.382515,
-        "1W": -0.167476,
-        "1M": -6.788632
+        "1D": -0.699775,
+        "1W": -0.69029,
+        "1M": -7.121483
       },
       "history": [
         {
@@ -7220,7 +7232,11 @@
         },
         {
           "date": "2026-10-06",
-          "value": 4172.700195
+          "value": 4187.100098
+        },
+        {
+          "date": "2026-10-07",
+          "value": 4157.799805
         }
       ]
     },
@@ -10318,12 +10334,12 @@
       "error": null,
       "latest": {
         "date": "2026-10-06",
-        "value": 27599.886719
+        "value": 27599.789062
       },
       "returns": {
-        "1D": 0.4461,
-        "1W": 2.994109,
-        "1M": 4.12305
+        "1D": 0.445744,
+        "1W": 2.993745,
+        "1M": 4.122682
       },
       "history": [
         {
@@ -11328,7 +11344,7 @@
         },
         {
           "date": "2026-10-06",
-          "value": 27599.886719
+          "value": 27599.789062
         }
       ]
     },
@@ -11345,12 +11361,12 @@
       "error": null,
       "latest": {
         "date": "2026-10-07",
-        "value": 83950.789062
+        "value": 84231.789062
       },
       "returns": {
-        "1D": -2.139967,
-        "1W": 0.475068,
-        "1M": 6.111212
+        "1D": -1.549569,
+        "1W": 0.811378,
+        "1M": 6.466387
       },
       "history": [
         {
@@ -12810,8 +12826,12 @@
           "value": 85786.59375
         },
         {
+          "date": "2026-10-06",
+          "value": 85557.5625
+        },
+        {
           "date": "2026-10-07",
-          "value": 83950.789062
+          "value": 84231.789062
         }
       ]
     },
@@ -12828,12 +12848,12 @@
       "error": null,
       "latest": {
         "date": "2026-10-07",
-        "value": 2.587054
+        "value": 2.575391
       },
       "returns": {
-        "1D": -4.425979,
-        "1W": 4.637102,
-        "1M": -0.913325
+        "1D": -4.856847,
+        "1W": 4.165376,
+        "1M": -1.360029
       },
       "history": [
         {
@@ -14294,7 +14314,7 @@
         },
         {
           "date": "2026-10-07",
-          "value": 2.587054
+          "value": 2.575391
         }
       ],
       "forum": {
@@ -14320,12 +14340,12 @@
       "error": null,
       "latest": {
         "date": "2026-10-07",
-        "value": 1.463429
+        "value": 1.41693
       },
       "returns": {
-        "1D": 1.06505,
-        "1W": 3.536691,
-        "1M": 9.891462
+        "1D": -2.146191,
+        "1W": 0.246915,
+        "1M": 6.399771
       },
       "history": [
         {
@@ -15786,7 +15806,7 @@
         },
         {
           "date": "2026-10-07",
-          "value": 1.463429
+          "value": 1.41693
         }
       ],
       "forum": {
@@ -15812,12 +15832,12 @@
       "error": null,
       "latest": {
         "date": "2026-10-07",
-        "value": 8.193599
+        "value": 8.201825
       },
       "returns": {
-        "1D": -9.790818,
-        "1W": -7.787042,
-        "1M": 12.377074
+        "1D": -9.700252,
+        "1W": -7.694464,
+        "1M": 12.489895
       },
       "history": [
         {
@@ -17278,7 +17298,7 @@
         },
         {
           "date": "2026-10-07",
-          "value": 8.193599
+          "value": 8.201825
         }
       ],
       "forum": {
@@ -17293,7 +17313,7 @@
             "created_at": "2026-10-06T07:07:36.551Z",
             "last_activity_at": "2026-10-06T20:50:09.370Z",
             "replies": 2,
-            "views": 38
+            "views": 40
           }
         ],
         "recently_refreshed_topics": [
@@ -17313,7 +17333,7 @@
             "created_at": "2026-09-10T17:01:43.156Z",
             "last_activity_at": "2026-10-06T17:05:21.372Z",
             "replies": 7,
-            "views": 260
+            "views": 261
           },
           {
             "id": 26287,
@@ -17322,7 +17342,7 @@
             "created_at": "2026-09-18T14:39:50.291Z",
             "last_activity_at": "2026-10-05T14:04:28.911Z",
             "replies": 6,
-            "views": 498
+            "views": 500
           }
         ]
       },
@@ -17342,12 +17362,12 @@
       "error": null,
       "latest": {
         "date": "2026-10-07",
-        "value": 0.450617
+        "value": 0.437959
       },
       "returns": {
-        "1D": -4.455602,
-        "1W": -3.423969,
-        "1M": 8.12853
+        "1D": -7.13948,
+        "1W": -6.136826,
+        "1M": 5.09116
       },
       "history": [
         {
@@ -18808,7 +18828,7 @@
         },
         {
           "date": "2026-10-07",
-          "value": 0.450617
+          "value": 0.437959
         }
       ],
       "forum": {
@@ -18817,13 +18837,22 @@
         "recent_days": 7,
         "new_topics": [
           {
+            "id": 11982,
+            "title": "NEST: tying the buyback threshold to the approved budget",
+            "url": "https://research.lido.fi/t/nest-tying-the-buyback-threshold-to-the-approved-budget/11982",
+            "created_at": "2026-10-07T03:45:47.040Z",
+            "last_activity_at": "2026-10-07T03:45:47.135Z",
+            "replies": 0,
+            "views": 27
+          },
+          {
             "id": 11980,
             "title": "Reconfigure BSC governance forwarding after Wormhole auto delivery shutdown",
             "url": "https://research.lido.fi/t/reconfigure-bsc-governance-forwarding-after-wormhole-auto-delivery-shutdown/11980",
             "created_at": "2026-10-05T14:24:47.872Z",
             "last_activity_at": "2026-10-05T14:24:47.985Z",
             "replies": 0,
-            "views": 67
+            "views": 69
           },
           {
             "id": 11969,
@@ -18832,7 +18861,7 @@
             "created_at": "2026-10-01T14:15:18.145Z",
             "last_activity_at": "2026-10-01T14:15:18.217Z",
             "replies": 0,
-            "views": 40
+            "views": 41
           },
           {
             "id": 11961,
@@ -18841,7 +18870,7 @@
             "created_at": "2026-09-30T23:40:48.976Z",
             "last_activity_at": "2026-10-05T09:39:45.666Z",
             "replies": 1,
-            "views": 1505
+            "views": 1512
           }
         ],
         "recently_refreshed_topics": [
@@ -18850,27 +18879,27 @@
             "title": "The Guided Open Objective Setting Exercise (“GOOSE”) proposal; A genesis step to jump-start a DAO-wide goal setting exercise and cadence",
             "url": "https://research.lido.fi/t/the-guided-open-objective-setting-exercise-goose-proposal-a-genesis-step-to-jump-start-a-dao-wide-goal-setting-exercise-and-cadence/5355",
             "created_at": "2023-09-01T17:09:41.211Z",
-            "last_activity_at": "2026-10-06T15:16:50.732Z",
-            "replies": 26,
-            "views": 7052
+            "last_activity_at": "2026-10-07T05:40:42.634Z",
+            "replies": 27,
+            "views": 7062
           },
           {
             "id": 11915,
             "title": "A message to the Lido team",
             "url": "https://research.lido.fi/t/a-message-to-the-lido-team/11915",
             "created_at": "2026-09-13T06:32:42.168Z",
-            "last_activity_at": "2026-10-06T04:52:15.701Z",
-            "replies": 32,
-            "views": 756
+            "last_activity_at": "2026-10-07T04:53:16.596Z",
+            "replies": 33,
+            "views": 774
           },
           {
-            "id": 6840,
-            "title": "LIP-21: Simple On-chain Delegation",
-            "url": "https://research.lido.fi/t/lip-21-simple-on-chain-delegation/6840",
-            "created_at": "2024-03-08T14:29:09.923Z",
-            "last_activity_at": "2026-10-05T09:33:47.776Z",
-            "replies": 33,
-            "views": 3282
+            "id": 10191,
+            "title": "Kuzmich Delegate Thread",
+            "url": "https://research.lido.fi/t/kuzmich-delegate-thread/10191",
+            "created_at": "2025-06-11T15:28:34.392Z",
+            "last_activity_at": "2026-10-07T03:48:30.007Z",
+            "replies": 46,
+            "views": 1003
           }
         ]
       },
