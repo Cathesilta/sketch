@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-06T07:34:29.151832+00:00",
+  "generated_at": "2026-10-07T02:13:04.773113+00:00",
   "period": {
-    "start": "2025-10-06",
-    "end": "2026-10-06"
+    "start": "2025-10-07",
+    "end": "2026-10-07"
   },
   "fresh_series": 16,
   "total_series": 16,
@@ -19,19 +19,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-02",
-        "value": 5.28
+        "date": "2026-10-05",
+        "value": 5.31
       },
       "returns": {
-        "1D": 0.763359,
-        "1W": 2.12766,
-        "1M": 10.229645
+        "1D": 0.568182,
+        "1W": 1.335878,
+        "1M": 11.087866
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 4.18
-        },
         {
           "date": "2025-10-07",
           "value": 4.14
@@ -1023,6 +1019,10 @@
         {
           "date": "2026-10-02",
           "value": 5.28
+        },
+        {
+          "date": "2026-10-05",
+          "value": 5.31
         }
       ]
     },
@@ -1039,18 +1039,14 @@
       "error": null,
       "latest": {
         "date": "2026-10-06",
-        "value": 102.186996
+        "value": 102.013
       },
       "returns": {
-        "1D": 0.016637,
-        "1W": 0.805951,
-        "1M": 3.052634
+        "1D": -0.153664,
+        "1W": 0.634307,
+        "1M": 2.877164
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 98.110001
-        },
         {
           "date": "2025-10-07",
           "value": 98.580002
@@ -2053,7 +2049,7 @@
         },
         {
           "date": "2026-10-06",
-          "value": 102.186996
+          "value": 102.013
         }
       ]
     },
@@ -2069,19 +2065,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-02",
-        "value": 4.83
+        "date": "2026-10-05",
+        "value": 4.84
       },
       "returns": {
-        "1D": 1.046025,
-        "1W": 0.4158,
-        "1M": 10.022779
+        "1D": 0.207039,
+        "1W": -1.626016,
+        "1M": 10.755149
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 3.6
-        },
         {
           "date": "2025-10-07",
           "value": 3.57
@@ -3073,6 +3065,10 @@
         {
           "date": "2026-10-02",
           "value": 4.83
+        },
+        {
+          "date": "2026-10-05",
+          "value": 4.84
         }
       ]
     },
@@ -3088,19 +3084,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-02",
-        "value": 3.1
+        "date": "2026-10-05",
+        "value": 3.12
       },
       "returns": {
-        "1D": -4.320988,
-        "1W": 5.802048,
-        "1M": 16.541353
+        "1D": 0.645161,
+        "1W": 3.311258,
+        "1M": 16.41791
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 2.76
-        },
         {
           "date": "2025-10-07",
           "value": 2.82
@@ -4144,6 +4136,10 @@
         {
           "date": "2026-10-02",
           "value": 3.1
+        },
+        {
+          "date": "2026-10-05",
+          "value": 3.12
         }
       ]
     },
@@ -4160,18 +4156,14 @@
       "error": null,
       "latest": {
         "date": "2026-10-06",
-        "value": 88.370003
+        "value": 90.360001
       },
       "returns": {
-        "1D": -1.185281,
-        "1W": -1.13,
-        "1M": -3.39965
+        "1D": 1.039921,
+        "1W": 1.096447,
+        "1M": -1.224313
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 61.689999
-        },
         {
           "date": "2025-10-07",
           "value": 61.73
@@ -5174,7 +5166,7 @@
         },
         {
           "date": "2026-10-06",
-          "value": 88.370003
+          "value": 90.360001
         }
       ]
     },
@@ -5191,18 +5183,14 @@
       "error": null,
       "latest": {
         "date": "2026-10-06",
-        "value": 6.649
+        "value": 6.6455
       },
       "returns": {
-        "1D": 0.96424,
-        "1W": 1.612287,
-        "1M": 0.788237
+        "1D": 0.911093,
+        "1W": 1.558799,
+        "1M": 0.735183
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 4.987
-        },
         {
           "date": "2025-10-07",
           "value": 5.048
@@ -6205,7 +6193,7 @@
         },
         {
           "date": "2026-10-06",
-          "value": 6.649
+          "value": 6.6455
         }
       ]
     },
@@ -6222,18 +6210,14 @@
       "error": null,
       "latest": {
         "date": "2026-10-06",
-        "value": 4166.299805
+        "value": 4172.700195
       },
       "returns": {
-        "1D": 0.228541,
-        "1W": -0.320606,
-        "1M": -6.931606
+        "1D": 0.382515,
+        "1W": -0.167476,
+        "1M": -6.788632
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 3976.300049
-        },
         {
           "date": "2025-10-07",
           "value": 4004.399902
@@ -7236,7 +7220,7 @@
         },
         {
           "date": "2026-10-06",
-          "value": 4166.299805
+          "value": 4172.700195
         }
       ]
     },
@@ -7253,18 +7237,14 @@
       "error": null,
       "latest": {
         "date": "2026-10-06",
-        "value": 15.5
+        "value": 15.01
       },
       "returns": {
-        "1D": -0.128866,
-        "1W": -3.36659,
-        "1M": 6.675843
+        "1D": -3.286082,
+        "1W": -6.421452,
+        "1M": 3.30351
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 16.370001
-        },
         {
           "date": "2025-10-07",
           "value": 17.24
@@ -8275,7 +8255,7 @@
         },
         {
           "date": "2026-10-06",
-          "value": 15.5
+          "value": 15.01
         }
       ]
     },
@@ -8291,19 +8271,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-02",
-        "value": 5.63
+        "date": "2026-10-05",
+        "value": 5.66
       },
       "returns": {
-        "1D": 0.356506,
-        "1W": 2.550091,
-        "1M": 6.83112
+        "1D": 0.53286,
+        "1W": 1.798561,
+        "1M": 8.015267
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 4.76
-        },
         {
           "date": "2025-10-07",
           "value": 4.73
@@ -9295,6 +9271,10 @@
         {
           "date": "2026-10-02",
           "value": 5.63
+        },
+        {
+          "date": "2026-10-05",
+          "value": 5.66
         }
       ]
     },
@@ -9310,19 +9290,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-05",
-        "value": 7773.950195
+        "date": "2026-10-06",
+        "value": 7818.930176
       },
       "returns": {
-        "1D": 0.663367,
-        "1W": 1.174699,
-        "1M": 0.7171
+        "1D": 0.578599,
+        "1W": 1.930562,
+        "1M": 1.299848
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 6740.279785
-        },
         {
           "date": "2025-10-07",
           "value": 6714.589844
@@ -10322,6 +10298,10 @@
         {
           "date": "2026-10-05",
           "value": 7773.950195
+        },
+        {
+          "date": "2026-10-06",
+          "value": 7818.930176
         }
       ]
     },
@@ -10337,19 +10317,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-05",
-        "value": 27477.310547
+        "date": "2026-10-06",
+        "value": 27599.886719
       },
       "returns": {
-        "1D": 1.053483,
-        "1W": 2.449367,
-        "1M": 3.66062
+        "1D": 0.4461,
+        "1W": 2.994109,
+        "1M": 4.12305
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 22941.669922
-        },
         {
           "date": "2025-10-07",
           "value": 22788.359375
@@ -11349,6 +11325,10 @@
         {
           "date": "2026-10-05",
           "value": 27477.310547
+        },
+        {
+          "date": "2026-10-06",
+          "value": 27599.886719
         }
       ]
     },
@@ -11364,19 +11344,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-06",
-        "value": 85405.773438
+        "date": "2026-10-07",
+        "value": 83950.789062
       },
       "returns": {
-        "1D": -0.443916,
-        "1W": 2.132614,
-        "1M": 6.292126
+        "1D": -2.139967,
+        "1W": 0.475068,
+        "1M": 6.111212
       },
       "history": [
-        {
-          "date": "2025-10-06",
-          "value": 124752.53125
-        },
         {
           "date": "2025-10-07",
           "value": 121451.382812
@@ -12834,8 +12810,8 @@
           "value": 85786.59375
         },
         {
-          "date": "2026-10-06",
-          "value": 85405.773438
+          "date": "2026-10-07",
+          "value": 83950.789062
         }
       ]
     },
@@ -12851,19 +12827,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-06",
-        "value": 2.686046
+        "date": "2026-10-07",
+        "value": 2.587054
       },
       "returns": {
-        "1D": -1.986402,
-        "1W": 5.956249,
-        "1M": 7.858952
+        "1D": -4.425979,
+        "1W": 4.637102,
+        "1M": -0.913325
       },
       "history": [
-        {
-          "date": "2025-10-07",
-          "value": 1.921968
-        },
         {
           "date": "2025-10-08",
           "value": 1.778622
@@ -14318,7 +14290,11 @@
         },
         {
           "date": "2026-10-06",
-          "value": 2.686046
+          "value": 2.706859
+        },
+        {
+          "date": "2026-10-07",
+          "value": 2.587054
         }
       ],
       "forum": {
@@ -14343,19 +14319,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-06",
-        "value": 1.43212
+        "date": "2026-10-07",
+        "value": 1.463429
       },
       "returns": {
-        "1D": 0.37244,
-        "1W": 1.153062,
-        "1M": 8.65338
+        "1D": 1.06505,
+        "1W": 3.536691,
+        "1M": 9.891462
       },
       "history": [
-        {
-          "date": "2025-10-07",
-          "value": 10.690569
-        },
         {
           "date": "2025-10-08",
           "value": 10.252818
@@ -15810,7 +15782,11 @@
         },
         {
           "date": "2026-10-06",
-          "value": 1.43212
+          "value": 1.448007
+        },
+        {
+          "date": "2026-10-07",
+          "value": 1.463429
         }
       ],
       "forum": {
@@ -15835,19 +15811,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-06",
-        "value": 8.81295
+        "date": "2026-10-07",
+        "value": 8.193599
       },
       "returns": {
-        "1D": -2.909322,
-        "1W": 0.100806,
-        "1M": 25.030467
+        "1D": -9.790818,
+        "1W": -7.787042,
+        "1M": 12.377074
       },
       "history": [
-        {
-          "date": "2025-10-07",
-          "value": 8.373173
-        },
         {
           "date": "2025-10-08",
           "value": 7.770284
@@ -17302,7 +17274,11 @@
         },
         {
           "date": "2026-10-06",
-          "value": 8.81295
+          "value": 9.082888
+        },
+        {
+          "date": "2026-10-07",
+          "value": 8.193599
         }
       ],
       "forum": {
@@ -17315,12 +17291,30 @@
             "title": "[Discussion] Should v4 hooks on Robinhood Chain standardize session-aware pricing?",
             "url": "https://gov.uniswap.org/t/discussion-should-v4-hooks-on-robinhood-chain-standardize-session-aware-pricing/26297",
             "created_at": "2026-10-06T07:07:36.551Z",
-            "last_activity_at": "2026-10-06T07:07:36.639Z",
-            "replies": 0,
-            "views": 5
+            "last_activity_at": "2026-10-06T20:50:09.370Z",
+            "replies": 2,
+            "views": 38
           }
         ],
         "recently_refreshed_topics": [
+          {
+            "id": 26036,
+            "title": "Axia Network Delegate Platform",
+            "url": "https://gov.uniswap.org/t/axia-network-delegate-platform/26036",
+            "created_at": "2026-02-20T21:49:40.384Z",
+            "last_activity_at": "2026-10-06T17:14:53.971Z",
+            "replies": 12,
+            "views": 338
+          },
+          {
+            "id": 26281,
+            "title": "[Temp Check] Rotate Sentinel Addresses on the DUNI-Owned Uniswap Earn Vaults",
+            "url": "https://gov.uniswap.org/t/temp-check-rotate-sentinel-addresses-on-the-duni-owned-uniswap-earn-vaults/26281",
+            "created_at": "2026-09-10T17:01:43.156Z",
+            "last_activity_at": "2026-10-06T17:05:21.372Z",
+            "replies": 7,
+            "views": 260
+          },
           {
             "id": 26287,
             "title": "[Temp Check] Protocol Fee Expansion: Arc",
@@ -17328,25 +17322,7 @@
             "created_at": "2026-09-18T14:39:50.291Z",
             "last_activity_at": "2026-10-05T14:04:28.911Z",
             "replies": 6,
-            "views": 488
-          },
-          {
-            "id": 24878,
-            "title": "Uniswap Foundation Security Fund (UFSF): Announcement Thread",
-            "url": "https://gov.uniswap.org/t/uniswap-foundation-security-fund-ufsf-announcement-thread/24878",
-            "created_at": "2024-11-05T13:42:16.666Z",
-            "last_activity_at": "2026-10-05T12:17:20.658Z",
-            "replies": 42,
-            "views": 1983
-          },
-          {
-            "id": 26281,
-            "title": "[Temp Check] Rotate Sentinel Addresses on the DUNI-Owned Uniswap Earn Vaults",
-            "url": "https://gov.uniswap.org/t/temp-check-rotate-sentinel-addresses-on-the-duni-owned-uniswap-earn-vaults/26281",
-            "created_at": "2026-09-10T17:01:43.156Z",
-            "last_activity_at": "2026-10-01T18:12:31.697Z",
-            "replies": 6,
-            "views": 255
+            "views": 498
           }
         ]
       },
@@ -17365,19 +17341,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-06",
-        "value": 0.462491
+        "date": "2026-10-07",
+        "value": 0.450617
       },
       "returns": {
-        "1D": -0.435509,
-        "1W": 4.592669,
-        "1M": 16.140154
+        "1D": -4.455602,
+        "1W": -3.423969,
+        "1M": 8.12853
       },
       "history": [
-        {
-          "date": "2025-10-07",
-          "value": 1.257666
-        },
         {
           "date": "2025-10-08",
           "value": 1.186703
@@ -18832,7 +18804,11 @@
         },
         {
           "date": "2026-10-06",
-          "value": 0.462491
+          "value": 0.471631
+        },
+        {
+          "date": "2026-10-07",
+          "value": 0.450617
         }
       ],
       "forum": {
@@ -18847,7 +18823,7 @@
             "created_at": "2026-10-05T14:24:47.872Z",
             "last_activity_at": "2026-10-05T14:24:47.985Z",
             "replies": 0,
-            "views": 55
+            "views": 67
           },
           {
             "id": 11969,
@@ -18865,19 +18841,28 @@
             "created_at": "2026-09-30T23:40:48.976Z",
             "last_activity_at": "2026-10-05T09:39:45.666Z",
             "replies": 1,
-            "views": 1471
-          },
-          {
-            "id": 11959,
-            "title": "LEGO Grant Proposal: trace-interop, cross-client trace_* API standardization",
-            "url": "https://research.lido.fi/t/lego-grant-proposal-trace-interop-cross-client-trace-api-standardization/11959",
-            "created_at": "2026-09-29T09:54:26.784Z",
-            "last_activity_at": "2026-09-29T09:54:26.910Z",
-            "replies": 0,
-            "views": 85
+            "views": 1505
           }
         ],
         "recently_refreshed_topics": [
+          {
+            "id": 5355,
+            "title": "The Guided Open Objective Setting Exercise (“GOOSE”) proposal; A genesis step to jump-start a DAO-wide goal setting exercise and cadence",
+            "url": "https://research.lido.fi/t/the-guided-open-objective-setting-exercise-goose-proposal-a-genesis-step-to-jump-start-a-dao-wide-goal-setting-exercise-and-cadence/5355",
+            "created_at": "2023-09-01T17:09:41.211Z",
+            "last_activity_at": "2026-10-06T15:16:50.732Z",
+            "replies": 26,
+            "views": 7052
+          },
+          {
+            "id": 11915,
+            "title": "A message to the Lido team",
+            "url": "https://research.lido.fi/t/a-message-to-the-lido-team/11915",
+            "created_at": "2026-09-13T06:32:42.168Z",
+            "last_activity_at": "2026-10-06T04:52:15.701Z",
+            "replies": 32,
+            "views": 756
+          },
           {
             "id": 6840,
             "title": "LIP-21: Simple On-chain Delegation",
@@ -18885,25 +18870,7 @@
             "created_at": "2024-03-08T14:29:09.923Z",
             "last_activity_at": "2026-10-05T09:33:47.776Z",
             "replies": 33,
-            "views": 3278
-          },
-          {
-            "id": 10974,
-            "title": "Establishment of a Dedicated Bug Bounty Reserve Multisig",
-            "url": "https://research.lido.fi/t/establishment-of-a-dedicated-bug-bounty-reserve-multisig/10974",
-            "created_at": "2025-12-11T15:22:08.677Z",
-            "last_activity_at": "2026-10-05T09:02:06.744Z",
-            "replies": 13,
-            "views": 405
-          },
-          {
-            "id": 7,
-            "title": "Welcome to Lido DAO",
-            "url": "https://research.lido.fi/t/welcome-to-lido-dao/7",
-            "created_at": "2020-11-19T18:50:43.454Z",
-            "last_activity_at": "2026-10-01T13:32:22.669Z",
-            "replies": 32,
-            "views": 35593
+            "views": 3282
           }
         ]
       },
