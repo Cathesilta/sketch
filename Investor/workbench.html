@@ -969,12 +969,17 @@
     "nasdaq composite": "https://finance.yahoo.com/quote/%5EIXIC/chart/"
   };
 
+  // A 1% one-day move is material for liquid currencies and filters out
+  // routine day-to-day FX noise. The generated payload carries this value so
+  // the data producer and the alert UI stay in sync.
+  const fallbackCurrencyThreshold1D = 1;
+
   /*
    * A compact snapshot from data/macro.json for direct file:// viewing.
    * The hosted page still fetches macro.json and gets future updates.
    */
   const bundledMacroData = {
-    "generated_at": "2026-10-04T08:21:17.966297+00:00",
+    "generated_at": "2026-10-06T08:23:12.288880+00:00",
     "series": [
       {
         "market": "U.S. 10Y Treasury",
@@ -1216,7 +1221,31 @@
           "1M": 15.360639
         }
       }
-    ]
+    ],
+    "currencies": {
+      "source": "Frankfurter / ECB reference rates",
+      "basis": "Equal-weight geometric basket of the other 19 currencies",
+      "previous_date": "2026-10-02",
+      "latest_date": "2026-10-05",
+      "significant_1d_pct": 1.0,
+      "status": "fresh",
+      "error": null,
+      "series": [
+        {
+          "code": "BRL",
+          "name": "Brazilian real",
+          "region": "Brazil",
+          "chart_url": "https://www.tradingview.com/symbols/USDBRL/",
+          "latest": {
+            "date": "2026-10-05",
+            "basket_index": 108.003644
+          },
+          "returns": {
+            "1D": 4.678757
+          }
+        }
+      ]
+    }
   };
 
 
@@ -1232,6 +1261,12 @@
       }
 
       macro = await response.json();
+    }
+
+    // Keep direct-file and partially updated deployments useful while the
+    // generated JSON catches up with the currency-aware schema.
+    if (!Array.isArray(macro.currencies?.series)) {
+      macro.currencies = bundledMacroData.currencies;
     }
 
     if (!Array.isArray(macro.series)) {
@@ -1277,6 +1312,31 @@
         };
       })
       .filter(Boolean);
+
+    const configuredCurrencyThreshold =
+      Number(macro.currencies?.significant_1d_pct);
+    const currencyThreshold1D = Number.isFinite(configuredCurrencyThreshold) &&
+      configuredCurrencyThreshold > 0
+      ? Number(macro.currencies.significant_1d_pct)
+      : fallbackCurrencyThreshold1D;
+
+    const currencyMoves = Array.isArray(macro.currencies?.series)
+      ? macro.currencies.series
+          .map(currency => ({
+            market: currency.code + " · " + currency.name,
+            signal: "Equal-weight currency basket",
+            latestValue: Number(currency.latest?.basket_index),
+            latestDate: currency.latest?.date || null,
+            unit: "Basket index",
+            chartUrl: currency.chart_url || "./currency-observatory.html",
+            change: Number(currency.returns?.["1D"]),
+            threshold: currencyThreshold1D
+          }))
+          .filter(currency =>
+            Number.isFinite(currency.change) &&
+            Math.abs(currency.change) >= currency.threshold
+          )
+      : [];
 
 
   /*
@@ -1484,6 +1544,14 @@
 
   });
 
+  currencyMoves.forEach(currency => {
+    strikingChanges.push({
+      ...currency,
+      period: "1D",
+      strength: Math.abs(currency.change) / currency.threshold
+    });
+  });
+
 
   /*
    * Most abnormal first
@@ -1633,6 +1701,10 @@
 
     if (unit === "USD" || Object.hasOwn(suffixes, unit)) {
       return "$" + formatted + (suffixes[unit] || "");
+    }
+
+    if (unit === "Basket index") {
+      return formatted + " basket index";
     }
 
     return formatted + (unit ? " " + unit.toLowerCase() : "");

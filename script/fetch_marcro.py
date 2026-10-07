@@ -21,6 +21,30 @@ OUTPUT_PATH = DATA_DIR / "macro.json"
 CHART_DIR = DATA_DIR / "charts"
 FRED_API_URL = "https://api.stlouisfed.org/fred/series/observations"
 COINGECKO_MARKET_CHART_URL = "https://api.coingecko.com/api/v3/coins/{coin_id}/market_chart"
+CURRENCY_API_URL = "https://api.frankfurter.dev/v2/providers/ecb/rates"
+CURRENCY_SIGNIFICANT_1D_PCT = 1.0
+CURRENCIES = [
+    ("USD", "US dollar", "United States", "TVC-DXY"),
+    ("EUR", "Euro", "Euro area", "EURUSD"),
+    ("JPY", "Japanese yen", "Japan", "USDJPY"),
+    ("GBP", "Pound sterling", "United Kingdom", "GBPUSD"),
+    ("CNY", "Chinese yuan", "China", "USDCNY"),
+    ("CHF", "Swiss franc", "Switzerland", "USDCHF"),
+    ("AUD", "Australian dollar", "Australia", "AUDUSD"),
+    ("CAD", "Canadian dollar", "Canada", "USDCAD"),
+    ("HKD", "Hong Kong dollar", "Hong Kong SAR", "USDHKD"),
+    ("SGD", "Singapore dollar", "Singapore", "USDSGD"),
+    ("INR", "Indian rupee", "India", "USDINR"),
+    ("KRW", "South Korean won", "South Korea", "USDKRW"),
+    ("SEK", "Swedish krona", "Sweden", "USDSEK"),
+    ("MXN", "Mexican peso", "Mexico", "USDMXN"),
+    ("NZD", "New Zealand dollar", "New Zealand", "NZDUSD"),
+    ("NOK", "Norwegian krone", "Norway", "USDNOK"),
+    ("BRL", "Brazilian real", "Brazil", "USDBRL"),
+    ("ZAR", "South African rand", "South Africa", "USDZAR"),
+    ("PLN", "Polish zloty", "Poland", "USDPLN"),
+    ("MYR", "Malaysian ringgit", "Malaysia", "USDMYR"),
+]
 DEFI_FORUM_URLS = {
     "morpho": "https://forum.morpho.org",
     "euler": "https://forum.euler.finance",
@@ -142,6 +166,113 @@ def fetch_coingecko_history(coin_id, days=365, attempts=3):
             time.sleep(2**attempt * 5)
     raise RuntimeError(f"CoinGecko {coin_id} failed after {attempts} attempts: {last}")
 
+
+def fetch_currency_rates(start=START, end=TODAY, attempts=3):
+    """Fetch complete daily ECB currency baskets through Frankfurter."""
+    quotes = ",".join(code for code, *_ in CURRENCIES if code != "USD")
+    rows = []
+    for year in range(start.year, end.year + 1):
+        range_start = max(start, pd.Timestamp(year=year, month=1, day=1))
+        range_end = min(end, pd.Timestamp(year=year, month=12, day=31))
+        last_error = None
+        for attempt in range(attempts):
+            try:
+                response = requests.get(
+                    CURRENCY_API_URL,
+                    params={
+                        "base": "USD",
+                        "quotes": quotes,
+                        "from": range_start.strftime("%Y-%m-%d"),
+                        "to": range_end.strftime("%Y-%m-%d"),
+                    },
+                    timeout=30,
+                    headers={"User-Agent": "global-macro-dashboard/1.0"},
+                )
+                response.raise_for_status()
+                chunk = response.json()
+                if not isinstance(chunk, list):
+                    raise ValueError("unexpected Frankfurter response")
+                rows.extend(chunk)
+                break
+            except Exception as exc:
+                last_error = exc
+                if attempt + 1 < attempts:
+                    time.sleep(2 ** attempt * 5)
+        else:
+            raise RuntimeError(
+                f"Frankfurter currency rates failed after {attempts} attempts: {last_error}"
+            )
+
+    by_date = {}
+    valid_codes = {code for code, *_ in CURRENCIES}
+    for row in rows:
+        if not isinstance(row, dict) or row.get("base") != "USD":
+            continue
+        date = row.get("date")
+        code = row.get("quote")
+        rate = row.get("rate")
+        if code not in valid_codes or code == "USD" or not isinstance(date, str):
+            continue
+        try:
+            rate = float(rate)
+        except (TypeError, ValueError):
+            continue
+        if not math.isfinite(rate) or rate <= 0:
+            continue
+        by_date.setdefault(date, {"USD": 1.0})[code] = rate
+
+    complete = [
+        (date, rates)
+        for date, rates in sorted(by_date.items())
+        if all(code in rates for code, *_ in CURRENCIES)
+    ]
+    if len(complete) < 2:
+        raise ValueError("Frankfurter returned fewer than two complete currency baskets")
+    return complete
+
+
+def currency_basket_value(code, rates, base_rates):
+    """Equal-weight geometric index of one currency against its 19 peers."""
+    peers = [peer for peer, *_ in CURRENCIES if peer != code]
+    mean_log_change = sum(
+        math.log(
+            (rates[peer] / rates[code])
+            / (base_rates[peer] / base_rates[code])
+        )
+        for peer in peers
+    ) / len(peers)
+    return 100 * math.exp(mean_log_change)
+
+
+def build_currency_payload():
+    observations = fetch_currency_rates()
+    latest_date, latest_rates = observations[-1]
+    previous_date, previous_rates = observations[-2]
+    base_date, base_rates = observations[0]
+    series = []
+    for code, name, region, chart_symbol in CURRENCIES:
+        latest_index = currency_basket_value(code, latest_rates, base_rates)
+        previous_index = currency_basket_value(code, previous_rates, base_rates)
+        series.append({
+            "code": code,
+            "name": name,
+            "region": region,
+            "chart_url": f"https://www.tradingview.com/symbols/{chart_symbol}/",
+            "latest": {"date": latest_date, "basket_index": number(latest_index)},
+            "returns": {"1D": number((latest_index / previous_index - 1) * 100)},
+        })
+    return {
+        "source": "Frankfurter / ECB reference rates",
+        "basis": "Equal-weight geometric basket of the other 19 currencies",
+        "base_date": base_date,
+        "previous_date": previous_date,
+        "latest_date": latest_date,
+        "significant_1d_pct": CURRENCY_SIGNIFICANT_1D_PCT,
+        "status": "fresh",
+        "error": None,
+        "series": series,
+    }
+
 def _forum_timestamp_is_recent(value, cutoff):
     if not isinstance(value, str):
         return False
@@ -231,6 +362,12 @@ def cached_defi_forums():
         }
     except (json.JSONDecodeError,KeyError,TypeError,OSError): return {}
 
+def cached_currencies():
+    if not OUTPUT_PATH.exists(): return None
+    try:
+        return json.loads(OUTPUT_PATH.read_text()).get("currencies")
+    except (json.JSONDecodeError, TypeError, OSError): return None
+
 def number(v):
     x=float(v); return round(x,6) if math.isfinite(x) else None
 
@@ -267,7 +404,7 @@ def calculate_returns(points):
     }
 
 def build_payload():
-    old=cache(); old_forums=cached_defi_forums(); yahoo=[x for x in SERIES if x["source"]=="Yahoo"]; batch=None; yerr=None
+    old=cache(); old_forums=cached_defi_forums(); old_currencies=cached_currencies(); yahoo=[x for x in SERIES if x["source"]=="Yahoo"]; batch=None; yerr=None
     try: batch=fetch_yahoo_batch(yahoo)
     except Exception as exc: yerr=exc
     out=[]; fresh=0; cutoff=START.strftime("%Y-%m-%d")
@@ -295,7 +432,17 @@ def build_payload():
                 result["forum"]=old_forum; result["forum_status"]="cached" if old_forum else "error"; result["forum_error"]=str(exc)
         out.append(result)
     if not any(x["history"] for x in out): raise RuntimeError("Every download failed and no cached data is available")
-    return {"generated_at":pd.Timestamp.now(tz="UTC").isoformat(),"period":{"start":cutoff,"end":TODAY.strftime("%Y-%m-%d")},"fresh_series":fresh,"total_series":len(SERIES),"series":out}
+    try:
+        currencies = build_currency_payload()
+    except Exception as exc:
+        currencies = old_currencies or {
+            "source": "Frankfurter / ECB reference rates",
+            "basis": "Equal-weight geometric basket of the other 19 currencies",
+            "significant_1d_pct": CURRENCY_SIGNIFICANT_1D_PCT,
+            "series": [],
+        }
+        currencies = {**currencies, "status": "cached" if old_currencies else "error", "error": str(exc)}
+    return {"generated_at":pd.Timestamp.now(tz="UTC").isoformat(),"period":{"start":cutoff,"end":TODAY.strftime("%Y-%m-%d")},"fresh_series":fresh,"total_series":len(SERIES),"series":out,"currencies":currencies}
 
 def write_charts(payload: dict) -> None:
     """Render notebook-style one-year charts as static PNGs for GitHub Pages."""
