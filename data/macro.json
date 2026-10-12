@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-11T07:11:50.123462+00:00",
+  "generated_at": "2026-10-12T07:21:14.011010+00:00",
   "period": {
-    "start": "2025-10-11",
-    "end": "2026-10-11"
+    "start": "2025-10-12",
+    "end": "2026-10-12"
   },
   "fresh_series": 16,
   "total_series": 16,
@@ -1034,13 +1034,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-09",
-        "value": 102.209999
+        "date": "2026-10-12",
+        "value": 102.228996
       },
       "returns": {
-        "1D": 0.068533,
-        "1W": 0.274697,
-        "1M": 3.482841
+        "1D": 0.018586,
+        "1W": 0.057745,
+        "1M": 3.136595
       },
       "history": [
         {
@@ -2042,6 +2042,10 @@
         {
           "date": "2026-10-09",
           "value": 102.209999
+        },
+        {
+          "date": "2026-10-12",
+          "value": 102.228996
         }
       ]
     },
@@ -4139,13 +4143,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-09",
-        "value": 91.849998
+        "date": "2026-10-12",
+        "value": 91.150002
       },
       "returns": {
-        "1D": 0.393486,
-        "1W": 0.812202,
-        "1M": -4.372728
+        "1D": -0.762108,
+        "1W": 1.923294,
+        "1M": -8.895553
       },
       "history": [
         {
@@ -5147,6 +5151,10 @@
         {
           "date": "2026-10-09",
           "value": 91.849998
+        },
+        {
+          "date": "2026-10-12",
+          "value": 91.150002
         }
       ]
     },
@@ -5162,13 +5170,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-09",
-        "value": 6.692
+        "date": "2026-10-12",
+        "value": 6.732
       },
       "returns": {
-        "1D": 2.653781,
-        "1W": 3.080715,
-        "1M": -1.638862
+        "1D": 1.347384,
+        "1W": 2.224584,
+        "1M": 4.057501
       },
       "history": [
         {
@@ -6169,7 +6177,11 @@
         },
         {
           "date": "2026-10-09",
-          "value": 6.692
+          "value": 6.6425
+        },
+        {
+          "date": "2026-10-12",
+          "value": 6.732
         }
       ]
     },
@@ -6185,13 +6197,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-09",
-        "value": 4216.299805
+        "date": "2026-10-12",
+        "value": 4210.0
       },
       "returns": {
-        "1D": 1.426505,
-        "1W": 1.29736,
-        "1M": -5.478969
+        "1D": -0.149415,
+        "1W": 1.279835,
+        "1M": -4.511327
       },
       "history": [
         {
@@ -7193,6 +7205,10 @@
         {
           "date": "2026-10-09",
           "value": 4216.299805
+        },
+        {
+          "date": "2026-10-12",
+          "value": 4210.0
         }
       ]
     },
@@ -11300,19 +11316,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-11",
-        "value": 83050.21875
+        "date": "2026-10-12",
+        "value": 84051.703125
       },
       "returns": {
-        "1D": 0.610443,
-        "1W": -3.96632,
-        "1M": 7.61453
+        "1D": 0.444834,
+        "1W": -2.022333,
+        "1M": 8.775972
       },
       "history": [
-        {
-          "date": "2025-10-11",
-          "value": 110807.882812
-        },
         {
           "date": "2025-10-12",
           "value": 115169.765625
@@ -12766,8 +12778,16 @@
           "value": 82546.320312
         },
         {
+          "date": "2026-10-10",
+          "value": 82912.226562
+        },
+        {
           "date": "2026-10-11",
-          "value": 83050.21875
+          "value": 83679.46875
+        },
+        {
+          "date": "2026-10-12",
+          "value": 84051.703125
         }
       ]
     },
@@ -12783,19 +12803,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-11",
-        "value": 2.398856
+        "date": "2026-10-12",
+        "value": 2.478765
       },
       "returns": {
-        "1D": 0.494712,
-        "1W": -12.820293,
-        "1M": 6.208078
+        "1D": 1.719047,
+        "1W": -9.550068,
+        "1M": 7.570113
       },
       "history": [
-        {
-          "date": "2025-10-12",
-          "value": 1.606603
-        },
         {
           "date": "2025-10-13",
           "value": 1.971786
@@ -14250,7 +14266,11 @@
         },
         {
           "date": "2026-10-11",
-          "value": 2.398856
+          "value": 2.436874
+        },
+        {
+          "date": "2026-10-12",
+          "value": 2.478765
         }
       ],
       "forum": {
@@ -14264,9 +14284,9 @@
             "title": "[RFC] A User-centric DeFi Collateral Transparency Framework - Phase 1",
             "url": "https://forum.morpho.org/t/rfc-a-user-centric-defi-collateral-transparency-framework-phase-1/2301",
             "created_at": "2026-06-08T18:52:01.874Z",
-            "last_activity_at": "2026-10-09T08:57:31.043Z",
-            "replies": 11,
-            "views": 803
+            "last_activity_at": "2026-10-12T06:51:18.275Z",
+            "replies": 12,
+            "views": 822
           }
         ]
       },
@@ -14285,19 +14305,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-11",
-        "value": 1.374341
+        "date": "2026-10-12",
+        "value": 1.431906
       },
       "returns": {
-        "1D": -0.401628,
-        "1W": -4.0394,
-        "1M": 13.064514
+        "1D": 2.395511,
+        "1W": 0.357442,
+        "1M": 17.254012
       },
       "history": [
-        {
-          "date": "2025-10-12",
-          "value": 8.44646
-        },
         {
           "date": "2025-10-13",
           "value": 9.17763
@@ -15752,7 +15768,11 @@
         },
         {
           "date": "2026-10-11",
-          "value": 1.374341
+          "value": 1.398407
+        },
+        {
+          "date": "2026-10-12",
+          "value": 1.431906
         }
       ],
       "forum": {
@@ -15777,19 +15797,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-11",
-        "value": 7.559794
+        "date": "2026-10-12",
+        "value": 7.699299
       },
       "returns": {
-        "1D": 3.285709,
-        "1W": -16.479488,
-        "1M": 27.077808
+        "1D": 1.525955,
+        "1W": -15.178214,
+        "1M": 28.157203
       },
       "history": [
-        {
-          "date": "2025-10-12",
-          "value": 5.857914
-        },
         {
           "date": "2025-10-13",
           "value": 6.625471
@@ -17244,7 +17260,11 @@
         },
         {
           "date": "2026-10-11",
-          "value": 7.559794
+          "value": 7.583577
+        },
+        {
+          "date": "2026-10-12",
+          "value": 7.699299
         }
       ],
       "forum": {
@@ -17259,7 +17279,7 @@
             "created_at": "2026-10-06T07:07:36.551Z",
             "last_activity_at": "2026-10-09T18:37:20.224Z",
             "replies": 7,
-            "views": 91
+            "views": 100
           }
         ],
         "recently_refreshed_topics": [
@@ -17270,7 +17290,7 @@
             "created_at": "2026-02-20T21:49:40.384Z",
             "last_activity_at": "2026-10-06T17:14:53.971Z",
             "replies": 12,
-            "views": 350
+            "views": 353
           },
           {
             "id": 26281,
@@ -17279,7 +17299,7 @@
             "created_at": "2026-09-10T17:01:43.156Z",
             "last_activity_at": "2026-10-06T17:05:21.372Z",
             "replies": 7,
-            "views": 275
+            "views": 276
           },
           {
             "id": 26287,
@@ -17288,7 +17308,7 @@
             "created_at": "2026-09-18T14:39:50.291Z",
             "last_activity_at": "2026-10-05T14:04:28.911Z",
             "replies": 6,
-            "views": 536
+            "views": 542
           }
         ]
       },
@@ -17307,19 +17327,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-11",
-        "value": 0.435242
+        "date": "2026-10-12",
+        "value": 0.450343
       },
       "returns": {
-        "1D": 3.289912,
-        "1W": -6.912253,
-        "1M": 18.276139
+        "1D": 4.350415,
+        "1W": -3.050715,
+        "1M": 21.71893
       },
       "history": [
-        {
-          "date": "2025-10-12",
-          "value": 0.809346
-        },
         {
           "date": "2025-10-13",
           "value": 0.917025
@@ -18774,7 +18790,11 @@
         },
         {
           "date": "2026-10-11",
-          "value": 0.435242
+          "value": 0.431568
+        },
+        {
+          "date": "2026-10-12",
+          "value": 0.450343
         }
       ],
       "forum": {
@@ -18789,7 +18809,7 @@
             "created_at": "2026-10-09T11:45:22.868Z",
             "last_activity_at": "2026-10-09T11:45:22.936Z",
             "replies": 0,
-            "views": 58
+            "views": 64
           },
           {
             "id": 11996,
@@ -18798,25 +18818,25 @@
             "created_at": "2026-10-08T08:43:56.569Z",
             "last_activity_at": "2026-10-08T08:43:56.672Z",
             "replies": 1,
-            "views": 83
+            "views": 88
           },
           {
             "id": 11987,
             "title": "Unveiling Lido Lend: Security-First Lending",
             "url": "https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987",
             "created_at": "2026-10-07T15:02:17.910Z",
-            "last_activity_at": "2026-10-10T05:19:05.682Z",
-            "replies": 6,
-            "views": 1307
+            "last_activity_at": "2026-10-12T05:52:22.901Z",
+            "replies": 8,
+            "views": 1362
           },
           {
             "id": 11982,
             "title": "NEST: tying the buyback threshold to the approved budget",
             "url": "https://research.lido.fi/t/nest-tying-the-buyback-threshold-to-the-approved-budget/11982",
             "created_at": "2026-10-07T03:45:47.040Z",
-            "last_activity_at": "2026-10-09T11:40:04.828Z",
-            "replies": 5,
-            "views": 192
+            "last_activity_at": "2026-10-11T10:03:19.912Z",
+            "replies": 6,
+            "views": 239
           },
           {
             "id": 11980,
@@ -18830,31 +18850,31 @@
         ],
         "recently_refreshed_topics": [
           {
-            "id": 8997,
-            "title": "Establishment of the Guild for Review and Assessment of Protocols and Applications – GRAPPA",
-            "url": "https://research.lido.fi/t/establishment-of-the-guild-for-review-and-assessment-of-protocols-and-applications-grappa/8997",
-            "created_at": "2024-12-02T14:22:04.070Z",
-            "last_activity_at": "2026-10-09T15:19:07.353Z",
-            "replies": 11,
-            "views": 736
-          },
-          {
             "id": 5917,
             "title": "Community Staking Module",
             "url": "https://research.lido.fi/t/community-staking-module/5917",
             "created_at": "2023-11-09T11:33:44.448Z",
-            "last_activity_at": "2026-10-09T05:45:32.512Z",
-            "replies": 234,
-            "views": 26762
+            "last_activity_at": "2026-10-12T06:25:28.102Z",
+            "replies": 237,
+            "views": 26777
           },
           {
-            "id": 11697,
-            "title": "0x02 CSM Landscape",
-            "url": "https://research.lido.fi/t/0x02-csm-landscape/11697",
-            "created_at": "2026-06-25T14:38:13.134Z",
-            "last_activity_at": "2026-10-08T10:41:03.959Z",
-            "replies": 9,
-            "views": 880
+            "id": 11839,
+            "title": "Authorize a Contingent LDO CEX Liquidity Market-Making Mandate",
+            "url": "https://research.lido.fi/t/authorize-a-contingent-ldo-cex-liquidity-market-making-mandate/11839",
+            "created_at": "2026-08-31T11:39:27.957Z",
+            "last_activity_at": "2026-10-12T06:25:09.237Z",
+            "replies": 36,
+            "views": 1067
+          },
+          {
+            "id": 9949,
+            "title": "Safe Tx Hash Verifier for Mitigating UI Spoofing Risk",
+            "url": "https://research.lido.fi/t/safe-tx-hash-verifier-for-mitigating-ui-spoofing-risk/9949",
+            "created_at": "2025-04-22T17:37:41.680Z",
+            "last_activity_at": "2026-10-12T05:50:44.220Z",
+            "replies": 2,
+            "views": 247
           }
         ]
       },
