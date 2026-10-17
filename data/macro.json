@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-16T05:52:06.898393+00:00",
+  "generated_at": "2026-10-17T05:36:18.946405+00:00",
   "period": {
-    "start": "2025-10-16",
-    "end": "2026-10-16"
+    "start": "2025-10-17",
+    "end": "2026-10-17"
   },
   "fresh_series": 16,
   "total_series": 16,
@@ -19,19 +19,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-14",
-        "value": 5.19
+        "date": "2026-10-15",
+        "value": 5.1
       },
       "returns": {
-        "1D": -0.383877,
-        "1W": -1.704545,
-        "1M": 4.426559
+        "1D": -1.734104,
+        "1W": -2.298851,
+        "1M": 2.0
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 3.99
-        },
         {
           "date": "2025-10-17",
           "value": 4.02
@@ -1023,6 +1019,10 @@
         {
           "date": "2026-10-14",
           "value": 5.19
+        },
+        {
+          "date": "2026-10-15",
+          "value": 5.1
         }
       ]
     },
@@ -1039,18 +1039,14 @@
       "error": null,
       "latest": {
         "date": "2026-10-16",
-        "value": 101.906998
+        "value": 101.839996
       },
       "returns": {
-        "1D": -0.091178,
-        "1W": -0.296449,
-        "1M": 1.592065
+        "1D": -0.156867,
+        "1W": -0.362003,
+        "1M": 1.52527
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 98.389999
-        },
         {
           "date": "2025-10-17",
           "value": 98.43
@@ -2053,7 +2049,7 @@
         },
         {
           "date": "2026-10-16",
-          "value": 101.906998
+          "value": 101.839996
         }
       ]
     },
@@ -2069,19 +2065,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-14",
-        "value": 4.82
+        "date": "2026-10-15",
+        "value": 4.77
       },
       "returns": {
-        "1D": 0.626305,
-        "1W": 1.048218,
-        "1M": 3.655914
+        "1D": -1.037344,
+        "1W": 0.421053,
+        "1M": 2.141328
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 3.41
-        },
         {
           "date": "2025-10-17",
           "value": 3.46
@@ -3073,6 +3065,10 @@
         {
           "date": "2026-10-14",
           "value": 4.82
+        },
+        {
+          "date": "2026-10-15",
+          "value": 4.77
         }
       ]
     },
@@ -3088,19 +3084,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-14",
-        "value": 3.25
+        "date": "2026-10-15",
+        "value": 3.23
       },
       "returns": {
-        "1D": 2.848101,
-        "1W": 5.177994,
-        "1M": 19.926199
+        "1D": -0.615385,
+        "1W": 2.539683,
+        "1M": 17.028986
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 3.04
-        },
         {
           "date": "2025-10-17",
           "value": 3.04
@@ -4144,6 +4136,10 @@
         {
           "date": "2026-10-14",
           "value": 3.25
+        },
+        {
+          "date": "2026-10-15",
+          "value": 3.23
         }
       ]
     },
@@ -4160,18 +4156,14 @@
       "error": null,
       "latest": {
         "date": "2026-10-16",
-        "value": 95.760002
+        "value": 101.410004
       },
       "returns": {
-        "1D": -2.255792,
-        "1W": 4.256945,
-        "1M": -6.511762
+        "1D": 3.511282,
+        "1W": 10.408281,
+        "1M": -0.995798
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 57.459999
-        },
         {
           "date": "2025-10-17",
           "value": 57.540001
@@ -5174,7 +5166,7 @@
         },
         {
           "date": "2026-10-16",
-          "value": 95.760002
+          "value": 101.410004
         }
       ]
     },
@@ -5191,18 +5183,14 @@
       "error": null,
       "latest": {
         "date": "2026-10-16",
-        "value": 6.623
+        "value": 6.531
       },
       "returns": {
-        "1D": 1.712355,
-        "1W": -0.293564,
-        "1M": 2.977532
+        "1D": 0.29947,
+        "1W": -1.678585,
+        "1M": 1.547073
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 4.958
-        },
         {
           "date": "2025-10-17",
           "value": 4.9315
@@ -6205,7 +6193,7 @@
         },
         {
           "date": "2026-10-16",
-          "value": 6.623
+          "value": 6.531
         }
       ]
     },
@@ -6222,18 +6210,14 @@
       "error": null,
       "latest": {
         "date": "2026-10-16",
-        "value": 4192.799805
+        "value": 4181.100098
       },
       "returns": {
-        "1D": 0.544344,
-        "1W": -0.557361,
-        "1M": -4.437611
+        "1D": 0.263783,
+        "1W": -0.834848,
+        "1M": -4.704271
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 4304.600098
-        },
         {
           "date": "2025-10-17",
           "value": 4213.299805
@@ -7236,7 +7220,7 @@
         },
         {
           "date": "2026-10-16",
-          "value": 4192.799805
+          "value": 4181.100098
         }
       ]
     },
@@ -7252,19 +7236,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-15",
-        "value": 16.459999
+        "date": "2026-10-16",
+        "value": 19.99
       },
       "returns": {
-        "1D": -2.430361,
-        "1W": 6.813751,
-        "1M": -4.302337
+        "1D": 21.445937,
+        "1W": 34.703504,
+        "1M": 12.874089
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 25.309999
-        },
         {
           "date": "2025-10-17",
           "value": 20.780001
@@ -8272,6 +8252,10 @@
         {
           "date": "2026-10-15",
           "value": 16.459999
+        },
+        {
+          "date": "2026-10-16",
+          "value": 19.99
         }
       ]
     },
@@ -8287,19 +8271,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-14",
-        "value": 5.52
+        "date": "2026-10-15",
+        "value": 5.43
       },
       "returns": {
-        "1D": -0.719424,
-        "1W": -2.645503,
-        "1M": 3.370787
+        "1D": -1.630435,
+        "1W": -3.035714,
+        "1M": 1.30597
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 4.58
-        },
         {
           "date": "2025-10-17",
           "value": 4.6
@@ -9291,6 +9271,10 @@
         {
           "date": "2026-10-14",
           "value": 5.52
+        },
+        {
+          "date": "2026-10-15",
+          "value": 5.43
         }
       ]
     },
@@ -9306,19 +9290,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-15",
-        "value": 7744.060059
+        "date": "2026-10-16",
+        "value": 7659.439941
       },
       "returns": {
-        "1D": 0.325435,
-        "1W": -0.274293,
-        "1M": 2.08721
+        "1D": -1.09271,
+        "1W": -1.947121,
+        "1M": 1.42522
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 6629.069824
-        },
         {
           "date": "2025-10-17",
           "value": 6664.009766
@@ -10318,6 +10298,10 @@
         {
           "date": "2026-10-15",
           "value": 7744.060059
+        },
+        {
+          "date": "2026-10-16",
+          "value": 7659.439941
         }
       ]
     },
@@ -10333,19 +10317,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-15",
-        "value": 26713.029297
+        "date": "2026-10-16",
+        "value": 26140.029297
       },
       "returns": {
-        "1D": 0.075526,
-        "1W": -1.76628,
-        "1M": 2.815299
+        "1D": -2.145021,
+        "1W": -4.480498,
+        "1M": 0.622053
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 22562.539062
-        },
         {
           "date": "2025-10-17",
           "value": 22679.970703
@@ -11345,6 +11325,10 @@
         {
           "date": "2026-10-15",
           "value": 26713.029297
+        },
+        {
+          "date": "2026-10-16",
+          "value": 26140.029297
         }
       ]
     },
@@ -11360,19 +11344,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-16",
-        "value": 82062.867188
+        "date": "2026-10-17",
+        "value": 81445.75
       },
       "returns": {
-        "1D": 0.613487,
-        "1W": -0.585675,
-        "1M": 7.76431
+        "1D": -0.846967,
+        "1W": -1.76871,
+        "1M": 6.59912
       },
       "history": [
-        {
-          "date": "2025-10-16",
-          "value": 108186.039062
-        },
         {
           "date": "2025-10-17",
           "value": 106467.789062
@@ -12826,8 +12806,12 @@
           "value": 81562.492188
         },
         {
-          "date": "2026-10-16",
-          "value": 82062.867188
+          "date": "2026-10-15",
+          "value": 82141.460938
+        },
+        {
+          "date": "2026-10-17",
+          "value": 81445.75
         }
       ]
     },
@@ -12843,19 +12827,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-16",
-        "value": 2.43622
+        "date": "2026-10-17",
+        "value": 2.390737
       },
       "returns": {
-        "1D": 2.395657,
-        "1W": 3.576202,
-        "1M": 16.920956
+        "1D": -1.518982,
+        "1W": 0.154584,
+        "1M": 13.602376
       },
       "history": [
-        {
-          "date": "2025-10-17",
-          "value": 1.77237
-        },
         {
           "date": "2025-10-18",
           "value": 1.775169
@@ -14310,7 +14290,11 @@
         },
         {
           "date": "2026-10-16",
-          "value": 2.43622
+          "value": 2.427612
+        },
+        {
+          "date": "2026-10-17",
+          "value": 2.390737
         }
       ],
       "forum": {
@@ -14326,7 +14310,7 @@
             "created_at": "2026-06-08T18:52:01.874Z",
             "last_activity_at": "2026-10-15T06:53:43.665Z",
             "replies": 13,
-            "views": 914
+            "views": 947
           }
         ]
       },
@@ -14345,19 +14329,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-16",
-        "value": 1.25705
+        "date": "2026-10-17",
+        "value": 1.227046
       },
       "returns": {
-        "1D": -1.915957,
-        "1W": -2.24881,
-        "1M": -3.336935
+        "1D": -3.012507,
+        "1W": -11.076084,
+        "1M": -3.951462
       },
       "history": [
-        {
-          "date": "2025-10-17",
-          "value": 7.373826
-        },
         {
           "date": "2025-10-18",
           "value": 7.720804
@@ -15812,7 +15792,11 @@
         },
         {
           "date": "2026-10-16",
-          "value": 1.25705
+          "value": 1.265159
+        },
+        {
+          "date": "2026-10-17",
+          "value": 1.227046
         }
       ],
       "forum": {
@@ -15828,7 +15812,7 @@
             "created_at": "2026-07-14T18:40:45.473Z",
             "last_activity_at": "2026-10-14T10:06:13.003Z",
             "replies": 20,
-            "views": 272
+            "views": 274
           }
         ]
       },
@@ -15847,19 +15831,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-16",
-        "value": 7.457671
+        "date": "2026-10-17",
+        "value": 7.283225
       },
       "returns": {
-        "1D": 3.763549,
-        "1W": 4.897412,
-        "1M": 17.170805
+        "1D": -1.892977,
+        "1W": -0.492916,
+        "1M": 8.801863
       },
       "history": [
-        {
-          "date": "2025-10-17",
-          "value": 6.276425
-        },
         {
           "date": "2025-10-18",
           "value": 6.141051
@@ -17314,7 +17294,11 @@
         },
         {
           "date": "2026-10-16",
-          "value": 7.457671
+          "value": 7.423755
+        },
+        {
+          "date": "2026-10-17",
+          "value": 7.283225
         }
       ],
       "forum": {
@@ -17322,17 +17306,7 @@
         "url": "https://gov.uniswap.org",
         "recent_days": 7,
         "new_topics": [],
-        "recently_refreshed_topics": [
-          {
-            "id": 26297,
-            "title": "[Discussion] Should v4 hooks on Robinhood Chain standardize session-aware pricing?",
-            "url": "https://gov.uniswap.org/t/discussion-should-v4-hooks-on-robinhood-chain-standardize-session-aware-pricing/26297",
-            "created_at": "2026-10-06T07:07:36.551Z",
-            "last_activity_at": "2026-10-09T18:37:20.224Z",
-            "replies": 7,
-            "views": 128
-          }
-        ]
+        "recently_refreshed_topics": []
       },
       "forum_status": "fresh",
       "forum_error": null
@@ -17349,19 +17323,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-16",
-        "value": 0.40437
+        "date": "2026-10-17",
+        "value": 0.400664
       },
       "returns": {
-        "1D": 0.674951,
-        "1W": -0.161225,
-        "1M": 20.33926
+        "1D": -0.570524,
+        "1W": -4.916002,
+        "1M": 15.023598
       },
       "history": [
-        {
-          "date": "2025-10-17",
-          "value": 0.895354
-        },
         {
           "date": "2025-10-18",
           "value": 0.86921
@@ -18816,7 +18786,11 @@
         },
         {
           "date": "2026-10-16",
-          "value": 0.40437
+          "value": 0.402963
+        },
+        {
+          "date": "2026-10-17",
+          "value": 0.400664
         }
       ],
       "forum": {
@@ -18831,28 +18805,37 @@
             "created_at": "2026-10-14T01:30:05.010Z",
             "last_activity_at": "2026-10-15T13:07:44.085Z",
             "replies": 2,
-            "views": 44
+            "views": 50
           },
           {
             "id": 12032,
             "title": "Mandating a 2-Year Financial Audit : Demand for Product R&D and Payroll Transparency",
             "url": "https://research.lido.fi/t/mandating-a-2-year-financial-audit-demand-for-product-r-d-and-payroll-transparency/12032",
             "created_at": "2026-10-13T06:54:51.491Z",
-            "last_activity_at": "2026-10-14T07:20:24.172Z",
-            "replies": 2,
-            "views": 131
-          },
-          {
-            "id": 12010,
-            "title": "[Pre-Proposal] Establishing a Post-Quantum Readiness Working Group for Lido Validator Infrastructure",
-            "url": "https://research.lido.fi/t/pre-proposal-establishing-a-post-quantum-readiness-working-group-for-lido-validator-infrastructure/12010",
-            "created_at": "2026-10-09T11:45:22.868Z",
-            "last_activity_at": "2026-10-13T14:12:55.331Z",
-            "replies": 1,
-            "views": 121
+            "last_activity_at": "2026-10-16T17:52:05.068Z",
+            "replies": 3,
+            "views": 184
           }
         ],
         "recently_refreshed_topics": [
+          {
+            "id": 11987,
+            "title": "Unveiling Lido Lend: Security-First Lending",
+            "url": "https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987",
+            "created_at": "2026-10-07T15:02:17.910Z",
+            "last_activity_at": "2026-10-17T01:08:57.423Z",
+            "replies": 11,
+            "views": 1615
+          },
+          {
+            "id": 11980,
+            "title": "Reconfigure BSC governance forwarding after Wormhole auto delivery shutdown",
+            "url": "https://research.lido.fi/t/reconfigure-bsc-governance-forwarding-after-wormhole-auto-delivery-shutdown/11980",
+            "created_at": "2026-10-05T14:24:47.872Z",
+            "last_activity_at": "2026-10-16T16:50:17.146Z",
+            "replies": 5,
+            "views": 176
+          },
           {
             "id": 8193,
             "title": "Cp0x Delegate Thread",
@@ -18860,25 +18843,7 @@
             "created_at": "2024-08-23T23:00:06.450Z",
             "last_activity_at": "2026-10-16T03:37:34.653Z",
             "replies": 103,
-            "views": 1994
-          },
-          {
-            "id": 7557,
-            "title": "Mellow Lido Alliance proposal",
-            "url": "https://research.lido.fi/t/mellow-lido-alliance-proposal/7557",
-            "created_at": "2024-05-24T14:35:21.085Z",
-            "last_activity_at": "2026-10-15T18:52:38.835Z",
-            "replies": 35,
-            "views": 4556
-          },
-          {
-            "id": 10191,
-            "title": "Kuzmich Delegate Thread",
-            "url": "https://research.lido.fi/t/kuzmich-delegate-thread/10191",
-            "created_at": "2025-06-11T15:28:34.392Z",
-            "last_activity_at": "2026-10-15T15:11:48.892Z",
-            "replies": 47,
-            "views": 1050
+            "views": 2012
           }
         ]
       },
@@ -18889,9 +18854,9 @@
   "currencies": {
     "source": "Frankfurter / ECB reference rates",
     "basis": "Equal-weight geometric basket of the other 19 currencies",
-    "base_date": "2025-10-16",
-    "previous_date": "2026-10-14",
-    "latest_date": "2026-10-15",
+    "base_date": "2025-10-17",
+    "previous_date": "2026-10-15",
+    "latest_date": "2026-10-16",
     "significant_1d_pct": 1.0,
     "status": "fresh",
     "error": null,
@@ -18902,11 +18867,11 @@
         "region": "United States",
         "chart_url": "https://www.tradingview.com/symbols/TVC-DXY/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 99.902691
+          "date": "2026-10-16",
+          "basket_index": 99.605474
         },
         "returns": {
-          "1D": 0.204831
+          "1D": -0.429711
         }
       },
       {
@@ -18915,11 +18880,11 @@
         "region": "Euro area",
         "chart_url": "https://www.tradingview.com/symbols/EURUSD/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 95.925256
+          "date": "2026-10-16",
+          "basket_index": 95.767611
         },
         "returns": {
-          "1D": 0.327784
+          "1D": -0.008607
         }
       },
       {
@@ -18928,11 +18893,11 @@
         "region": "Japan",
         "chart_url": "https://www.tradingview.com/symbols/USDJPY/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 95.447825
+          "date": "2026-10-16",
+          "basket_index": 94.569278
         },
         "returns": {
-          "1D": 0.518661
+          "1D": -0.456242
         }
       },
       {
@@ -18941,11 +18906,11 @@
         "region": "United Kingdom",
         "chart_url": "https://www.tradingview.com/symbols/GBPUSD/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 98.492059
+          "date": "2026-10-16",
+          "basket_index": 98.83383
         },
         "returns": {
-          "1D": 0.045552
+          "1D": 0.272049
         }
       },
       {
@@ -18954,11 +18919,11 @@
         "region": "China",
         "chart_url": "https://www.tradingview.com/symbols/USDCNY/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 106.747785
+          "date": "2026-10-16",
+          "basket_index": 106.455563
         },
         "returns": {
-          "1D": 0.23163
+          "1D": -0.354466
         }
       },
       {
@@ -18967,11 +18932,11 @@
         "region": "Switzerland",
         "chart_url": "https://www.tradingview.com/symbols/USDCHF/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 95.892676
+          "date": "2026-10-16",
+          "basket_index": 95.60376
         },
         "returns": {
-          "1D": 0.611434
+          "1D": 0.365471
         }
       },
       {
@@ -18980,11 +18945,11 @@
         "region": "Australia",
         "chart_url": "https://www.tradingview.com/symbols/AUDUSD/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 106.585178
+          "date": "2026-10-16",
+          "basket_index": 107.171145
         },
         "returns": {
-          "1D": -1.281669
+          "1D": 0.299795
         }
       },
       {
@@ -18993,11 +18958,11 @@
         "region": "Canada",
         "chart_url": "https://www.tradingview.com/symbols/USDCAD/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 98.763104
+          "date": "2026-10-16",
+          "basket_index": 98.66539
         },
         "returns": {
-          "1D": 0.293926
+          "1D": -0.089219
         }
       },
       {
@@ -19006,11 +18971,11 @@
         "region": "Hong Kong SAR",
         "chart_url": "https://www.tradingview.com/symbols/USDHKD/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 98.904576
+          "date": "2026-10-16",
+          "basket_index": 98.527656
         },
         "returns": {
-          "1D": 0.215584
+          "1D": -0.44173
         }
       },
       {
@@ -19019,11 +18984,11 @@
         "region": "Singapore",
         "chart_url": "https://www.tradingview.com/symbols/USDSGD/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 100.993203
+          "date": "2026-10-16",
+          "basket_index": 100.884515
         },
         "returns": {
-          "1D": 0.180165
+          "1D": -0.126529
         }
       },
       {
@@ -19032,11 +18997,11 @@
         "region": "India",
         "chart_url": "https://www.tradingview.com/symbols/USDINR/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 92.031035
+          "date": "2026-10-16",
+          "basket_index": 91.93593
         },
         "returns": {
-          "1D": 0.315794
+          "1D": -0.319334
         }
       },
       {
@@ -19045,11 +19010,11 @@
         "region": "South Korea",
         "chart_url": "https://www.tradingview.com/symbols/USDKRW/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 105.534571
+          "date": "2026-10-16",
+          "basket_index": 106.581545
         },
         "returns": {
-          "1D": -0.508996
+          "1D": 0.656381
         }
       },
       {
@@ -19058,11 +19023,11 @@
         "region": "Sweden",
         "chart_url": "https://www.tradingview.com/symbols/USDSEK/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 94.44866
+          "date": "2026-10-16",
+          "basket_index": 94.728036
         },
         "returns": {
-          "1D": 0.151944
+          "1D": 0.288982
         }
       },
       {
@@ -19071,11 +19036,11 @@
         "region": "Mexico",
         "chart_url": "https://www.tradingview.com/symbols/USDMXN/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 99.408803
+          "date": "2026-10-16",
+          "basket_index": 99.75947
         },
         "returns": {
-          "1D": -0.687907
+          "1D": 0.360079
         }
       },
       {
@@ -19084,11 +19049,11 @@
         "region": "New Zealand",
         "chart_url": "https://www.tradingview.com/symbols/NZDUSD/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 97.424675
+          "date": "2026-10-16",
+          "basket_index": 98.364742
         },
         "returns": {
-          "1D": -0.049176
+          "1D": 0.751957
         }
       },
       {
@@ -19097,11 +19062,11 @@
         "region": "Norway",
         "chart_url": "https://www.tradingview.com/symbols/USDNOK/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 106.209528
+          "date": "2026-10-16",
+          "basket_index": 106.283097
         },
         "returns": {
-          "1D": -0.153618
+          "1D": 0.268706
         }
       },
       {
@@ -19110,11 +19075,11 @@
         "region": "Brazil",
         "chart_url": "https://www.tradingview.com/symbols/USDBRL/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 108.049723
+          "date": "2026-10-16",
+          "basket_index": 106.831862
         },
         "returns": {
-          "1D": -0.479194
+          "1D": -0.961653
         }
       },
       {
@@ -19123,11 +19088,11 @@
         "region": "South Africa",
         "chart_url": "https://www.tradingview.com/symbols/USDZAR/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 104.735589
+          "date": "2026-10-16",
+          "basket_index": 105.640349
         },
         "returns": {
-          "1D": -0.348071
+          "1D": 0.354908
         }
       },
       {
@@ -19136,11 +19101,11 @@
         "region": "Poland",
         "chart_url": "https://www.tradingview.com/symbols/USDPLN/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 93.184944
+          "date": "2026-10-16",
+          "basket_index": 92.886235
         },
         "returns": {
-          "1D": 0.226473
+          "1D": -0.008631
         }
       },
       {
@@ -19149,11 +19114,11 @@
         "region": "Malaysia",
         "chart_url": "https://www.tradingview.com/symbols/USDMYR/",
         "latest": {
-          "date": "2026-10-15",
-          "basket_index": 103.641185
+          "date": "2026-10-16",
+          "basket_index": 103.320891
         },
         "returns": {
-          "1D": 0.204831
+          "1D": -0.404031
         }
       }
     ]
