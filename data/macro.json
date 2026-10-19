@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-18T05:53:29.250150+00:00",
+  "generated_at": "2026-10-19T06:12:40.424510+00:00",
   "period": {
-    "start": "2025-10-18",
-    "end": "2026-10-18"
+    "start": "2025-10-19",
+    "end": "2026-10-19"
   },
   "fresh_series": 16,
   "total_series": 16,
@@ -1034,13 +1034,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-16",
-        "value": 101.839996
+        "date": "2026-10-19",
+        "value": 101.844002
       },
       "returns": {
-        "1D": -0.156867,
-        "1W": -0.362003,
-        "1M": 1.52527
+        "1D": 0.003934,
+        "1W": -0.717489,
+        "1M": 1.620436
       },
       "history": [
         {
@@ -2042,6 +2042,10 @@
         {
           "date": "2026-10-16",
           "value": 101.839996
+        },
+        {
+          "date": "2026-10-19",
+          "value": 101.844002
         }
       ]
     },
@@ -4139,13 +4143,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-16",
-        "value": 99.019997
+        "date": "2026-10-19",
+        "value": 97.25
       },
       "returns": {
-        "1D": 1.071753,
-        "1W": 7.806205,
-        "1M": -3.329106
+        "1D": -4.102163,
+        "1W": 3.744402,
+        "1M": -3.04088
       },
       "history": [
         {
@@ -5146,7 +5150,11 @@
         },
         {
           "date": "2026-10-16",
-          "value": 99.019997
+          "value": 101.410004
+        },
+        {
+          "date": "2026-10-19",
+          "value": 97.25
         }
       ]
     },
@@ -5162,13 +5170,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-16",
-        "value": 6.5735
+        "date": "2026-10-19",
+        "value": 6.62
       },
       "returns": {
-        "1D": 0.952162,
-        "1W": -1.038766,
-        "1M": 2.207883
+        "1D": 1.362732,
+        "1W": -1.171904,
+        "1M": 0.075586
       },
       "history": [
         {
@@ -6169,7 +6177,11 @@
         },
         {
           "date": "2026-10-16",
-          "value": 6.5735
+          "value": 6.531
+        },
+        {
+          "date": "2026-10-19",
+          "value": 6.62
         }
       ]
     },
@@ -6185,13 +6197,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-16",
-        "value": 4181.100098
+        "date": "2026-10-19",
+        "value": 4204.100098
       },
       "returns": {
-        "1D": 0.263783,
-        "1W": -0.834848,
-        "1M": -4.704271
+        "1D": 0.550094,
+        "1W": 0.32215,
+        "1M": -4.989939
       },
       "history": [
         {
@@ -7193,6 +7205,10 @@
         {
           "date": "2026-10-16",
           "value": 4181.100098
+        },
+        {
+          "date": "2026-10-19",
+          "value": 4204.100098
         }
       ]
     },
@@ -11300,19 +11316,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-18",
-        "value": 81575.289062
+        "date": "2026-10-19",
+        "value": 82673.851562
       },
       "returns": {
-        "1D": 0.091391,
-        "1W": -2.514571,
-        "1M": 0.8329
+        "1D": 1.587207,
+        "1W": 1.114555,
+        "1M": 1.772875
       },
       "history": [
-        {
-          "date": "2025-10-18",
-          "value": 107198.265625
-        },
         {
           "date": "2025-10-19",
           "value": 108666.710938
@@ -12766,8 +12778,12 @@
           "value": 81500.804688
         },
         {
-          "date": "2026-10-18",
-          "value": 81575.289062
+          "date": "2026-10-17",
+          "value": 81382.148438
+        },
+        {
+          "date": "2026-10-19",
+          "value": 82673.851562
         }
       ]
     },
@@ -12783,19 +12799,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-18",
-        "value": 2.385577
+        "date": "2026-10-19",
+        "value": 2.459519
       },
       "returns": {
-        "1D": 0.280339,
-        "1W": -2.105033,
-        "1M": 7.566765
+        "1D": 3.389571,
+        "1W": 0.271643,
+        "1M": -1.08315
       },
       "history": [
-        {
-          "date": "2025-10-19",
-          "value": 1.89588
-        },
         {
           "date": "2025-10-20",
           "value": 1.932571
@@ -14250,7 +14262,11 @@
         },
         {
           "date": "2026-10-18",
-          "value": 2.385577
+          "value": 2.378885
+        },
+        {
+          "date": "2026-10-19",
+          "value": 2.459519
         }
       ],
       "forum": {
@@ -14266,7 +14282,7 @@
             "created_at": "2026-06-08T18:52:01.874Z",
             "last_activity_at": "2026-10-15T06:53:43.665Z",
             "replies": 13,
-            "views": 969
+            "views": 996
           }
         ]
       },
@@ -14285,19 +14301,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-18",
-        "value": 1.144547
+        "date": "2026-10-19",
+        "value": 1.165828
       },
       "returns": {
-        "1D": -7.160326,
-        "1W": -18.153513,
-        "1M": -11.830213
+        "1D": 0.231616,
+        "1W": -17.796798,
+        "1M": -14.868205
       },
       "history": [
-        {
-          "date": "2025-10-19",
-          "value": 7.485507
-        },
         {
           "date": "2025-10-20",
           "value": 7.618276
@@ -15752,7 +15764,11 @@
         },
         {
           "date": "2026-10-18",
-          "value": 1.144547
+          "value": 1.163134
+        },
+        {
+          "date": "2026-10-19",
+          "value": 1.165828
         }
       ],
       "forum": {
@@ -15787,19 +15803,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-18",
-        "value": 7.173691
+        "date": "2026-10-19",
+        "value": 7.367919
       },
       "returns": {
-        "1D": -2.087173,
-        "1W": -5.404916,
-        "1M": -7.928974
+        "1D": 3.117592,
+        "1W": -5.109256,
+        "1M": -16.859223
       },
       "history": [
-        {
-          "date": "2025-10-19",
-          "value": 6.028403
-        },
         {
           "date": "2025-10-20",
           "value": 6.260537
@@ -17254,7 +17266,11 @@
         },
         {
           "date": "2026-10-18",
-          "value": 7.173691
+          "value": 7.145162
+        },
+        {
+          "date": "2026-10-19",
+          "value": 7.367919
         }
       ],
       "forum": {
@@ -17279,19 +17295,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-18",
-        "value": 0.382291
+        "date": "2026-10-19",
+        "value": 0.39654
       },
       "returns": {
-        "1D": -4.746824,
-        "1W": -11.418131,
-        "1M": 6.247429
+        "1D": 1.848499,
+        "1W": -10.843206,
+        "1M": 1.398727
       },
       "history": [
-        {
-          "date": "2025-10-19",
-          "value": 0.874914
-        },
         {
           "date": "2025-10-20",
           "value": 0.900374
@@ -18746,7 +18758,11 @@
         },
         {
           "date": "2026-10-18",
-          "value": 0.382291
+          "value": 0.389343
+        },
+        {
+          "date": "2026-10-19",
+          "value": 0.39654
         }
       ],
       "forum": {
@@ -18761,7 +18777,7 @@
             "created_at": "2026-10-14T01:30:05.010Z",
             "last_activity_at": "2026-10-15T13:07:44.085Z",
             "replies": 2,
-            "views": 52
+            "views": 57
           },
           {
             "id": 12032,
@@ -18770,27 +18786,27 @@
             "created_at": "2026-10-13T06:54:51.491Z",
             "last_activity_at": "2026-10-16T17:52:05.068Z",
             "replies": 3,
-            "views": 202
+            "views": 223
           }
         ],
         "recently_refreshed_topics": [
-          {
-            "id": 11980,
-            "title": "Reconfigure BSC governance forwarding after Wormhole auto delivery shutdown",
-            "url": "https://research.lido.fi/t/reconfigure-bsc-governance-forwarding-after-wormhole-auto-delivery-shutdown/11980",
-            "created_at": "2026-10-05T14:24:47.872Z",
-            "last_activity_at": "2026-10-18T05:20:59.486Z",
-            "replies": 7,
-            "views": 189
-          },
           {
             "id": 11987,
             "title": "Unveiling Lido Lend: Security-First Lending",
             "url": "https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987",
             "created_at": "2026-10-07T15:02:17.910Z",
-            "last_activity_at": "2026-10-18T05:20:49.477Z",
-            "replies": 12,
-            "views": 1669
+            "last_activity_at": "2026-10-18T13:05:57.512Z",
+            "replies": 13,
+            "views": 1729
+          },
+          {
+            "id": 11980,
+            "title": "Reconfigure BSC governance forwarding after Wormhole auto delivery shutdown",
+            "url": "https://research.lido.fi/t/reconfigure-bsc-governance-forwarding-after-wormhole-auto-delivery-shutdown/11980",
+            "created_at": "2026-10-05T14:24:47.872Z",
+            "last_activity_at": "2026-10-18T12:24:14.596Z",
+            "replies": 8,
+            "views": 211
           },
           {
             "id": 8193,
@@ -18799,7 +18815,7 @@
             "created_at": "2024-08-23T23:00:06.450Z",
             "last_activity_at": "2026-10-16T03:37:34.653Z",
             "replies": 103,
-            "views": 2018
+            "views": 2023
           }
         ]
       },
