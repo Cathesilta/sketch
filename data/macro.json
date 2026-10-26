@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-25T06:07:26.578381+00:00",
+  "generated_at": "2026-10-26T06:12:50.216435+00:00",
   "period": {
-    "start": "2025-10-25",
-    "end": "2026-10-25"
+    "start": "2025-10-26",
+    "end": "2026-10-26"
   },
   "fresh_series": 16,
   "total_series": 16,
@@ -1034,13 +1034,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-23",
-        "value": 101.809998
+        "date": "2026-10-26",
+        "value": 101.698997
       },
       "returns": {
-        "1D": 0.196828,
-        "1W": -0.029456,
-        "1M": 0.702275
+        "1D": -0.109028,
+        "1W": -0.27555,
+        "1M": 0.721993
       },
       "history": [
         {
@@ -2042,6 +2042,10 @@
         {
           "date": "2026-10-23",
           "value": 101.809998
+        },
+        {
+          "date": "2026-10-26",
+          "value": 101.698997
         }
       ]
     },
@@ -4139,13 +4143,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-23",
-        "value": 103.269997
+        "date": "2026-10-26",
+        "value": 100.870003
       },
       "returns": {
-        "1D": 3.820243,
-        "1W": 1.834132,
-        "1M": 12.055113
+        "1D": -2.323999,
+        "1W": -2.691492,
+        "1M": 9.154852
       },
       "history": [
         {
@@ -5147,6 +5151,10 @@
         {
           "date": "2026-10-23",
           "value": 103.269997
+        },
+        {
+          "date": "2026-10-26",
+          "value": 100.870003
         }
       ]
     },
@@ -5162,13 +5170,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-23",
-        "value": 6.5075
+        "date": "2026-10-26",
+        "value": 6.4845
       },
       "returns": {
-        "1D": 2.278978,
-        "1W": -0.359822,
-        "1M": -2.55316
+        "1D": 0.131254,
+        "1W": -0.818293,
+        "1M": -3.15137
       },
       "history": [
         {
@@ -6169,7 +6177,11 @@
         },
         {
           "date": "2026-10-23",
-          "value": 6.5075
+          "value": 6.476
+        },
+        {
+          "date": "2026-10-26",
+          "value": 6.4845
         }
       ]
     },
@@ -6185,13 +6197,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-23",
-        "value": 4007.899902
+        "date": "2026-10-26",
+        "value": 4025.0
       },
       "returns": {
-        "1D": -1.292976,
-        "1W": -4.142455,
-        "1M": -7.190163
+        "1D": 0.42666,
+        "1W": -3.24752,
+        "1M": -6.854582
       },
       "history": [
         {
@@ -7193,6 +7205,10 @@
         {
           "date": "2026-10-23",
           "value": 4007.899902
+        },
+        {
+          "date": "2026-10-26",
+          "value": 4025.0
         }
       ]
     },
@@ -11300,19 +11316,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-25",
-        "value": 80488.046875
+        "date": "2026-10-26",
+        "value": 79947.132812
       },
       "returns": {
-        "1D": -0.722968,
-        "1W": -1.86491,
-        "1M": -4.220716
+        "1D": -1.044305,
+        "1W": -2.329046,
+        "1M": -5.283151
       },
       "history": [
-        {
-          "date": "2025-10-25",
-          "value": 111641.726562
-        },
         {
           "date": "2025-10-26",
           "value": 114472.445312
@@ -12766,8 +12778,12 @@
           "value": 81074.1875
         },
         {
-          "date": "2026-10-25",
-          "value": 80488.046875
+          "date": "2026-10-24",
+          "value": 80790.835938
+        },
+        {
+          "date": "2026-10-26",
+          "value": 79947.132812
         }
       ]
     },
@@ -12783,19 +12799,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-25",
-        "value": 2.099385
+        "date": "2026-10-26",
+        "value": 2.019217
       },
       "returns": {
-        "1D": -6.591957,
-        "1W": -11.749202,
-        "1M": -25.397428
+        "1D": -5.231246,
+        "1W": -14.216375,
+        "1M": -25.838624
       },
       "history": [
-        {
-          "date": "2025-10-26",
-          "value": 1.990222
-        },
         {
           "date": "2025-10-27",
           "value": 2.09865
@@ -14250,7 +14262,11 @@
         },
         {
           "date": "2026-10-25",
-          "value": 2.099385
+          "value": 2.130678
+        },
+        {
+          "date": "2026-10-26",
+          "value": 2.019217
         }
       ],
       "forum": {
@@ -14266,7 +14282,7 @@
             "created_at": "2026-06-08T18:52:01.874Z",
             "last_activity_at": "2026-10-23T11:31:13.689Z",
             "replies": 14,
-            "views": 1170
+            "views": 1200
           }
         ]
       },
@@ -14285,19 +14301,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-25",
-        "value": 1.213107
+        "date": "2026-10-26",
+        "value": 1.229568
       },
       "returns": {
-        "1D": 0.301705,
-        "1W": 4.29641,
-        "1M": -15.196461
+        "1D": -0.738106,
+        "1W": 6.478045,
+        "1M": -15.668762
       },
       "history": [
-        {
-          "date": "2025-10-26",
-          "value": 7.81558
-        },
         {
           "date": "2025-10-27",
           "value": 8.189217
@@ -15752,14 +15764,28 @@
         },
         {
           "date": "2026-10-25",
-          "value": 1.213107
+          "value": 1.238711
+        },
+        {
+          "date": "2026-10-26",
+          "value": 1.229568
         }
       ],
       "forum": {
         "source": "Discourse",
         "url": "https://forum.euler.finance",
         "recent_days": 7,
-        "new_topics": [],
+        "new_topics": [
+          {
+            "id": 1895,
+            "title": "Help with Discord access and private-market onboarding contact",
+            "url": "https://forum.euler.finance/t/help-with-discord-access-and-private-market-onboarding-contact/1895",
+            "created_at": "2026-10-25T20:51:09.212Z",
+            "last_activity_at": "2026-10-25T20:51:09.245Z",
+            "replies": 0,
+            "views": 6
+          }
+        ],
         "recently_refreshed_topics": []
       },
       "forum_status": "fresh",
@@ -15777,19 +15803,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-25",
-        "value": 6.758583
+        "date": "2026-10-26",
+        "value": 6.938059
       },
       "returns": {
-        "1D": -2.832341,
-        "1W": -5.41036,
-        "1M": -26.113725
+        "1D": 1.141572,
+        "1W": -3.493873,
+        "1M": -27.953779
       },
       "history": [
-        {
-          "date": "2025-10-26",
-          "value": 6.248704
-        },
         {
           "date": "2025-10-27",
           "value": 6.659441
@@ -17244,7 +17266,11 @@
         },
         {
           "date": "2026-10-25",
-          "value": 6.758583
+          "value": 6.85975
+        },
+        {
+          "date": "2026-10-26",
+          "value": 6.938059
         }
       ],
       "forum": {
@@ -17259,7 +17285,7 @@
             "created_at": "2026-10-21T13:11:15.947Z",
             "last_activity_at": "2026-10-21T14:34:19.836Z",
             "replies": 1,
-            "views": 89
+            "views": 94
           }
         ],
         "recently_refreshed_topics": []
@@ -17279,19 +17305,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-10-25",
-        "value": 0.366648
+        "date": "2026-10-26",
+        "value": 0.363187
       },
       "returns": {
-        "1D": -4.142309,
-        "1W": -5.82905,
-        "1M": -16.205086
+        "1D": -3.357335,
+        "1W": -6.417052,
+        "1M": -26.108213
       },
       "history": [
-        {
-          "date": "2025-10-26",
-          "value": 0.925192
-        },
         {
           "date": "2025-10-27",
           "value": 0.970726
@@ -18746,7 +18768,11 @@
         },
         {
           "date": "2026-10-25",
-          "value": 0.366648
+          "value": 0.375804
+        },
+        {
+          "date": "2026-10-26",
+          "value": 0.363187
         }
       ],
       "forum": {
@@ -18755,13 +18781,22 @@
         "recent_days": 7,
         "new_topics": [
           {
+            "id": 12140,
+            "title": "Mitigating Correlated Risk: Framework for Hybrid CSM Deployments and Provider Diversity Scoring",
+            "url": "https://research.lido.fi/t/mitigating-correlated-risk-framework-for-hybrid-csm-deployments-and-provider-diversity-scoring/12140",
+            "created_at": "2026-10-26T00:45:17.085Z",
+            "last_activity_at": "2026-10-26T00:45:17.162Z",
+            "replies": 0,
+            "views": 23
+          },
+          {
             "id": 12077,
             "title": "Discussion: Strategic Opportunity, Should Lido Treasury Acquire & Stake 5–10% of SSV?",
             "url": "https://research.lido.fi/t/discussion-strategic-opportunity-should-lido-treasury-acquire-stake-5-10-of-ssv/12077",
             "created_at": "2026-10-22T08:11:47.269Z",
             "last_activity_at": "2026-10-22T08:39:48.360Z",
             "replies": 1,
-            "views": 72
+            "views": 79
           }
         ],
         "recently_refreshed_topics": [
@@ -18770,27 +18805,27 @@
             "title": "Utilizing Market Opportunities: stETH / LDO trade",
             "url": "https://research.lido.fi/t/utilizing-market-opportunities-steth-ldo-trade/11358",
             "created_at": "2026-03-27T14:41:43.902Z",
-            "last_activity_at": "2026-10-24T14:46:46.524Z",
-            "replies": 75,
-            "views": 6691
+            "last_activity_at": "2026-10-26T00:07:55.800Z",
+            "replies": 76,
+            "views": 6738
           },
           {
-            "id": 11786,
-            "title": "[PERCH] Request for Node Operators to run and test Optimum (mump2p)",
-            "url": "https://research.lido.fi/t/perch-request-for-node-operators-to-run-and-test-optimum-mump2p/11786",
-            "created_at": "2026-08-10T13:01:06.242Z",
-            "last_activity_at": "2026-10-23T17:56:54.525Z",
-            "replies": 12,
-            "views": 585
+            "id": 10229,
+            "title": "High Signal - Confirm your Lido forum account",
+            "url": "https://research.lido.fi/t/high-signal-confirm-your-lido-forum-account/10229",
+            "created_at": "2025-06-19T14:29:11.471Z",
+            "last_activity_at": "2026-10-25T19:44:25.646Z",
+            "replies": 143,
+            "views": 2954
           },
           {
-            "id": 12032,
-            "title": "Mandating a 2-Year Financial Audit : Demand for Product R&D and Payroll Transparency",
-            "url": "https://research.lido.fi/t/mandating-a-2-year-financial-audit-demand-for-product-r-d-and-payroll-transparency/12032",
-            "created_at": "2026-10-13T06:54:51.491Z",
-            "last_activity_at": "2026-10-23T15:17:39.622Z",
-            "replies": 7,
-            "views": 335
+            "id": 11697,
+            "title": "0x02 CSM Landscape",
+            "url": "https://research.lido.fi/t/0x02-csm-landscape/11697",
+            "created_at": "2026-06-25T14:38:13.134Z",
+            "last_activity_at": "2026-10-25T09:10:26.497Z",
+            "replies": 16,
+            "views": 1275
           }
         ]
       },
