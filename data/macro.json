@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-14T07:36:35.407813+00:00",
+  "generated_at": "2026-11-15T07:51:14.002697+00:00",
   "period": {
-    "start": "2025-11-14",
-    "end": "2026-11-14"
+    "start": "2025-11-15",
+    "end": "2026-11-15"
   },
   "fresh_series": 16,
   "total_series": 16,
@@ -28,10 +28,6 @@
         "1M": -2.671756
       },
       "history": [
-        {
-          "date": "2025-11-14",
-          "value": 4.14
-        },
         {
           "date": "2025-11-17",
           "value": 4.13
@@ -1047,10 +1043,6 @@
         "1M": 1.203762
       },
       "history": [
-        {
-          "date": "2025-11-14",
-          "value": 99.269997
-        },
         {
           "date": "2025-11-17",
           "value": 99.589996
@@ -2075,10 +2067,6 @@
       },
       "history": [
         {
-          "date": "2025-11-14",
-          "value": 3.62
-        },
-        {
           "date": "2025-11-17",
           "value": 3.6
         },
@@ -3093,10 +3081,6 @@
         "1M": 2.893891
       },
       "history": [
-        {
-          "date": "2025-11-14",
-          "value": 3.07
-        },
         {
           "date": "2025-11-17",
           "value": 3.13
@@ -4161,10 +4145,6 @@
       },
       "history": [
         {
-          "date": "2025-11-14",
-          "value": 60.09
-        },
-        {
           "date": "2025-11-17",
           "value": 59.91
         },
@@ -5179,18 +5159,14 @@
       "error": null,
       "latest": {
         "date": "2026-11-13",
-        "value": 6.0795
+        "value": 6.0905
       },
       "returns": {
-        "1D": -1.665993,
-        "1W": -2.227404,
-        "1M": -8.962264
+        "1D": -1.488071,
+        "1W": -2.050499,
+        "1M": -8.797544
       },
       "history": [
-        {
-          "date": "2025-11-14",
-          "value": 5.0495
-        },
         {
           "date": "2025-11-17",
           "value": 5.0
@@ -6189,7 +6165,7 @@
         },
         {
           "date": "2026-11-13",
-          "value": 6.0795
+          "value": 6.0905
         }
       ]
     },
@@ -6214,10 +6190,6 @@
         "1M": -6.966217
       },
       "history": [
-        {
-          "date": "2025-11-14",
-          "value": 4094.199951
-        },
         {
           "date": "2025-11-17",
           "value": 4074.5
@@ -7241,10 +7213,6 @@
         "1M": 26.391611
       },
       "history": [
-        {
-          "date": "2025-11-14",
-          "value": 19.83
-        },
         {
           "date": "2025-11-17",
           "value": 22.379999
@@ -8277,10 +8245,6 @@
       },
       "history": [
         {
-          "date": "2025-11-14",
-          "value": 4.74
-        },
-        {
           "date": "2025-11-17",
           "value": 4.73
         },
@@ -9295,10 +9259,6 @@
         "1M": -3.123206
       },
       "history": [
-        {
-          "date": "2025-11-14",
-          "value": 6734.109863
-        },
         {
           "date": "2025-11-17",
           "value": 6672.410156
@@ -10323,10 +10283,6 @@
       },
       "history": [
         {
-          "date": "2025-11-14",
-          "value": 22900.589844
-        },
-        {
           "date": "2025-11-17",
           "value": 22708.070312
         },
@@ -11340,19 +11296,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-14",
-        "value": 67179.117188
+        "date": "2026-11-15",
+        "value": 63804.050781
       },
       "returns": {
-        "1D": -1.568011,
-        "1W": -11.311861,
-        "1M": -17.634791
+        "1D": -0.505239,
+        "1W": -14.454178,
+        "1M": -22.324183
       },
       "history": [
-        {
-          "date": "2025-11-14",
-          "value": 94397.789062
-        },
         {
           "date": "2025-11-15",
           "value": 95549.148438
@@ -12811,7 +12763,11 @@
         },
         {
           "date": "2026-11-14",
-          "value": 67179.117188
+          "value": 64128.050781
+        },
+        {
+          "date": "2026-11-15",
+          "value": 63804.050781
         }
       ]
     },
@@ -12827,19 +12783,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-14",
-        "value": 1.916719
+        "date": "2026-11-15",
+        "value": 1.741998
       },
       "returns": {
-        "1D": -5.430851,
-        "1W": -9.16282,
-        "1M": -18.962783
+        "1D": -10.436108,
+        "1W": -17.079698,
+        "1M": -26.782873
       },
       "history": [
-        {
-          "date": "2025-11-15",
-          "value": 2.000522
-        },
         {
           "date": "2025-11-16",
           "value": 2.0003
@@ -14294,7 +14246,11 @@
         },
         {
           "date": "2026-11-14",
-          "value": 1.916719
+          "value": 1.944978
+        },
+        {
+          "date": "2026-11-15",
+          "value": 1.741998
         }
       ],
       "forum": {
@@ -14309,7 +14265,7 @@
             "created_at": "2026-11-12T14:09:05.157Z",
             "last_activity_at": "2026-11-12T14:09:05.296Z",
             "replies": 0,
-            "views": 41
+            "views": 56
           },
           {
             "id": 2472,
@@ -14318,7 +14274,7 @@
             "created_at": "2026-11-11T19:42:32.076Z",
             "last_activity_at": "2026-11-11T19:42:32.163Z",
             "replies": 0,
-            "views": 55
+            "views": 65
           },
           {
             "id": 2468,
@@ -14327,7 +14283,7 @@
             "created_at": "2026-11-09T10:36:20.378Z",
             "last_activity_at": "2026-11-13T14:25:19.998Z",
             "replies": 1,
-            "views": 80
+            "views": 89
           }
         ],
         "recently_refreshed_topics": [
@@ -14338,7 +14294,7 @@
             "created_at": "2026-06-08T18:52:01.874Z",
             "last_activity_at": "2026-11-13T14:25:02.688Z",
             "replies": 21,
-            "views": 1558
+            "views": 1590
           },
           {
             "id": 2464,
@@ -14347,7 +14303,7 @@
             "created_at": "2026-11-04T13:45:13.378Z",
             "last_activity_at": "2026-11-10T15:32:55.683Z",
             "replies": 1,
-            "views": 165
+            "views": 168
           }
         ]
       },
@@ -14366,19 +14322,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-14",
-        "value": 0.868572
+        "date": "2026-11-15",
+        "value": 0.788355
       },
       "returns": {
-        "1D": -1.484808,
-        "1W": -14.06939,
-        "1M": -33.99332
+        "1D": -11.453419,
+        "1W": -19.590156,
+        "1M": -38.486897
       },
       "history": [
-        {
-          "date": "2025-11-15",
-          "value": 4.799633
-        },
         {
           "date": "2025-11-16",
           "value": 4.619383
@@ -15833,7 +15785,11 @@
         },
         {
           "date": "2026-11-14",
-          "value": 0.868572
+          "value": 0.890328
+        },
+        {
+          "date": "2026-11-15",
+          "value": 0.788355
         }
       ],
       "forum": {
@@ -15841,7 +15797,17 @@
         "url": "https://forum.euler.finance",
         "recent_days": 7,
         "new_topics": [],
-        "recently_refreshed_topics": []
+        "recently_refreshed_topics": [
+          {
+            "id": 1862,
+            "title": "kUSD/USDC isolated market on Euler Base: deployed, ungoverned, and an underwriting packet for curators",
+            "url": "https://forum.euler.finance/t/kusd-usdc-isolated-market-on-euler-base-deployed-ungoverned-and-an-underwriting-packet-for-curators/1862",
+            "created_at": "2026-08-09T02:34:47.649Z",
+            "last_activity_at": "2026-11-14T20:50:44.981Z",
+            "replies": 2,
+            "views": 78
+          }
+        ]
       },
       "forum_status": "fresh",
       "forum_error": null
@@ -15858,19 +15824,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-14",
-        "value": 5.523216
+        "date": "2026-11-15",
+        "value": 4.946628
       },
       "returns": {
-        "1D": -8.939806,
-        "1W": -19.731,
-        "1M": -26.713887
+        "1D": -14.022287,
+        "1W": -31.454649,
+        "1M": -31.174266
       },
       "history": [
-        {
-          "date": "2025-11-15",
-          "value": 6.981538
-        },
         {
           "date": "2025-11-16",
           "value": 7.338853
@@ -17325,7 +17287,11 @@
         },
         {
           "date": "2026-11-14",
-          "value": 5.523216
+          "value": 5.753384
+        },
+        {
+          "date": "2026-11-15",
+          "value": 4.946628
         }
       ],
       "forum": {
@@ -17341,7 +17307,7 @@
             "created_at": "2026-11-06T21:16:31.287Z",
             "last_activity_at": "2026-11-14T07:11:07.745Z",
             "replies": 6,
-            "views": 174
+            "views": 188
           },
           {
             "id": 26307,
@@ -17350,7 +17316,7 @@
             "created_at": "2026-10-21T13:11:15.947Z",
             "last_activity_at": "2026-11-09T18:19:59.646Z",
             "replies": 5,
-            "views": 279
+            "views": 281
           }
         ]
       },
@@ -17369,19 +17335,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-14",
-        "value": 0.291619
+        "date": "2026-11-15",
+        "value": 0.268019
       },
       "returns": {
-        "1D": -5.379948,
-        "1W": -10.504042,
-        "1M": -32.648546
+        "1D": -11.689155,
+        "1W": -17.839516,
+        "1M": -33.272004
       },
       "history": [
-        {
-          "date": "2025-11-15",
-          "value": 0.754067
-        },
         {
           "date": "2025-11-16",
           "value": 0.753968
@@ -18836,7 +18798,11 @@
         },
         {
           "date": "2026-11-14",
-          "value": 0.291619
+          "value": 0.303495
+        },
+        {
+          "date": "2026-11-15",
+          "value": 0.268019
         }
       ],
       "forum": {
@@ -18851,36 +18817,36 @@
             "created_at": "2026-11-09T21:29:18.540Z",
             "last_activity_at": "2026-11-09T21:29:18.615Z",
             "replies": 0,
-            "views": 61
+            "views": 68
           }
         ],
         "recently_refreshed_topics": [
           {
-            "id": 10229,
-            "title": "High Signal - Confirm your Lido forum account",
-            "url": "https://research.lido.fi/t/high-signal-confirm-your-lido-forum-account/10229",
-            "created_at": "2025-06-19T14:29:11.471Z",
-            "last_activity_at": "2026-11-13T21:43:25.680Z",
-            "replies": 149,
-            "views": 3264
+            "id": 11358,
+            "title": "Utilizing Market Opportunities: stETH / LDO trade",
+            "url": "https://research.lido.fi/t/utilizing-market-opportunities-steth-ldo-trade/11358",
+            "created_at": "2026-03-27T14:41:43.902Z",
+            "last_activity_at": "2026-11-15T07:16:28.884Z",
+            "replies": 87,
+            "views": 7319
           },
           {
             "id": 11987,
             "title": "Unveiling Lido Lend: Security-First Lending",
             "url": "https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987",
             "created_at": "2026-10-07T15:02:17.910Z",
-            "last_activity_at": "2026-11-13T12:50:25.743Z",
-            "replies": 31,
-            "views": 3084
+            "last_activity_at": "2026-11-14T11:01:10.223Z",
+            "replies": 32,
+            "views": 3131
           },
           {
-            "id": 12154,
-            "title": "Funding and Mandating an Independent Web3 Financial Audit & R&D Expenditures",
-            "url": "https://research.lido.fi/t/funding-and-mandating-an-independent-web3-financial-audit-r-d-expenditures/12154",
-            "created_at": "2026-10-27T04:14:45.526Z",
-            "last_activity_at": "2026-11-13T07:20:04.761Z",
-            "replies": 24,
-            "views": 507
+            "id": 10229,
+            "title": "High Signal - Confirm your Lido forum account",
+            "url": "https://research.lido.fi/t/high-signal-confirm-your-lido-forum-account/10229",
+            "created_at": "2025-06-19T14:29:11.471Z",
+            "last_activity_at": "2026-11-13T21:43:25.680Z",
+            "replies": 148,
+            "views": 3270
           }
         ]
       },
