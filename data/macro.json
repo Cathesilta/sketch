@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-15T07:51:14.002697+00:00",
+  "generated_at": "2026-11-16T07:59:13.362440+00:00",
   "period": {
-    "start": "2025-11-15",
-    "end": "2026-11-15"
+    "start": "2025-11-16",
+    "end": "2026-11-16"
   },
-  "fresh_series": 16,
+  "fresh_series": 14,
   "total_series": 16,
   "series": [
     {
@@ -1034,13 +1034,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-13",
-        "value": 103.410004
+        "date": "2026-11-16",
+        "value": 103.405998
       },
       "returns": {
-        "1D": 0.232632,
-        "1W": 1.085045,
-        "1M": 1.203762
+        "1D": -0.003874,
+        "1W": 1.727492,
+        "1M": 1.537708
       },
       "history": [
         {
@@ -2042,6 +2042,10 @@
         {
           "date": "2026-11-13",
           "value": 103.410004
+        },
+        {
+          "date": "2026-11-16",
+          "value": 103.405998
         }
       ]
     },
@@ -4135,13 +4139,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-13",
-        "value": 88.559998
+        "date": "2026-11-16",
+        "value": 88.669998
       },
       "returns": {
-        "1D": -0.20284,
-        "1W": -2.499179,
-        "1M": -5.927343
+        "1D": 0.12421,
+        "1W": 2.095567,
+        "1M": -12.562869
       },
       "history": [
         {
@@ -5143,6 +5147,10 @@
         {
           "date": "2026-11-13",
           "value": 88.559998
+        },
+        {
+          "date": "2026-11-16",
+          "value": 88.669998
         }
       ]
     },
@@ -5158,13 +5166,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-13",
-        "value": 6.0905
+        "date": "2026-11-16",
+        "value": 6.025
       },
       "returns": {
-        "1D": -1.488071,
-        "1W": -2.050499,
-        "1M": -8.797544
+        "1D": -0.896455,
+        "1W": -4.795765,
+        "1M": -7.747665
       },
       "history": [
         {
@@ -6165,7 +6173,11 @@
         },
         {
           "date": "2026-11-13",
-          "value": 6.0905
+          "value": 6.0795
+        },
+        {
+          "date": "2026-11-16",
+          "value": 6.025
         }
       ]
     },
@@ -6181,13 +6193,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-13",
-        "value": 3886.300049
+        "date": "2026-11-16",
+        "value": 3860.100098
       },
       "returns": {
-        "1D": 0.025738,
-        "1W": -4.628331,
-        "1M": -6.966217
+        "1D": -0.674162,
+        "1W": -6.183009,
+        "1M": -7.677405
       },
       "history": [
         {
@@ -7189,6 +7201,10 @@
         {
           "date": "2026-11-13",
           "value": 3886.300049
+        },
+        {
+          "date": "2026-11-16",
+          "value": 3860.100098
         }
       ]
     },
@@ -11296,19 +11312,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-15",
-        "value": 63804.050781
+        "date": "2026-11-16",
+        "value": 64979.371094
       },
       "returns": {
-        "1D": -0.505239,
-        "1W": -14.454178,
-        "1M": -22.324183
+        "1D": -0.498723,
+        "1W": -13.617852,
+        "1M": -20.271498
       },
       "history": [
-        {
-          "date": "2025-11-15",
-          "value": 95549.148438
-        },
         {
           "date": "2025-11-16",
           "value": 94177.078125
@@ -12767,7 +12779,11 @@
         },
         {
           "date": "2026-11-15",
-          "value": 63804.050781
+          "value": 65305.0625
+        },
+        {
+          "date": "2026-11-16",
+          "value": 64979.371094
         }
       ]
     },
@@ -12783,19 +12799,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-15",
-        "value": 1.741998
+        "date": "2026-11-16",
+        "value": 1.740619
       },
       "returns": {
-        "1D": -10.436108,
-        "1W": -17.079698,
-        "1M": -26.782873
+        "1D": -0.66729,
+        "1W": -13.53011,
+        "1M": -28.299127
       },
       "history": [
-        {
-          "date": "2025-11-16",
-          "value": 2.0003
-        },
         {
           "date": "2025-11-17",
           "value": 1.998766
@@ -14250,7 +14262,11 @@
         },
         {
           "date": "2026-11-15",
-          "value": 1.741998
+          "value": 1.752312
+        },
+        {
+          "date": "2026-11-16",
+          "value": 1.740619
         }
       ],
       "forum": {
@@ -14259,13 +14275,22 @@
         "recent_days": 7,
         "new_topics": [
           {
+            "id": 2496,
+            "title": "[RFC] NOC Engine — Low-Latency Rust Solver & Zero-Fee Flash-Routing on Morpho Blue (Base L2)",
+            "url": "https://forum.morpho.org/t/rfc-noc-engine-low-latency-rust-solver-zero-fee-flash-routing-on-morpho-blue-base-l2/2496",
+            "created_at": "2026-11-15T19:05:26.099Z",
+            "last_activity_at": "2026-11-15T19:05:26.250Z",
+            "replies": 0,
+            "views": 18
+          },
+          {
             "id": 2476,
             "title": "[RFC] Moonglade Grant Request: Always-On Fixed-Rate Liquidity for Morpho Midnight",
             "url": "https://forum.morpho.org/t/rfc-moonglade-grant-request-always-on-fixed-rate-liquidity-for-morpho-midnight/2476",
             "created_at": "2026-11-12T14:09:05.157Z",
             "last_activity_at": "2026-11-12T14:09:05.296Z",
             "replies": 0,
-            "views": 56
+            "views": 68
           },
           {
             "id": 2472,
@@ -14274,7 +14299,7 @@
             "created_at": "2026-11-11T19:42:32.076Z",
             "last_activity_at": "2026-11-11T19:42:32.163Z",
             "replies": 0,
-            "views": 65
+            "views": 72
           },
           {
             "id": 2468,
@@ -14283,7 +14308,7 @@
             "created_at": "2026-11-09T10:36:20.378Z",
             "last_activity_at": "2026-11-13T14:25:19.998Z",
             "replies": 1,
-            "views": 89
+            "views": 92
           }
         ],
         "recently_refreshed_topics": [
@@ -14292,9 +14317,9 @@
             "title": "[RFC] A User-centric DeFi Collateral Transparency Framework - Phase 1",
             "url": "https://forum.morpho.org/t/rfc-a-user-centric-defi-collateral-transparency-framework-phase-1/2301",
             "created_at": "2026-06-08T18:52:01.874Z",
-            "last_activity_at": "2026-11-13T14:25:02.688Z",
-            "replies": 21,
-            "views": 1590
+            "last_activity_at": "2026-11-16T07:08:04.942Z",
+            "replies": 24,
+            "views": 1613
           },
           {
             "id": 2464,
@@ -14303,7 +14328,7 @@
             "created_at": "2026-11-04T13:45:13.378Z",
             "last_activity_at": "2026-11-10T15:32:55.683Z",
             "replies": 1,
-            "views": 168
+            "views": 174
           }
         ]
       },
@@ -14322,19 +14347,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-15",
-        "value": 0.788355
+        "date": "2026-11-16",
+        "value": 0.811887
       },
       "returns": {
-        "1D": -11.453419,
-        "1W": -19.590156,
-        "1M": -38.486897
+        "1D": 3.18101,
+        "1W": -11.39352,
+        "1M": -35.827275
       },
       "history": [
-        {
-          "date": "2025-11-16",
-          "value": 4.619383
-        },
         {
           "date": "2025-11-17",
           "value": 4.453561
@@ -15789,7 +15810,11 @@
         },
         {
           "date": "2026-11-15",
-          "value": 0.788355
+          "value": 0.786857
+        },
+        {
+          "date": "2026-11-16",
+          "value": 0.811887
         }
       ],
       "forum": {
@@ -15805,7 +15830,7 @@
             "created_at": "2026-08-09T02:34:47.649Z",
             "last_activity_at": "2026-11-14T20:50:44.981Z",
             "replies": 2,
-            "views": 78
+            "views": 79
           }
         ]
       },
@@ -15821,8 +15846,8 @@
       "column": "Uniswap",
       "unit": "USD",
       "chart": "uniswap.png",
-      "status": "fresh",
-      "error": null,
+      "status": "cached",
+      "error": "CoinGecko uniswap failed after 3 attempts: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/coins/uniswap/market_chart?vs_currency=usd&days=365&interval=daily",
       "latest": {
         "date": "2026-11-15",
         "value": 4.946628
@@ -17302,12 +17327,12 @@
         "recently_refreshed_topics": [
           {
             "id": 26337,
-            "title": "[RFC] Upgrade VolatilePair hook and update X Layer releaser",
-            "url": "https://gov.uniswap.org/t/rfc-upgrade-volatilepair-hook-and-update-x-layer-releaser/26337",
+            "title": "[Temp Check] Upgrade VolatilePair hook and update X Layer Releaser",
+            "url": "https://gov.uniswap.org/t/temp-check-upgrade-volatilepair-hook-and-update-x-layer-releaser/26337",
             "created_at": "2026-11-06T21:16:31.287Z",
             "last_activity_at": "2026-11-14T07:11:07.745Z",
             "replies": 6,
-            "views": 188
+            "views": 209
           },
           {
             "id": 26307,
@@ -17316,7 +17341,7 @@
             "created_at": "2026-10-21T13:11:15.947Z",
             "last_activity_at": "2026-11-09T18:19:59.646Z",
             "replies": 5,
-            "views": 281
+            "views": 286
           }
         ]
       },
@@ -17332,8 +17357,8 @@
       "column": "Lido DAO",
       "unit": "USD",
       "chart": "lido_dao.png",
-      "status": "fresh",
-      "error": null,
+      "status": "cached",
+      "error": "CoinGecko lido-dao failed after 3 attempts: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/coins/lido-dao/market_chart?vs_currency=usd&days=365&interval=daily",
       "latest": {
         "date": "2026-11-15",
         "value": 0.268019
@@ -18817,7 +18842,7 @@
             "created_at": "2026-11-09T21:29:18.540Z",
             "last_activity_at": "2026-11-09T21:29:18.615Z",
             "replies": 0,
-            "views": 68
+            "views": 72
           }
         ],
         "recently_refreshed_topics": [
@@ -18828,7 +18853,7 @@
             "created_at": "2026-03-27T14:41:43.902Z",
             "last_activity_at": "2026-11-15T07:16:28.884Z",
             "replies": 87,
-            "views": 7319
+            "views": 7364
           },
           {
             "id": 11987,
@@ -18837,7 +18862,7 @@
             "created_at": "2026-10-07T15:02:17.910Z",
             "last_activity_at": "2026-11-14T11:01:10.223Z",
             "replies": 32,
-            "views": 3131
+            "views": 3189
           },
           {
             "id": 10229,
@@ -18846,7 +18871,7 @@
             "created_at": "2025-06-19T14:29:11.471Z",
             "last_activity_at": "2026-11-13T21:43:25.680Z",
             "replies": 148,
-            "views": 3270
+            "views": 3278
           }
         ]
       },
