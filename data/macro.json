@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-22T07:59:11.902625+00:00",
+  "generated_at": "2026-11-23T09:03:20.622563+00:00",
   "period": {
-    "start": "2025-11-22",
-    "end": "2026-11-22"
+    "start": "2025-11-23",
+    "end": "2026-11-23"
   },
   "fresh_series": 16,
   "total_series": 16,
@@ -1034,13 +1034,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-20",
-        "value": 103.809998
+        "date": "2026-11-23",
+        "value": 103.679001
       },
       "returns": {
-        "1D": -0.086626,
-        "1W": 0.386804,
-        "1M": 2.044623
+        "1D": -0.126189,
+        "1W": 0.124576,
+        "1M": 1.835776
       },
       "history": [
         {
@@ -2042,6 +2042,10 @@
         {
           "date": "2026-11-20",
           "value": 103.809998
+        },
+        {
+          "date": "2026-11-23",
+          "value": 103.679001
         }
       ]
     },
@@ -4139,13 +4143,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-20",
-        "value": 83.410004
+        "date": "2026-11-23",
+        "value": 82.639999
       },
       "returns": {
-        "1D": 0.240362,
-        "1W": -5.81526,
-        "1M": -18.05678
+        "1D": -1.595623,
+        "1W": -3.593096,
+        "1M": -19.976759
       },
       "history": [
         {
@@ -5146,7 +5150,11 @@
         },
         {
           "date": "2026-11-20",
-          "value": 83.410004
+          "value": 83.980003
+        },
+        {
+          "date": "2026-11-23",
+          "value": 82.639999
         }
       ]
     },
@@ -5162,13 +5170,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-20",
-        "value": 5.485
+        "date": "2026-11-23",
+        "value": 5.518
       },
       "returns": {
-        "1D": -2.488889,
-        "1W": -9.778765,
-        "1M": -16.469961
+        "1D": 0.748585,
+        "1W": -7.994998,
+        "1M": -14.793082
       },
       "history": [
         {
@@ -6169,7 +6177,11 @@
         },
         {
           "date": "2026-11-20",
-          "value": 5.485
+          "value": 5.477
+        },
+        {
+          "date": "2026-11-23",
+          "value": 5.518
         }
       ]
     },
@@ -6185,13 +6197,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-20",
-        "value": 3515.399902
+        "date": "2026-11-23",
+        "value": 3611.899902
       },
       "returns": {
-        "1D": -4.615387,
-        "1W": -9.543786,
-        "1M": -15.140254
+        "1D": 2.745065,
+        "1W": -6.257464,
+        "1M": -9.880486
       },
       "history": [
         {
@@ -7193,6 +7205,10 @@
         {
           "date": "2026-11-20",
           "value": 3515.399902
+        },
+        {
+          "date": "2026-11-23",
+          "value": 3611.899902
         }
       ]
     },
@@ -7208,13 +7224,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-20",
-        "value": 35.889999
+        "date": "2026-11-23",
+        "value": 31.059999
       },
       "returns": {
-        "1D": 26.195491,
-        "1W": 85.958554,
-        "1M": 107.336806
+        "1D": -13.457788,
+        "1W": 35.573981,
+        "1M": 59.691503
       },
       "history": [
         {
@@ -7714,10 +7730,6 @@
           "value": 16.700001
         },
         {
-          "date": "2026-05-25",
-          "value": 16.59
-        },
-        {
           "date": "2026-05-26",
           "value": 17.01
         },
@@ -8006,10 +8018,6 @@
           "value": 14.53
         },
         {
-          "date": "2026-09-07",
-          "value": 15.3
-        },
-        {
           "date": "2026-09-08",
           "value": 15.72
         },
@@ -8224,6 +8232,10 @@
         {
           "date": "2026-11-20",
           "value": 35.889999
+        },
+        {
+          "date": "2026-11-23",
+          "value": 31.059999
         }
       ]
     },
@@ -11300,19 +11312,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-22",
-        "value": 59048.789062
+        "date": "2026-11-23",
+        "value": 61409.480469
       },
       "returns": {
-        "1D": -1.73944,
-        "1W": -9.580074,
-        "1M": -27.379884
+        "1D": 0.404779,
+        "1W": -5.313882,
+        "1M": -24.255201
       },
       "history": [
-        {
-          "date": "2025-11-22",
-          "value": 84648.359375
-        },
         {
           "date": "2025-11-23",
           "value": 86805.007812
@@ -12771,7 +12779,11 @@
         },
         {
           "date": "2026-11-22",
-          "value": 59048.789062
+          "value": 61161.910156
+        },
+        {
+          "date": "2026-11-23",
+          "value": 61409.480469
         }
       ]
     },
@@ -12787,19 +12799,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-22",
-        "value": 1.546881
+        "date": "2026-11-23",
+        "value": 1.571139
       },
       "returns": {
-        "1D": 1.125541,
-        "1W": -11.723426,
-        "1M": -33.995041
+        "1D": 0.203962,
+        "1W": -11.021234,
+        "1M": -30.638174
       },
       "history": [
-        {
-          "date": "2025-11-23",
-          "value": 1.491767
-        },
         {
           "date": "2025-11-24",
           "value": 1.491112
@@ -14254,33 +14262,36 @@
         },
         {
           "date": "2026-11-22",
-          "value": 1.546881
+          "value": 1.567941
+        },
+        {
+          "date": "2026-11-23",
+          "value": 1.571139
         }
       ],
       "forum": {
         "source": "Discourse",
         "url": "https://forum.morpho.org",
         "recent_days": 7,
-        "new_topics": [
-          {
-            "id": 2496,
-            "title": "[RFC] NOC Engine — Low-Latency Rust Solver & Zero-Fee Flash-Routing on Morpho Blue (Base L2)",
-            "url": "https://forum.morpho.org/t/rfc-noc-engine-low-latency-rust-solver-zero-fee-flash-routing-on-morpho-blue-base-l2/2496",
-            "created_at": "2026-11-15T19:05:26.099Z",
-            "last_activity_at": "2026-11-15T19:05:26.250Z",
-            "replies": 0,
-            "views": 61
-          }
-        ],
+        "new_topics": [],
         "recently_refreshed_topics": [
+          {
+            "id": 2472,
+            "title": "MIP 136 – List MidnightAdapter in Morpho Registry",
+            "url": "https://forum.morpho.org/t/mip-136-list-midnightadapter-in-morpho-registry/2472",
+            "created_at": "2026-11-11T19:42:32.076Z",
+            "last_activity_at": "2026-11-23T06:55:39.814Z",
+            "replies": 1,
+            "views": 122
+          },
           {
             "id": 2301,
             "title": "[RFC] A User-centric DeFi Collateral Transparency Framework - Phase 1",
             "url": "https://forum.morpho.org/t/rfc-a-user-centric-defi-collateral-transparency-framework-phase-1/2301",
             "created_at": "2026-06-08T18:52:01.874Z",
-            "last_activity_at": "2026-11-20T10:45:21.405Z",
-            "replies": 31,
-            "views": 1734
+            "last_activity_at": "2026-11-23T06:55:28.239Z",
+            "replies": 32,
+            "views": 1745
           },
           {
             "id": 2468,
@@ -14289,7 +14300,7 @@
             "created_at": "2026-11-09T10:36:20.378Z",
             "last_activity_at": "2026-11-20T10:45:10.037Z",
             "replies": 4,
-            "views": 160
+            "views": 165
           }
         ]
       },
@@ -14308,19 +14319,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-22",
-        "value": 0.763905
+        "date": "2026-11-23",
+        "value": 0.782944
       },
       "returns": {
-        "1D": -3.674323,
-        "1W": -2.916921,
-        "1M": -36.186396
+        "1D": -0.054508,
+        "1W": -5.280133,
+        "1M": -32.226371
       },
       "history": [
-        {
-          "date": "2025-11-23",
-          "value": 3.773746
-        },
         {
           "date": "2025-11-24",
           "value": 3.848132
@@ -15775,7 +15782,11 @@
         },
         {
           "date": "2026-11-22",
-          "value": 0.763905
+          "value": 0.783371
+        },
+        {
+          "date": "2026-11-23",
+          "value": 0.782944
         }
       ],
       "forum": {
@@ -15800,19 +15811,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-22",
-        "value": 4.59102
+        "date": "2026-11-23",
+        "value": 4.759131
       },
       "returns": {
-        "1D": 2.754484,
-        "1W": -5.985297,
-        "1M": -38.386735
+        "1D": 0.454407,
+        "1W": -8.143947,
+        "1M": -32.03128
       },
       "history": [
-        {
-          "date": "2025-11-23",
-          "value": 6.163131
-        },
         {
           "date": "2025-11-24",
           "value": 6.120298
@@ -17267,7 +17274,11 @@
         },
         {
           "date": "2026-11-22",
-          "value": 4.59102
+          "value": 4.737603
+        },
+        {
+          "date": "2026-11-23",
+          "value": 4.759131
         }
       ],
       "forum": {
@@ -17282,7 +17293,7 @@
             "created_at": "2026-11-18T10:25:17.178Z",
             "last_activity_at": "2026-11-21T15:47:13.371Z",
             "replies": 1,
-            "views": 40
+            "views": 45
           },
           {
             "id": 26349,
@@ -17291,7 +17302,7 @@
             "created_at": "2026-11-16T18:16:27.489Z",
             "last_activity_at": "2026-11-18T15:37:48.279Z",
             "replies": 2,
-            "views": 153
+            "views": 176
           },
           {
             "id": 26348,
@@ -17300,7 +17311,7 @@
             "created_at": "2026-11-16T18:12:48.167Z",
             "last_activity_at": "2026-11-19T12:42:24.276Z",
             "replies": 3,
-            "views": 126
+            "views": 145
           }
         ],
         "recently_refreshed_topics": [
@@ -17311,7 +17322,7 @@
             "created_at": "2026-02-20T21:49:40.384Z",
             "last_activity_at": "2026-11-20T21:20:20.571Z",
             "replies": 12,
-            "views": 506
+            "views": 510
           },
           {
             "id": 26337,
@@ -17320,7 +17331,7 @@
             "created_at": "2026-11-06T21:16:31.287Z",
             "last_activity_at": "2026-11-18T15:33:58.127Z",
             "replies": 8,
-            "views": 326
+            "views": 349
           },
           {
             "id": 22271,
@@ -17329,7 +17340,7 @@
             "created_at": "2023-11-08T03:10:55.002Z",
             "last_activity_at": "2026-11-17T17:20:53.034Z",
             "replies": 75,
-            "views": 7365
+            "views": 7368
           }
         ]
       },
@@ -17348,19 +17359,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-22",
-        "value": 0.23023
+        "date": "2026-11-23",
+        "value": 0.2412
       },
       "returns": {
-        "1D": -4.113583,
-        "1W": -13.860579,
-        "1M": -43.130198
+        "1D": 3.372905,
+        "1W": -13.825751,
+        "1M": -36.906207
       },
       "history": [
-        {
-          "date": "2025-11-23",
-          "value": 0.624312
-        },
         {
           "date": "2025-11-24",
           "value": 0.617604
@@ -18815,7 +18822,11 @@
         },
         {
           "date": "2026-11-22",
-          "value": 0.23023
+          "value": 0.23333
+        },
+        {
+          "date": "2026-11-23",
+          "value": 0.2412
         }
       ],
       "forum": {
@@ -18828,9 +18839,9 @@
             "title": "Tokenholder Update Call 🗓️ December 3rd",
             "url": "https://research.lido.fi/t/tokenholder-update-call-december-3rd/12213",
             "created_at": "2026-11-20T15:58:10.744Z",
-            "last_activity_at": "2026-11-20T15:58:10.848Z",
-            "replies": 0,
-            "views": 27
+            "last_activity_at": "2026-11-22T20:32:55.320Z",
+            "replies": 1,
+            "views": 49
           },
           {
             "id": 12211,
@@ -18839,7 +18850,7 @@
             "created_at": "2026-11-19T10:22:18.292Z",
             "last_activity_at": "2026-11-19T10:22:18.387Z",
             "replies": 0,
-            "views": 73
+            "views": 80
           },
           {
             "id": 12209,
@@ -18848,7 +18859,7 @@
             "created_at": "2026-11-18T19:34:20.599Z",
             "last_activity_at": "2026-11-20T21:59:49.514Z",
             "replies": 5,
-            "views": 204
+            "views": 220
           },
           {
             "id": 12203,
@@ -18866,10 +18877,28 @@
             "created_at": "2026-11-16T10:51:36.091Z",
             "last_activity_at": "2026-11-19T16:12:14.489Z",
             "replies": 7,
-            "views": 178
+            "views": 184
           }
         ],
         "recently_refreshed_topics": [
+          {
+            "id": 8333,
+            "title": "Community Staking Module Committee",
+            "url": "https://research.lido.fi/t/community-staking-module-committee/8333",
+            "created_at": "2024-09-10T10:15:21.543Z",
+            "last_activity_at": "2026-11-23T09:02:55.279Z",
+            "replies": 46,
+            "views": 1877
+          },
+          {
+            "id": 12154,
+            "title": "Funding and Mandating an Independent Web3 Financial Audit & R&D Expenditures",
+            "url": "https://research.lido.fi/t/funding-and-mandating-an-independent-web3-financial-audit-r-d-expenditures/12154",
+            "created_at": "2026-10-27T04:14:45.526Z",
+            "last_activity_at": "2026-11-22T19:43:01.109Z",
+            "replies": 26,
+            "views": 663
+          },
           {
             "id": 11358,
             "title": "Utilizing Market Opportunities: stETH / LDO trade",
@@ -18877,25 +18906,7 @@
             "created_at": "2026-03-27T14:41:43.902Z",
             "last_activity_at": "2026-11-21T11:34:17.988Z",
             "replies": 97,
-            "views": 7654
-          },
-          {
-            "id": 8048,
-            "title": "Polar - Delegate Thread",
-            "url": "https://research.lido.fi/t/polar-delegate-thread/8048",
-            "created_at": "2024-08-13T08:17:39.091Z",
-            "last_activity_at": "2026-11-21T11:04:25.776Z",
-            "replies": 43,
-            "views": 1842
-          },
-          {
-            "id": 10191,
-            "title": "Kuzmich Delegate Thread",
-            "url": "https://research.lido.fi/t/kuzmich-delegate-thread/10191",
-            "created_at": "2025-06-11T15:28:34.392Z",
-            "last_activity_at": "2026-11-21T07:10:52.637Z",
-            "replies": 51,
-            "views": 1313
+            "views": 7688
           }
         ]
       },
