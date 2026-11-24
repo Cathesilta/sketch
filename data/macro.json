@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-23T09:03:20.622563+00:00",
+  "generated_at": "2026-11-24T10:54:56.374280+00:00",
   "period": {
-    "start": "2025-11-23",
-    "end": "2026-11-23"
+    "start": "2025-11-24",
+    "end": "2026-11-24"
   },
   "fresh_series": 16,
   "total_series": 16,
@@ -19,13 +19,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-19",
-        "value": 5.04
+        "date": "2026-11-20",
+        "value": 4.92
       },
       "returns": {
-        "1D": -0.591716,
-        "1W": -1.176471,
-        "1M": -2.135922
+        "1D": -2.380952,
+        "1W": -4.466019,
+        "1M": -3.90625
       },
       "history": [
         {
@@ -1019,6 +1019,10 @@
         {
           "date": "2026-11-19",
           "value": 5.04
+        },
+        {
+          "date": "2026-11-20",
+          "value": 4.92
         }
       ]
     },
@@ -1034,13 +1038,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-23",
-        "value": 103.679001
+        "date": "2026-11-24",
+        "value": 104.143997
       },
       "returns": {
-        "1D": -0.126189,
-        "1W": 0.124576,
-        "1M": 1.835776
+        "1D": -0.168715,
+        "1W": 0.631944,
+        "1M": 2.292505
       },
       "history": [
         {
@@ -2045,7 +2049,11 @@
         },
         {
           "date": "2026-11-23",
-          "value": 103.679001
+          "value": 104.32
+        },
+        {
+          "date": "2026-11-24",
+          "value": 104.143997
         }
       ]
     },
@@ -2061,13 +2069,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-19",
-        "value": 4.76
+        "date": "2026-11-20",
+        "value": 4.63
       },
       "returns": {
-        "1D": -0.833333,
-        "1W": -2.057613,
-        "1M": -0.209644
+        "1D": -2.731092,
+        "1W": -5.122951,
+        "1M": -3.340292
       },
       "history": [
         {
@@ -3061,6 +3069,10 @@
         {
           "date": "2026-11-19",
           "value": 4.76
+        },
+        {
+          "date": "2026-11-20",
+          "value": 4.63
         }
       ]
     },
@@ -3076,13 +3088,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-19",
-        "value": 3.52
+        "date": "2026-11-20",
+        "value": 3.76
       },
       "returns": {
-        "1D": 1.440922,
-        "1W": 10.0,
-        "1M": 6.990881
+        "1D": 6.818182,
+        "1W": 16.408669,
+        "1M": 12.912913
       },
       "history": [
         {
@@ -4128,6 +4140,10 @@
         {
           "date": "2026-11-19",
           "value": 3.52
+        },
+        {
+          "date": "2026-11-20",
+          "value": 3.76
         }
       ]
     },
@@ -4143,13 +4159,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-23",
-        "value": 82.639999
+        "date": "2026-11-24",
+        "value": 80.059998
       },
       "returns": {
-        "1D": -1.595623,
-        "1W": -3.593096,
-        "1M": -19.976759
+        "1D": -0.137208,
+        "1W": -6.917805,
+        "1M": -22.475065
       },
       "history": [
         {
@@ -5154,7 +5170,11 @@
         },
         {
           "date": "2026-11-23",
-          "value": 82.639999
+          "value": 80.169998
+        },
+        {
+          "date": "2026-11-24",
+          "value": 80.059998
         }
       ]
     },
@@ -5170,13 +5190,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-23",
-        "value": 5.518
+        "date": "2026-11-24",
+        "value": 5.5145
       },
       "returns": {
-        "1D": 0.748585,
-        "1W": -7.994998,
-        "1M": -14.793082
+        "1D": -1.999289,
+        "1W": -7.722557,
+        "1M": -14.847128
       },
       "history": [
         {
@@ -6181,7 +6201,11 @@
         },
         {
           "date": "2026-11-23",
-          "value": 5.518
+          "value": 5.627
+        },
+        {
+          "date": "2026-11-24",
+          "value": 5.5145
         }
       ]
     },
@@ -6197,13 +6221,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-23",
-        "value": 3611.899902
+        "date": "2026-11-24",
+        "value": 3623.600098
       },
       "returns": {
-        "1D": 2.745065,
-        "1W": -6.257464,
-        "1M": -9.880486
+        "1D": -0.761346,
+        "1W": -6.226382,
+        "1M": -9.588558
       },
       "history": [
         {
@@ -7208,7 +7232,11 @@
         },
         {
           "date": "2026-11-23",
-          "value": 3611.899902
+          "value": 3651.399902
+        },
+        {
+          "date": "2026-11-24",
+          "value": 3623.600098
         }
       ]
     },
@@ -7224,13 +7252,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-23",
-        "value": 31.059999
+        "date": "2026-11-24",
+        "value": 28.07
       },
       "returns": {
-        "1D": -13.457788,
-        "1W": 35.573981,
-        "1M": 59.691503
+        "1D": 5.447028,
+        "1W": 10.251379,
+        "1M": 44.318759
       },
       "history": [
         {
@@ -7730,6 +7758,10 @@
           "value": 16.700001
         },
         {
+          "date": "2026-05-25",
+          "value": 16.59
+        },
+        {
           "date": "2026-05-26",
           "value": 17.01
         },
@@ -8018,6 +8050,10 @@
           "value": 14.53
         },
         {
+          "date": "2026-09-07",
+          "value": 15.3
+        },
+        {
           "date": "2026-09-08",
           "value": 15.72
         },
@@ -8235,7 +8271,11 @@
         },
         {
           "date": "2026-11-23",
-          "value": 31.059999
+          "value": 26.620001
+        },
+        {
+          "date": "2026-11-24",
+          "value": 28.07
         }
       ]
     },
@@ -8251,13 +8291,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-19",
-        "value": 5.4
+        "date": "2026-11-20",
+        "value": 5.31
       },
       "returns": {
-        "1D": -0.184843,
-        "1W": -0.552486,
-        "1M": -1.459854
+        "1D": -1.666667,
+        "1W": -2.925046,
+        "1M": -2.02952
       },
       "history": [
         {
@@ -9251,6 +9291,10 @@
         {
           "date": "2026-11-19",
           "value": 5.4
+        },
+        {
+          "date": "2026-11-20",
+          "value": 5.31
         }
       ]
     },
@@ -9266,13 +9310,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-20",
-        "value": 6910.390137
+        "date": "2026-11-23",
+        "value": 7237.169922
       },
       "returns": {
-        "1D": -3.699083,
-        "1W": -8.612909,
-        "1M": -10.400939
+        "1D": 4.728818,
+        "1W": -2.41917,
+        "1M": -5.069864
       },
       "history": [
         {
@@ -10274,6 +10318,10 @@
         {
           "date": "2026-11-20",
           "value": 6910.390137
+        },
+        {
+          "date": "2026-11-23",
+          "value": 7237.169922
         }
       ]
     },
@@ -10289,13 +10337,13 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-20",
-        "value": 22617.730469
+        "date": "2026-11-23",
+        "value": 24089.560547
       },
       "returns": {
-        "1D": -5.28271,
-        "1W": -10.019542,
-        "1M": -14.40725
+        "1D": 6.507417,
+        "1W": -1.714416,
+        "1M": -7.188422
       },
       "history": [
         {
@@ -11297,6 +11345,10 @@
         {
           "date": "2026-11-20",
           "value": 22617.730469
+        },
+        {
+          "date": "2026-11-23",
+          "value": 24089.560547
         }
       ]
     },
@@ -11312,19 +11364,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-23",
-        "value": 61409.480469
+        "date": "2026-11-24",
+        "value": 59512.230469
       },
       "returns": {
-        "1D": 0.404779,
-        "1W": -5.313882,
-        "1M": -24.255201
+        "1D": -2.775244,
+        "1W": -8.293092,
+        "1M": -26.337895
       },
       "history": [
-        {
-          "date": "2025-11-23",
-          "value": 86805.007812
-        },
         {
           "date": "2025-11-24",
           "value": 88270.5625
@@ -12783,7 +12831,11 @@
         },
         {
           "date": "2026-11-23",
-          "value": 61409.480469
+          "value": 61210.984375
+        },
+        {
+          "date": "2026-11-24",
+          "value": 59512.230469
         }
       ]
     },
@@ -12799,19 +12851,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-23",
-        "value": 1.571139
+        "date": "2026-11-24",
+        "value": 1.610428
       },
       "returns": {
-        "1D": 0.203962,
-        "1W": -11.021234,
-        "1M": -30.638174
+        "1D": 2.06749,
+        "1W": -7.092979,
+        "1M": -28.347145
       },
       "history": [
-        {
-          "date": "2025-11-24",
-          "value": 1.491112
-        },
         {
           "date": "2025-11-25",
           "value": 1.552037
@@ -14266,7 +14314,11 @@
         },
         {
           "date": "2026-11-23",
-          "value": 1.571139
+          "value": 1.577807
+        },
+        {
+          "date": "2026-11-24",
+          "value": 1.610428
         }
       ],
       "forum": {
@@ -14276,22 +14328,22 @@
         "new_topics": [],
         "recently_refreshed_topics": [
           {
-            "id": 2472,
-            "title": "MIP 136 – List MidnightAdapter in Morpho Registry",
-            "url": "https://forum.morpho.org/t/mip-136-list-midnightadapter-in-morpho-registry/2472",
-            "created_at": "2026-11-11T19:42:32.076Z",
-            "last_activity_at": "2026-11-23T06:55:39.814Z",
-            "replies": 1,
-            "views": 122
-          },
-          {
             "id": 2301,
             "title": "[RFC] A User-centric DeFi Collateral Transparency Framework - Phase 1",
             "url": "https://forum.morpho.org/t/rfc-a-user-centric-defi-collateral-transparency-framework-phase-1/2301",
             "created_at": "2026-06-08T18:52:01.874Z",
-            "last_activity_at": "2026-11-23T06:55:28.239Z",
-            "replies": 32,
-            "views": 1745
+            "last_activity_at": "2026-11-24T07:04:15.857Z",
+            "replies": 34,
+            "views": 1777
+          },
+          {
+            "id": 2472,
+            "title": "MIP 137 – List MidnightAdapter in Morpho Registry",
+            "url": "https://forum.morpho.org/t/mip-137-list-midnightadapter-in-morpho-registry/2472",
+            "created_at": "2026-11-11T19:42:32.076Z",
+            "last_activity_at": "2026-11-23T20:04:15.611Z",
+            "replies": 2,
+            "views": 148
           },
           {
             "id": 2468,
@@ -14300,7 +14352,7 @@
             "created_at": "2026-11-09T10:36:20.378Z",
             "last_activity_at": "2026-11-20T10:45:10.037Z",
             "replies": 4,
-            "views": 165
+            "views": 175
           }
         ]
       },
@@ -14319,19 +14371,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-23",
-        "value": 0.782944
+        "date": "2026-11-24",
+        "value": 0.767151
       },
       "returns": {
-        "1D": -0.054508,
-        "1W": -5.280133,
-        "1M": -32.226371
+        "1D": -1.705528,
+        "1W": -6.507366,
+        "1M": -36.570679
       },
       "history": [
-        {
-          "date": "2025-11-24",
-          "value": 3.848132
-        },
         {
           "date": "2025-11-25",
           "value": 4.015372
@@ -15786,7 +15834,11 @@
         },
         {
           "date": "2026-11-23",
-          "value": 0.782944
+          "value": 0.780462
+        },
+        {
+          "date": "2026-11-24",
+          "value": 0.767151
         }
       ],
       "forum": {
@@ -15811,19 +15863,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-23",
-        "value": 4.759131
+        "date": "2026-11-24",
+        "value": 4.726934
       },
       "returns": {
-        "1D": 0.454407,
-        "1W": -8.143947,
-        "1M": -32.03128
+        "1D": 0.980078,
+        "1W": -8.486341,
+        "1M": -32.041212
       },
       "history": [
-        {
-          "date": "2025-11-24",
-          "value": 6.120298
-        },
         {
           "date": "2025-11-25",
           "value": 6.285331
@@ -17278,7 +17326,11 @@
         },
         {
           "date": "2026-11-23",
-          "value": 4.759131
+          "value": 4.681056
+        },
+        {
+          "date": "2026-11-24",
+          "value": 4.726934
         }
       ],
       "forum": {
@@ -17293,25 +17345,7 @@
             "created_at": "2026-11-18T10:25:17.178Z",
             "last_activity_at": "2026-11-21T15:47:13.371Z",
             "replies": 1,
-            "views": 45
-          },
-          {
-            "id": 26349,
-            "title": "[Temp Check] Protocol Fee Expansion: v4 on Five More Chains",
-            "url": "https://gov.uniswap.org/t/temp-check-protocol-fee-expansion-v4-on-five-more-chains/26349",
-            "created_at": "2026-11-16T18:16:27.489Z",
-            "last_activity_at": "2026-11-18T15:37:48.279Z",
-            "replies": 2,
-            "views": 176
-          },
-          {
-            "id": 26348,
-            "title": "[Temp Check] Upgrade the v4 Protocol Fee System",
-            "url": "https://gov.uniswap.org/t/temp-check-upgrade-the-v4-protocol-fee-system/26348",
-            "created_at": "2026-11-16T18:12:48.167Z",
-            "last_activity_at": "2026-11-19T12:42:24.276Z",
-            "replies": 3,
-            "views": 145
+            "views": 52
           }
         ],
         "recently_refreshed_topics": [
@@ -17322,25 +17356,25 @@
             "created_at": "2026-02-20T21:49:40.384Z",
             "last_activity_at": "2026-11-20T21:20:20.571Z",
             "replies": 12,
-            "views": 510
+            "views": 513
           },
           {
-            "id": 26337,
-            "title": "[Temp Check] Upgrade VolatilePair hook and update X Layer Releaser",
-            "url": "https://gov.uniswap.org/t/temp-check-upgrade-volatilepair-hook-and-update-x-layer-releaser/26337",
-            "created_at": "2026-11-06T21:16:31.287Z",
-            "last_activity_at": "2026-11-18T15:33:58.127Z",
-            "replies": 8,
-            "views": 349
+            "id": 26348,
+            "title": "[Temp Check] Upgrade the v4 Protocol Fee System",
+            "url": "https://gov.uniswap.org/t/temp-check-upgrade-the-v4-protocol-fee-system/26348",
+            "created_at": "2026-11-16T18:12:48.167Z",
+            "last_activity_at": "2026-11-19T12:42:24.276Z",
+            "replies": 3,
+            "views": 154
           },
           {
-            "id": 22271,
-            "title": "PGov Delegate Platform",
-            "url": "https://gov.uniswap.org/t/pgov-delegate-platform/22271",
-            "created_at": "2023-11-08T03:10:55.002Z",
-            "last_activity_at": "2026-11-17T17:20:53.034Z",
-            "replies": 75,
-            "views": 7368
+            "id": 26349,
+            "title": "[Temp Check] Protocol Fee Expansion: v4 on Five More Chains",
+            "url": "https://gov.uniswap.org/t/temp-check-protocol-fee-expansion-v4-on-five-more-chains/26349",
+            "created_at": "2026-11-16T18:16:27.489Z",
+            "last_activity_at": "2026-11-18T15:37:48.279Z",
+            "replies": 2,
+            "views": 194
           }
         ]
       },
@@ -17359,19 +17393,15 @@
       "status": "fresh",
       "error": null,
       "latest": {
-        "date": "2026-11-23",
-        "value": 0.2412
+        "date": "2026-11-24",
+        "value": 0.234454
       },
       "returns": {
-        "1D": 3.372905,
-        "1W": -13.825751,
-        "1M": -36.906207
+        "1D": -1.337362,
+        "1W": -15.469426,
+        "1M": -38.703555
       },
       "history": [
-        {
-          "date": "2025-11-24",
-          "value": 0.617604
-        },
         {
           "date": "2025-11-25",
           "value": 0.66297
@@ -18826,7 +18856,11 @@
         },
         {
           "date": "2026-11-23",
-          "value": 0.2412
+          "value": 0.237632
+        },
+        {
+          "date": "2026-11-24",
+          "value": 0.234454
         }
       ],
       "forum": {
@@ -18841,7 +18875,7 @@
             "created_at": "2026-11-20T15:58:10.744Z",
             "last_activity_at": "2026-11-22T20:32:55.320Z",
             "replies": 1,
-            "views": 49
+            "views": 59
           },
           {
             "id": 12211,
@@ -18850,63 +18884,45 @@
             "created_at": "2026-11-19T10:22:18.292Z",
             "last_activity_at": "2026-11-19T10:22:18.387Z",
             "replies": 0,
-            "views": 80
+            "views": 94
           },
           {
             "id": 12209,
             "title": "RFP: open Ethereum validator signers for on-prem and isolated hardware",
             "url": "https://research.lido.fi/t/rfp-open-ethereum-validator-signers-for-on-prem-and-isolated-hardware/12209",
             "created_at": "2026-11-18T19:34:20.599Z",
-            "last_activity_at": "2026-11-20T21:59:49.514Z",
-            "replies": 5,
-            "views": 220
-          },
-          {
-            "id": 12203,
-            "title": "LEGO Grant Proposal: NOC Engine — Base L2 wstETH Peg-Defense Routing & Execution Telemetry",
-            "url": "https://research.lido.fi/t/lego-grant-proposal-noc-engine-base-l2-wsteth-peg-defense-routing-execution-telemetry/12203",
-            "created_at": "2026-11-16T16:42:01.357Z",
-            "last_activity_at": "2026-11-16T16:42:01.494Z",
-            "replies": 0,
-            "views": 43
-          },
-          {
-            "id": 12200,
-            "title": "Final Proposal (Version 2): Comprehensive Reporting & Audit Standards, Strategic Communications, and Budget Optimization for EGG 2027",
-            "url": "https://research.lido.fi/t/final-proposal-version-2-comprehensive-reporting-audit-standards-strategic-communications-and-budget-optimization-for-egg-2027/12200",
-            "created_at": "2026-11-16T10:51:36.091Z",
-            "last_activity_at": "2026-11-19T16:12:14.489Z",
-            "replies": 7,
-            "views": 184
+            "last_activity_at": "2026-11-24T10:47:26.392Z",
+            "replies": 6,
+            "views": 249
           }
         ],
         "recently_refreshed_topics": [
+          {
+            "id": 12183,
+            "title": "[Proposal] Updated MEV Policy for Lido",
+            "url": "https://research.lido.fi/t/proposal-updated-mev-policy-for-lido/12183",
+            "created_at": "2026-11-04T15:20:08.851Z",
+            "last_activity_at": "2026-11-24T10:50:54.896Z",
+            "replies": 3,
+            "views": 237
+          },
           {
             "id": 8333,
             "title": "Community Staking Module Committee",
             "url": "https://research.lido.fi/t/community-staking-module-committee/8333",
             "created_at": "2024-09-10T10:15:21.543Z",
-            "last_activity_at": "2026-11-23T09:02:55.279Z",
-            "replies": 46,
-            "views": 1877
+            "last_activity_at": "2026-11-24T10:09:39.915Z",
+            "replies": 51,
+            "views": 1912
           },
           {
-            "id": 12154,
-            "title": "Funding and Mandating an Independent Web3 Financial Audit & R&D Expenditures",
-            "url": "https://research.lido.fi/t/funding-and-mandating-an-independent-web3-financial-audit-r-d-expenditures/12154",
-            "created_at": "2026-10-27T04:14:45.526Z",
-            "last_activity_at": "2026-11-22T19:43:01.109Z",
-            "replies": 26,
-            "views": 663
-          },
-          {
-            "id": 11358,
-            "title": "Utilizing Market Opportunities: stETH / LDO trade",
-            "url": "https://research.lido.fi/t/utilizing-market-opportunities-steth-ldo-trade/11358",
-            "created_at": "2026-03-27T14:41:43.902Z",
-            "last_activity_at": "2026-11-21T11:34:17.988Z",
-            "replies": 97,
-            "views": 7688
+            "id": 5355,
+            "title": "The Guided Open Objective Setting Exercise (“GOOSE”) proposal; A genesis step to jump-start a DAO-wide goal setting exercise and cadence",
+            "url": "https://research.lido.fi/t/the-guided-open-objective-setting-exercise-goose-proposal-a-genesis-step-to-jump-start-a-dao-wide-goal-setting-exercise-and-cadence/5355",
+            "created_at": "2023-09-01T17:09:41.211Z",
+            "last_activity_at": "2026-11-24T08:19:40.276Z",
+            "replies": 28,
+            "views": 7312
           }
         ]
       },
@@ -18917,9 +18933,9 @@
   "currencies": {
     "source": "Frankfurter / ECB reference rates",
     "basis": "Equal-weight geometric basket of the other 19 currencies",
-    "base_date": "2025-11-21",
-    "previous_date": "2026-11-19",
-    "latest_date": "2026-11-20",
+    "base_date": "2025-11-24",
+    "previous_date": "2026-11-20",
+    "latest_date": "2026-11-23",
     "significant_1d_pct": 1.0,
     "status": "fresh",
     "error": null,
@@ -18930,11 +18946,11 @@
         "region": "United States",
         "chart_url": "https://www.tradingview.com/symbols/TVC-DXY/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 101.084837
+          "date": "2026-11-23",
+          "basket_index": 101.759669
         },
         "returns": {
-          "1D": 0.270786
+          "1D": 0.446388
         }
       },
       {
@@ -18943,11 +18959,11 @@
         "region": "Euro area",
         "chart_url": "https://www.tradingview.com/symbols/EURUSD/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 96.195787
+          "date": "2026-11-23",
+          "basket_index": 96.153754
         },
         "returns": {
-          "1D": 0.251067
+          "1D": -0.043956
         }
       },
       {
@@ -18956,11 +18972,11 @@
         "region": "Japan",
         "chart_url": "https://www.tradingview.com/symbols/USDJPY/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 99.810848
+          "date": "2026-11-23",
+          "basket_index": 100.352781
         },
         "returns": {
-          "1D": 1.155872
+          "1D": 0.16059
         }
       },
       {
@@ -18969,11 +18985,11 @@
         "region": "United Kingdom",
         "chart_url": "https://www.tradingview.com/symbols/GBPUSD/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 101.39629
+          "date": "2026-11-23",
+          "basket_index": 101.44321
         },
         "returns": {
-          "1D": 0.057463
+          "1D": 0.033125
         }
       },
       {
@@ -18982,11 +18998,11 @@
         "region": "China",
         "chart_url": "https://www.tradingview.com/symbols/USDCNY/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 107.981581
+          "date": "2026-11-23",
+          "basket_index": 108.58702
         },
         "returns": {
-          "1D": 0.096927
+          "1D": 0.652639
         }
       },
       {
@@ -18995,11 +19011,11 @@
         "region": "Switzerland",
         "chart_url": "https://www.tradingview.com/symbols/USDCHF/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 96.920319
+          "date": "2026-11-23",
+          "basket_index": 97.674371
         },
         "returns": {
-          "1D": 0.69719
+          "1D": 0.379657
         }
       },
       {
@@ -19008,11 +19024,11 @@
         "region": "Australia",
         "chart_url": "https://www.tradingview.com/symbols/AUDUSD/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 104.726646
+          "date": "2026-11-23",
+          "basket_index": 104.412157
         },
         "returns": {
-          "1D": -0.446717
+          "1D": -0.330036
         }
       },
       {
@@ -19021,11 +19037,11 @@
         "region": "Canada",
         "chart_url": "https://www.tradingview.com/symbols/USDCAD/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 99.43444
+          "date": "2026-11-23",
+          "basket_index": 99.821452
         },
         "returns": {
-          "1D": 0.219145
+          "1D": 0.041519
         }
       },
       {
@@ -19034,11 +19050,11 @@
         "region": "Hong Kong SAR",
         "chart_url": "https://www.tradingview.com/symbols/USDHKD/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 100.347905
+          "date": "2026-11-23",
+          "basket_index": 100.732613
         },
         "returns": {
-          "1D": 0.361002
+          "1D": 0.419419
         }
       },
       {
@@ -19047,11 +19063,11 @@
         "region": "Singapore",
         "chart_url": "https://www.tradingview.com/symbols/USDSGD/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 102.679392
+          "date": "2026-11-23",
+          "basket_index": 102.622615
         },
         "returns": {
-          "1D": 0.377288
+          "1D": 0.217116
         }
       },
       {
@@ -19060,11 +19076,11 @@
         "region": "India",
         "chart_url": "https://www.tradingview.com/symbols/USDINR/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 97.597685
+          "date": "2026-11-23",
+          "basket_index": 97.429462
         },
         "returns": {
-          "1D": 0.976995
+          "1D": 0.184661
         }
       },
       {
@@ -19073,11 +19089,11 @@
         "region": "South Korea",
         "chart_url": "https://www.tradingview.com/symbols/USDKRW/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 111.82484
+          "date": "2026-11-23",
+          "basket_index": 111.663477
         },
         "returns": {
-          "1D": -0.595041
+          "1D": -0.291103
         }
       },
       {
@@ -19086,11 +19102,11 @@
         "region": "Sweden",
         "chart_url": "https://www.tradingview.com/symbols/USDSEK/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 94.511748
+          "date": "2026-11-23",
+          "basket_index": 94.070091
         },
         "returns": {
-          "1D": -0.36535
+          "1D": -0.278068
         }
       },
       {
@@ -19099,11 +19115,11 @@
         "region": "Mexico",
         "chart_url": "https://www.tradingview.com/symbols/USDMXN/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 97.652394
+          "date": "2026-11-23",
+          "basket_index": 97.051049
         },
         "returns": {
-          "1D": -0.554957
+          "1D": -0.53403
         }
       },
       {
@@ -19112,11 +19128,11 @@
         "region": "New Zealand",
         "chart_url": "https://www.tradingview.com/symbols/NZDUSD/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 99.199958
+          "date": "2026-11-23",
+          "basket_index": 98.436029
         },
         "returns": {
-          "1D": -0.159052
+          "1D": -0.624769
         }
       },
       {
@@ -19125,11 +19141,11 @@
         "region": "Norway",
         "chart_url": "https://www.tradingview.com/symbols/USDNOK/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 106.386552
+          "date": "2026-11-23",
+          "basket_index": 106.235852
         },
         "returns": {
-          "1D": -0.442301
+          "1D": -0.147542
         }
       },
       {
@@ -19138,11 +19154,11 @@
         "region": "Brazil",
         "chart_url": "https://www.tradingview.com/symbols/USDBRL/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 90.958035
+          "date": "2026-11-23",
+          "basket_index": 90.801811
         },
         "returns": {
-          "1D": -0.546698
+          "1D": -0.609271
         }
       },
       {
@@ -19151,11 +19167,11 @@
         "region": "South Africa",
         "chart_url": "https://www.tradingview.com/symbols/USDZAR/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 100.410675
+          "date": "2026-11-23",
+          "basket_index": 100.369457
         },
         "returns": {
-          "1D": -0.868402
+          "1D": 0.215699
         }
       },
       {
@@ -19164,11 +19180,11 @@
         "region": "Poland",
         "chart_url": "https://www.tradingview.com/symbols/USDPLN/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 91.351735
+          "date": "2026-11-23",
+          "basket_index": 90.972979
         },
         "returns": {
-          "1D": -0.725464
+          "1D": -0.05678
         }
       },
       {
@@ -19177,11 +19193,11 @@
         "region": "Malaysia",
         "chart_url": "https://www.tradingview.com/symbols/USDMYR/",
         "latest": {
-          "date": "2026-11-20",
-          "basket_index": 102.029443
+          "date": "2026-11-23",
+          "basket_index": 102.016887
         },
         "returns": {
-          "1D": 0.270786
+          "1D": 0.177137
         }
       }
     ]
